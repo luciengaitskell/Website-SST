@@ -2,7 +2,7 @@
 
 <html>
 <head>
-<tite>Durpiest Durps</title>
+<title>Durpiest Durps</title>
 </head>
 
 <body>
