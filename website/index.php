@@ -1,5 +1,5 @@
-<head>
 <tite>Durpiest Durps</title>
+<head>
 </head>
 
 <body>
