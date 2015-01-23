@@ -1,6 +1,4 @@
 <tite>Durpiest Durps</title>
-<head>
-</head>
 
 <body>
 <p>
