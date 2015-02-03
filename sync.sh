@@ -1,6 +1,8 @@
+#!/bin/bash
+#s sync for webserver
 cd /var/www/Website-SST
 
-while [true]
+while true
 do
 	sudo git pull origin master
 	sleep 5
