@@ -1,3 +1,7 @@
 cd /var/www/Website-SST
 
-sudo git pull origin master
+while [true]
+do
+	sudo git pull origin master
+	sleep 5
+done
