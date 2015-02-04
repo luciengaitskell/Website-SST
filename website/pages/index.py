@@ -21,6 +21,8 @@ def show_post(post_id):
 def hello(name=None):
     return render_template('hello.html', name=name)
 
+
+# FROM HERE: http://stackoverflow.com/questions/19213226/how-to-html-input-to-flask
 @app.route('/quiz')
 def quiz():
     return render_template('quiz.html')
