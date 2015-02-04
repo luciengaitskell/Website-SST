@@ -31,8 +31,8 @@ def quiz():
 def quiz_answers():
     q1 = request.form['q1']
     q2 = request.form['q2']
-    q4 = request.form['q4']
-    q5 = request.form['q5']
+    #q4 = request.form['q4']
+    #q5 = request.form['q5']
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
