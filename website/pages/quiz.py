@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index_main():
-	
+	return "LUC'S WEBSERVER!"
 
 @app.route('/hello/')# try /hello/ if it doesn't work
 @app.route('/hello/<username>')
@@ -13,7 +13,7 @@ def hello_world(username=None):
 
 @app.route('/quiz')
 def quiz():
-    return render_template('quiz.html')
+	return render_template('quiz.html')
 
 @app.route('/quiz_answers', methods=['POST'])
 def quiz_answers():
