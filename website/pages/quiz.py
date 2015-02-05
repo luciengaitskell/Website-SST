@@ -4,8 +4,8 @@ app = Flask(__name__)
 
 @app.route('/hello')# try /hello/ if it doesn't work
 @app.route('/hello/<username>')
-def hello_world(username):
-    return render_template('hello2.html')
+def hello_world(username=None):
+    return render_template('hello2.html', username=username)
 
 @app.route('/quiz')
 def quiz():
