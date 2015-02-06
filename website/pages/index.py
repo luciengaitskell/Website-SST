@@ -12,11 +12,29 @@ def welcome():
 def postMain():
 	return render_template('postArticle.html')
 
-@app.route('/post_record', methods=['POST'])
+@app.route('/post/record', methods=['POST'])
 def postRecord():
+	fileNamefound= False
+	fileSubfolder="articles/"
+	fileBeginning="article-"
+	fileExtention=".txt"
+	articleNumber=0
+	filePath=""
 	name=request.form.get("Name")
 	title=request.form.get("Title")
 	articleText=request.form.get("articleText")
+
+	while fileNamefound == False:
+		articleNumber=articleNumber+1
+		filePath=str(fileSubfolder) + str(fileBeginning) + str(articleNumber) + str(fileExtention)
+
+		fileNamefound=True # gets set back to False if the name is already used
+		for ii in glob.glob("articles/*"):
+			if ii==filePath:
+				fileNamefound=False
+				break
+
+
 	return "Your Name is: " + str(name) + ", The Title is: " + str(title) + ", \n You said: \n\n" + str(articleText)
 
 @app.route('/articles/')

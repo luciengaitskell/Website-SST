@@ -1,10 +1,12 @@
 from flask import Flask, render_template, request
 import MySQLdb
+import glob
 app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return 'Hello World!'
+    ii = glob.glob("articles/*")
+    return ii
 
 @app.route('/user/<username>')
 def show_user_profile(username):
