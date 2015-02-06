@@ -21,8 +21,8 @@ def postRecord():
 	fileExtention=".txt"
 	articleNumber=0
 	filePath=""
-	name=request.form.get("nameBox")
 	title=request.form.get("titleBox")
+	name=request.form.get("nameBox")
 	articleText=request.form.get("articleText")
 
 	while fileNamefound == False:
