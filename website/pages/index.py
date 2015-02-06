@@ -3,6 +3,10 @@ from file_len import file_length
 import glob
 
 @app.route('/articles/<articleNumber>/')
+def welcome():
+	return "IT WORKS"
+
+@app.route('/articles/<articleNumber>/')
 def main(articleNumber=None):
 	if articleNumber!=None:
 		fileSubfolder="articles/"
@@ -12,7 +16,7 @@ def main(articleNumber=None):
 
 		fileIsThere=False
 		for name in glob.glob(filePath):
-	    	fileIsThere=True
+			fileIsThere=True
 
 		if fileIsThere==False:
 			redirect(/article, code=302)
