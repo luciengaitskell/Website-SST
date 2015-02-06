@@ -36,7 +36,7 @@ def postRecord():
 				break
 
 	file = open("newfile.txt", "w")
-	file.write(str(datetime.date.today()) + "\n")
+	file.write(str(datetime.date()) + "\n")
 	file.write(name + "\n")
 	file.write(title + "\n")
 	file.write(articleText)
