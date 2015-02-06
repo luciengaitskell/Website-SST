@@ -1,9 +1,6 @@
 <!doctype html>
 
 <p>The Article<p>
-{% articleFile=open(filePath)
-lines = articleFile.readlines() %}
-
-{% for ii in lines %}
-<p>{{ ii }}
+{% for lineIterator in lines %}
+<p>{{ lineIterator }}
 {% endfor %}
