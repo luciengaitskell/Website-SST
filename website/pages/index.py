@@ -4,24 +4,24 @@ import glob
 
 @app.route('/articles/<articleNumber>/')
 def main(articleNumber=None):
-	if articleNumber!=None:
-		fileSubfolder="articles/"
-		fileBeginning="article-"
-		fileExtention=".txt"
-		filePath=str(fileSubfolder) + str(fileBeginning) + str(articleNumber) + str(fileExtention)
+    if articleNumber!=None:
+        fileSubfolder="articles/"
+        fileBeginning="article-"
+        fileExtention=".txt"
+        filePath=str(fileSubfolder) + str(fileBeginning) + str(articleNumber) + str(fileExtention)
 
-		fileIsThere=False
-		for name in glob.glob(filePath):
-	    	fileIsThere=True
+        fileIsThere=False
+        for name in glob.glob(filePath):
+        	fileIsThere=True
+			
+        if fileIsThere==False:
+            redirect(/article, code=302)
 
-		if fileIsThere==False:
-			redirect(/article, code=302)
 
-
-		#fileSize = file_lenght(filePath) #shouldn't need this because the output of readlines is an array
-		return render_template('article-render.html', filePath=filePath, fileSize=fileSize)
-	else:
-		return "THIS IS NOT THE FILE YOUR LOOKING FOR"
+        #fileSize = file_lenght(filePath) #shouldn't need this because the output of readlines is an array
+        return render_template('article-render.html', filePath=filePath, fileSize=fileSize)
+    else:
+        return "THIS IS NOT THE FILE YOUR LOOKING FOR"
 
 
 
