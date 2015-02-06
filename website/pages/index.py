@@ -37,9 +37,9 @@ def postRecord():
 
 	file = open("newfile.txt", "w")
 	file.write(str(time.strftime("%Y%m%d")) + "\n")
-	file.write(name + "\n")
-	file.write(title + "\n")
-	file.write(articleText)
+	file.write(str(name) + "\n")
+	file.write(str(title) + "\n")
+	file.write(str(articleText))
 	file.close()
 
 	return "Your Name is: " + str(name) + ", The Title is: " + str(title) + ", \n You said: \n\n" + str(articleText) + ", IT WAS POSTED TO " + str(filePath)
