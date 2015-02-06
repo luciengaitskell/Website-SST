@@ -21,8 +21,8 @@ def postRecord():
 	fileExtention=".txt"
 	articleNumber=0
 	filePath=""
-	title=request.form.get("titleBox")
-	name=request.form.get("nameBox")
+	name=request.form.get("Name")
+	title=request.form.get("Title")
 	articleText=request.form.get("articleText")
 
 	while fileNamefound == False:
@@ -41,6 +41,7 @@ def postRecord():
 	file.write(str(title) + "\n")
 	file.write(str(articleText))
 	file.close()
+
 
 	return "Your Name is: " + str(name) + ", The Title is: " + str(title) + ", \n You said: \n\n" + str(articleText) + ", IT WAS POSTED TO " + str(filePath)
 
@@ -62,8 +63,7 @@ def readMain(articleNumber=None):
 		else:
 			articleFile=open(filePath)
 			lines = articleFile.readlines()
-			articleFile.close()
-			return render_template('article-render.html', lineIterator=lineIterator)
+			return render_template('article-render.html', filePath=filePath, lines=lines, lineIterator=lineIterator)
 	else:
 		return "NO FILE WAS FOUND WITH THAT NAME"
 
