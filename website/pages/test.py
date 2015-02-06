@@ -5,7 +5,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    ii = glob.glob("articles/*")
+    ii=""
+    for ii in glob.glob("articles/*"):
     return ii
 
 @app.route('/user/<username>')
