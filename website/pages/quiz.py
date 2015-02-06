@@ -7,7 +7,7 @@ def index_main():
 	return "LUC'S WEBSERVER!"
 
 @app.route('/hello/')# try /hello/ if it doesn't work
-@app.route('/hello/<username>')
+@app.route('/hello/<username>/')
 def hello_world(username=None):
 	return render_template('hello2.html', username=username)
 
