@@ -42,7 +42,7 @@ def postRecord():
 	file.write(str(articleText))
 	file.close()
 
-	return "Your Name is: " + str(nameBox) + ", The Title is: " + str(titleBox) + ", \n You said: \n\n" + str(articleText) + ", IT WAS POSTED TO " + str(filePath)
+	return "Your Name is: " + str(name) + ", The Title is: " + str(title) + ", \n You said: \n\n" + str(articleText) + ", IT WAS POSTED TO " + str(filePath)
 
 @app.route('/articles/')
 @app.route('/articles/<articleNumber>/')
