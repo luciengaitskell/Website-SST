@@ -8,6 +8,7 @@ app = Flask(__name__)
 def welcome():
 	return "IT WORKS"
 
+@app.route('/articles/')
 @app.route('/articles/<articleNumber>/')
 def main(articleNumber=None):
 	if articleNumber!=None:
@@ -21,15 +22,13 @@ def main(articleNumber=None):
 			fileIsThere=True
 
 		if fileIsThere==False:
-			redirect('/article', code=302)
-
-		articleFile=open(filePath)
-		lines = articleFile.readlines()
-
-		#fileSize = file_lenght(filePath) #shouldn't need this because the output of readlines is an array
-		return render_template('article-render.html', filePath=filePath, lines=lines, lineIterator=lineIterator)
+			return redirect('/articles', code=302)
+		else:
+			articleFile=open(filePath)
+			lines = articleFile.readlines()
+			return render_template('article-render.html', filePath=filePath, lines=lines, lineIterator=lineIterator)
 	else:
-		return "THIS IS NOT THE FILE YOUR LOOKING FOR"
+		return "NO FILE WAS FOUND WITH THAT NAME"
 
 if __name__ == "__main__":
     app.debug = True
