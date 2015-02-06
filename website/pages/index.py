@@ -39,7 +39,8 @@ def postRecord():
 	file.write(str(time.strftime("%Y%m%d")) + "\n")
 	file.write(str(name) + "\n")
 	file.write(str(title) + "\n")
-	file.write(str(articleText))
+	file.write(str(articleText) + "\n\n")
+	file.write("NOTHIDDEN")
 	file.close()
 
 
