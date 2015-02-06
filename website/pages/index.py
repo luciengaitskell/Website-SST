@@ -35,7 +35,7 @@ def postRecord():
 				break
 
 
-	return "Your Name is: " + str(name) + ", The Title is: " + str(title) + ", \n You said: \n\n" + str(articleText)
+	return "Your Name is: " + str(name) + ", The Title is: " + str(title) + ", \n You said: \n\n" + str(articleText) + ", IT WAS POSTED TO " + str(filePath)
 
 @app.route('/articles/')
 @app.route('/articles/<articleNumber>/')
