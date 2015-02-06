@@ -27,8 +27,6 @@ def main(articleNumber=None):
 	else:
 		return "THIS IS NOT THE FILE YOUR LOOKING FOR"
 
-
-
 if __name__ == "__main__":
     app.debug = True
     app.run(
