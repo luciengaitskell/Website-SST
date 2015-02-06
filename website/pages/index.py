@@ -14,10 +14,10 @@ def postMain():
 
 @app.route('/post_record', methods=['POST'])
 def postRecord():
-	Name=request.form.get("Name")
-	Title=request.form.get("Title")
+	name=request.form.get("Name")
+	title=request.form.get("Title")
 	articleText=request.form.get("articleText")
-	return "THE POST WORKED"
+	return "Your Name is: " + str(name) + ", The Title is: " + str(title) + ", \n You said: \n\n" + str(articleText)
 
 @app.route('/articles/')
 @app.route('/articles/<articleNumber>/')
