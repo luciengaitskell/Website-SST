@@ -35,7 +35,7 @@ def postRecord():
 				fileNamefound=False
 				break
 
-	file = open("newfile.txt", "w")
+	file = open(filePath, "w")
 	file.write(str(time.strftime("%Y%m%d")) + "\n")
 	file.write(str(name) + "\n")
 	file.write(str(title) + "\n")
