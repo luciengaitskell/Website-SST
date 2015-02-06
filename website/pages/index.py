@@ -8,9 +8,20 @@ app = Flask(__name__)
 def welcome():
 	return "IT WORKS"
 
+@app.route('/post/')
+def postMain():
+	return render_template('postArticle.html')
+
+@app.route('/post_record/', methods=['POST'])
+def postRecord():
+	Name=request.form.get("Name")
+	Title=request.form.get("Title")
+	articleText=request.form.get("articleText")
+	return "THE POST WORKED (RECORDING HAS NOT YET BEEN INPLEMENTED)"
+
 @app.route('/articles/')
 @app.route('/articles/<articleNumber>/')
-def main(articleNumber=None):
+def readMain(articleNumber=None):
 	if articleNumber!=None:
 		fileSubfolder="articles/"
 		fileBeginning="article-"
