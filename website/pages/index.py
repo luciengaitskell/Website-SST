@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect
 from file_len import file_length
+from datetime import datetime
 import glob
 
 app = Flask(__name__)
@@ -20,8 +21,8 @@ def postRecord():
 	fileExtention=".txt"
 	articleNumber=0
 	filePath=""
-	name=request.form.get("Name")
-	title=request.form.get("Title")
+	name=request.form.get("name")
+	title=request.form.get("title")
 	articleText=request.form.get("articleText")
 
 	while fileNamefound == False:
@@ -34,6 +35,12 @@ def postRecord():
 				fileNamefound=False
 				break
 
+	file = open("newfile.txt", "w")
+	file.write(str(datetime.date.today()) + "\n")
+	file.write(name + "\n")
+	file.write(title + "\n")
+	file.write(articleText)
+	file.close()
 
 	return "Your Name is: " + str(name) + ", The Title is: " + str(title) + ", \n You said: \n\n" + str(articleText) + ", IT WAS POSTED TO " + str(filePath)
 
@@ -55,7 +62,8 @@ def readMain(articleNumber=None):
 		else:
 			articleFile=open(filePath)
 			lines = articleFile.readlines()
-			return render_template('article-render.html', filePath=filePath, lines=lines, lineIterator=lineIterator)
+			articleFile.close()
+			return render_template('article-render.html', lineIterator=lineIterator)
 	else:
 		return "NO FILE WAS FOUND WITH THAT NAME"
 
