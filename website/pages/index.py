@@ -12,12 +12,12 @@ def welcome():
 def postMain():
 	return render_template('postArticle.html')
 
-@app.route('/post_record/', methods=['POST'])
+@app.route('/post_record', methods=['POST'])
 def postRecord():
 	Name=request.form.get("Name")
 	Title=request.form.get("Title")
 	articleText=request.form.get("articleText")
-	return "THE POST WORKED (RECORDING HAS NOT YET BEEN INPLEMENTED)"
+	return "THE POST WORKED"
 
 @app.route('/articles/')
 @app.route('/articles/<articleNumber>/')
