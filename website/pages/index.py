@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect
 from file_len import file_length
-from datetime import datetime
+import time
 import glob
 
 app = Flask(__name__)
@@ -36,7 +36,7 @@ def postRecord():
 				break
 
 	file = open("newfile.txt", "w")
-	file.write(str(datetime.date()) + "\n")
+	file.write(str(time.strftime("%Y%m%d")) + "\n")
 	file.write(name + "\n")
 	file.write(title + "\n")
 	file.write(articleText)
