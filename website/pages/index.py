@@ -21,8 +21,8 @@ def postRecord():
 	fileExtention=".txt"
 	articleNumber=0
 	filePath=""
-	name=request.form.get("name")
-	title=request.form.get("title")
+	name=request.form.get("nameBox")
+	title=request.form.get("titleBox")
 	articleText=request.form.get("articleText")
 
 	while fileNamefound == False:
@@ -42,7 +42,7 @@ def postRecord():
 	file.write(str(articleText))
 	file.close()
 
-	return "Your Name is: " + str(name) + ", The Title is: " + str(title) + ", \n You said: \n\n" + str(articleText) + ", IT WAS POSTED TO " + str(filePath)
+	return "Your Name is: " + str(nameBox) + ", The Title is: " + str(titleBox) + ", \n You said: \n\n" + str(articleText) + ", IT WAS POSTED TO " + str(filePath)
 
 @app.route('/articles/')
 @app.route('/articles/<articleNumber>/')
