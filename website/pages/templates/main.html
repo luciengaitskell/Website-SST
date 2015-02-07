@@ -1,9 +1,14 @@
 <!doctype html>
 <html>
 <head>
-<title>Post - LUC NEWS</title>
+<title>Posts - LUC NEWS</title>
 <style>
 
+  .mainTitle {
+    font-size: 300%;
+  }
+
+  }
   .title {
     font-size: 200%;
   }
@@ -24,7 +29,7 @@
 </head>
 
 <body>
-<div>Articles:<div>
+<div class="mainTitle">Articles:<div>
 <br>
   {% for singleIncrement in range(titles|length) %}
   <div id="{{ (fileNames[singleIncrement])[:(fileNames[singleIncrement]|length)-4] }}" class="title">Title: {{ titles[singleIncrement] }}</div>
