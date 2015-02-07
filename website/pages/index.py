@@ -19,6 +19,8 @@ def displayMain():
 	for ii in glob.glob("articles/*"):
 		fileNames.append(ii)
 
+	flieNames.sort()
+
 	for ii in fileNames:
 		fileNameOpen = open(ii, "r")
 		jj = fileNameOpen.readlines()
