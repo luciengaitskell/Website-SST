@@ -27,7 +27,7 @@ def displayMain():
 		fileNames.append(ii)
 
 	for ii in range(len(fileNames)):
-		newDate=(fileNames[ii])[8:len(fileNames[ii])-6]
+		newDate=(fileNames[ii])[17:len(fileNames[ii])-6]
 		dateNew=True
 		for jj in uniqueDates:
 			if jj == newDate:
