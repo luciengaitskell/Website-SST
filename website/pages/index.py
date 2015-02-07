@@ -60,7 +60,8 @@ def displayMain():
 		texts.append(jj[3])
 		texts.append(jj[4])
 
-	return render_template('main.html', fileNamesSorted=fileNamesSorted, dates=dates, names=names, titles=titles, texts=texts, singleIncrement=singleIncrement)
+		return titles[1]
+	#return render_template('main.html', fileNamesSorted=fileNamesSorted, dates=dates, names=names, titles=titles, texts=texts, singleIncrement=singleIncrement)
 
 @app.route('/post/')
 def postMain():
