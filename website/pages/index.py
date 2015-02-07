@@ -9,6 +9,7 @@ app = Flask(__name__)
 def displayMain():
 	fileNameOpen=""
 	newDate=""
+	fileSubFolder="articles/"
 	fileBeginng="article-"
 	fileExtention=".txt"
 	dateNew=True
@@ -51,7 +52,7 @@ def displayMain():
 
 
 	for ii in fileNamesSorted:
-		fileNameOpen = open(ii, "r")
+		fileNameOpen = open((str(fileSubFolder) + str(ii)), "r")
 		jj = fileNameOpen.readlines()
 		dates.append(jj[0])
 		names.append(jj[1])
