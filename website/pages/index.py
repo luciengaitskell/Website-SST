@@ -27,6 +27,7 @@ def postRecord():
 	fileBeginning="article-"
 	fileExtention=".txt"
 	articleNumber=0
+	articleDate=time.strftime("%Y%m%d")
 	filePath=""
 	name=request.form.get("Name")
 	title=request.form.get("Title")
@@ -34,7 +35,7 @@ def postRecord():
 
 	while fileNamefound == False:
 		articleNumber=articleNumber+1
-		filePath=str(fileSubfolder) + str(fileBeginning) + str(articleNumber) + str(fileExtention)
+		filePath=str(fileSubfolder) + str(fileBeginning) + str(articleDate) + "-" + str(articleNumber) + str(fileExtention)
 
 		fileNamefound=True # gets set back to False if the name is already used
 		for ii in glob.glob("articles/*"):
@@ -43,7 +44,7 @@ def postRecord():
 				break
 
 	file = open(filePath, "w")
-	file.write(str(time.strftime("%Y%m%d")) + "\n")
+	file.write(str(articleDate) + "\n")
 	file.write(str(name) + "\n")
 	file.write(str(title) + "\n")
 	file.write(str(articleText) + "\n\n")
