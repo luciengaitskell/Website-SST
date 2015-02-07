@@ -65,7 +65,7 @@ def postRecord():
 	file.write("VIEWABLE")
 	file.close()
 
-	return redirect(url_for('displayMain')
+	return redirect(url_for('displayMain'))
 	#return "Your Name is: " + str(name) + ", The Title is: " + str(title) + ", \n You said: \n\n" + str(articleText) + ", IT WAS POSTED TO " + str(filePath)
 
 @app.route('/articles/')
