@@ -8,7 +8,7 @@ def hello_world():
     files=[]
     for ii in glob.glob("articles/*"):
         files.append(ii)
-    return files[1]
+    return files[2]
 
 @app.route('/user/<username>')
 def show_user_profile(username):
