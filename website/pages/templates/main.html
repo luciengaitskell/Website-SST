@@ -32,7 +32,7 @@
 <div class="overallTitle">Articles:<div>
 <br>
   {% for singleIncrement in range(titles|length) %}
-  <div id="{{ (fileNamesSorted[singleIncrement])[:(fileNamesSorted[singleIncrement]|length)-4] }}" class="title"><a href="/articles/{{ (fileNamesSorted[singleIncrement])[:(fileNamesSorted[singleIncrement]|length)] }}/">Title: {{ titles[singleIncrement] }}<a></div>
+  <div id="{{ (fileNamesSorted[singleIncrement])[:(fileNamesSorted[singleIncrement]|length)-4] }}" class="title"><a href="/articles/{{ (fileNamesSorted[singleIncrement])[8:(fileNamesSorted[singleIncrement]|length)-4] }}/">Title: {{ titles[singleIncrement] }}<a></div>
   <div class="author">Author: {{ names[singleIncrement] }}</div>
   <div class="date">Date Posted: {{ dates[singleIncrement] }}</div>
   <br><br>
