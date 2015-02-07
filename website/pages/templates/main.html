@@ -26,7 +26,7 @@
 <body>
 <div>Articles:<div>
 <br>
-  {% while singleIncrement in range(len(titles)) %}
+  {% for singleIncrement in range(len(titles)) %}
   <div id="{{ str(fileNames[singleIncrement])[:len(fileNames[singleIncrement])-4] }}" class="title">Title: {{ fileLines[singleIncrement] }}</div>
   <div class="author">Author: {{ fileLines[singleIncrement] }}</div>
   <div class="date">Date Posted: {{ fileLines[singleIncrement] }}</div>
