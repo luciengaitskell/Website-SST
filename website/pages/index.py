@@ -45,7 +45,7 @@ def displayMain():
 			if uniqueDates[ii] == (fileNames[ii])[17:len(fileNames[ii])-6]:
 				fileNamesNew.append((fileNames[ii])[17:len(fileNames[ii])-4])
 
-		fileNamesNew.sort()#reverse=True
+		#fileNamesNew.sort()#reverse=True
 
 		for jj in fileNamesNew:
 			fileNamesSorted.append(str(fileBeginng) + str(jj) + str(fileExtention))
@@ -60,9 +60,9 @@ def displayMain():
 		texts.append(jj[3])
 		texts.append(jj[4])
 
-	#return fileNamesNew[0]
+	return fileNamesNew[0]
 	#return uniqueDates[0]
-	return render_template('main.html', fileNamesSorted=fileNamesSorted, dates=dates, names=names, titles=titles, texts=texts, singleIncrement=singleIncrement)
+	#return render_template('main.html', fileNamesSorted=fileNamesSorted, dates=dates, names=names, titles=titles, texts=texts, singleIncrement=singleIncrement)
 
 @app.route('/post/')
 def postMain():
