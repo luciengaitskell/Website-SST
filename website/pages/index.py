@@ -24,8 +24,8 @@ def displayMain():
 	for ii in glob.glob("articles/*"):
 		fileNames.append(ii)
 
-	for ii in range((fileNames|length)):
-		newDate=(fileNames[ii])[8:(fileNames[ii]|length)-6]
+	for ii in range(len(fileNames)):
+		newDate=(fileNames[ii])[8:len(fileNames[ii])-6]
 		dateNew=True
 		for jj in uniqueDates:
 			if jj == newDate:
@@ -38,8 +38,8 @@ def displayMain():
 
 	for ii in uniqueDates:
 		for jj in fileNames:
-			if ii == (fileNames[ii])[8:(fileNames[ii]|length)-6]:
-				fileNamesPart.append((fileNames[ii])[8:(fileNames[ii]|length)-4])
+			if ii == (fileNames[ii])[8:len(fileNames[ii])-6]:
+				fileNamesPart.append((fileNames[ii])[8:len(fileNames[ii])-4])
 
 		fileNamesPart.sort()
 
