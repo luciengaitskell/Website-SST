@@ -62,7 +62,6 @@ def postRecord():
 	file.write(str(name) + "\n")
 	file.write(str(title) + "\n")
 	file.write(str(articleText) + "\n\n")
-	file.write("VIEWABLE")
 	file.close()
 
 	return redirect(url_for('displayMain'))
