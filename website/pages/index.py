@@ -19,7 +19,7 @@ def displayMain():
 	for ii in glob.glob("articles/*"):
 		fileNames.append(ii)
 
-	flieNames.sort()
+	fileNames.sort()
 
 	for ii in fileNames:
 		fileNameOpen = open(ii, "r")
