@@ -8,7 +8,12 @@ app = Flask(__name__)
 @app.route('/')
 def displayMain():
 	fileNameOpen=""
+	newDate=""
+	dateNew=True
+	uniqueDates=[]
 	fileNames=[]
+	fileNamesPart=[]
+	fileNamesSorted=[]
 	fileLines=[]
 	singleIncrement=0
 	titles=[]
@@ -19,7 +24,28 @@ def displayMain():
 	for ii in glob.glob("articles/*"):
 		fileNames.append(ii)
 
-	fileNames.sort()
+	for ii in fileNames:
+		newDate=(fileNames[ii])[8:(fileNames[ii]|length)-6]
+		dateNew=True
+		for jj in uniqueDates:
+			if jj == newDate:
+				dateNew=False
+
+		if dateNew == True:
+			uniqueDates.append(newDate)
+
+	uniqueDates.sort()
+
+	for ii in uniqueDates:
+		for jj in fileNames:
+			if ii == (fileNames[ii])[8:(fileNames[ii]|length)-6]
+				fileNamesPart.append((fileNames[ii])[8:(fileNames[ii]|length)-4])
+
+		fileNamesPart.sort()
+
+		for jj in fileNamesPart:
+			fileNamesSorted.append(jj)
+
 
 	for ii in fileNames:
 		fileNameOpen = open(ii, "r")
@@ -30,7 +56,7 @@ def displayMain():
 		texts.append(jj[3])
 		texts.append(jj[4])
 
-	return render_template('main.html', fileNames=fileNames, dates=dates, names=names, titles=titles, texts=texts, singleIncrement=singleIncrement)
+	return render_template('main.html', fileNamesSorted=fileNamesSorted, dates=dates, names=names, titles=titles, texts=texts, singleIncrement=singleIncrement)
 
 @app.route('/post/')
 def postMain():
