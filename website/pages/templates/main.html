@@ -27,11 +27,11 @@
 <div>Articles:<div>
 <br>
   {% for singleIncrement in range(titles|length) %}
-  <div id="{{ (fileNames[singleIncrement])[:(fileNames[singleIncrement]|length)-4] }}" class="title">Title: {{ fileLines[singleIncrement] }}</div>
-  <div class="author">Author: {{ fileLines[singleIncrement] }}</div>
-  <div class="date">Date Posted: {{ fileLines[singleIncrement] }}</div>
+  <div id="{{ (fileNames[singleIncrement])[:(fileNames[singleIncrement]|length)-4] }}" class="title">Title: {{ titles[singleIncrement] }}</div>
+  <div class="author">Author: {{ names[singleIncrement] }}</div>
+  <div class="date">Date Posted: {{ dates[singleIncrement] }}</div>
   <br><br>
-  <div class="mainText"> {{ fileLines[ii*2] }} <br> {{ fileLines[(ii*2)+1] }} </div>
+  <div class="mainText"> {{ texts[ii*2] }} <br> {{ texts[(ii*2)+1] }} </div>
   <hr>
   {% endfor %}
 </body>
