@@ -6,8 +6,15 @@ import glob
 app = Flask(__name__)
 
 @app.route('/')
-def welcome():
-	return "IT WORKS"
+def displayMain():
+	fileNameOpen=""
+	fileNames=[]
+	fileNamesIterator=""
+	fileLines=[]
+	for ii in glob.glob("articles/*"):
+		fileNames.append(ii)
+
+	return render_template('main.html', fileNames=fileNames, fileNameOpen=fileNameOpen, fileLines=fileLines)
 
 @app.route('/post/')
 def postMain():

@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<title>Post - LUC NEWS</title>
+<style>
+
+  .title {
+    font-size: 250%;
+  }
+
+  .author {
+    font-size: 100%;
+  }
+
+  .date {
+    font-size: 50%;
+  }
+
+  .mainText {
+    font-size: 100%;
+  }
+
+</style>
+</head>
+
+<body>
+<div>Articles:<div>
+<br>
+{% for fileNamesIterator in fileNames
+fileNameOpen = open(fileNamesIterator, "r")
+fileLines = fileName.readlines() %}
+
+<div id="{{ fileNamesIterator[:len(fileNamesIterator)-4] }}" class="title">Title: {{ fileLines[2] }}</div>
+<div class="author">Author: {{ fileLines[1] }}</div>
+<div class="date">Date Posted: {{ fileLines[0] }}</div>
+<br><br>
+<div class="mainText"> {{ fileLines[3] }} <br> {{ fileLines[4] }} </div>
+<hr>
+
+</body>
+</html>
