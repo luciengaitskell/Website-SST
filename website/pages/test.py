@@ -5,10 +5,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    ii=""
+    files=[]
     for ii in glob.glob("articles/*"):
-        ii=ii
-    return ii
+        files.append(ii)
+    return ii[0]
 
 @app.route('/user/<username>')
 def show_user_profile(username):
