@@ -4,8 +4,8 @@
 <title>Posts - LUC NEWS</title>
 <style>
 
-  .mainTitle {
-    font-size: 180%;
+  .overallTitle {
+    font-size: 150%;
   }
 
   }
@@ -29,7 +29,7 @@
 </head>
 
 <body>
-<div class="mainTitle">Articles:<div>
+<div class="overallTitle">Articles:<div>
 <br>
   {% for singleIncrement in range(titles|length) %}
   <div id="{{ (fileNames[singleIncrement])[:(fileNames[singleIncrement]|length)-4] }}" class="title">Title: {{ titles[singleIncrement] }}</div>
