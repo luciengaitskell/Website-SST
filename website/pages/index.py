@@ -9,10 +9,12 @@ app = Flask(__name__)
 def displayMain():
 	fileNameOpen=""
 	newDate=""
+	fileBeginng="article-"
+	fileExtention=".txt"
 	dateNew=True
 	uniqueDates=[]
 	fileNames=[]
-	fileNamesPart=[]
+	fileNamesNew=[]
 	fileNamesSorted=[]
 	fileLines=[]
 	singleIncrement=0
@@ -37,17 +39,18 @@ def displayMain():
 	uniqueDates.sort()
 
 	for ii in range(len(uniqueDates)):
+		fileNamesNew=[]
 		for jj in fileNames:
-			if uniqueDates[ii] == (fileNames[ii])[8:len(fileNames[ii])-6]:
-				fileNamesPart.append((fileNames[ii])[8:len(fileNames[ii])-4])
+			if uniqueDates[ii] == (fileNames[ii])[17:len(fileNames[ii])-6]:
+				fileNamesNew.append((fileNames[ii])[17:len(fileNames[ii])-4])
 
-		fileNamesPart.sort()
+		fileNamesNew.sort(reverse=True)
 
-		for jj in fileNamesPart:
-			fileNamesSorted.append(jj)
+		for jj in fileNamesNew:
+			fileNamesSorted.append(str(fileBeginng) + str(jj) + str(fileExtention))
 
 
-	for ii in fileNames:
+	for ii in fileNamesSorted:
 		fileNameOpen = open(ii, "r")
 		jj = fileNameOpen.readlines()
 		dates.append(jj[0])
