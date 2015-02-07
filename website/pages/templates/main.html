@@ -27,15 +27,15 @@
 <div>Articles:<div>
 <br>
 {% for fileNamesIterator in fileNames %}
-{% fileNameOpen = open(fileNamesIterator, "r")
-fileLines = fileName.readlines() %}
+  {% fileNameOpen = open(fileNamesIterator, "r")
+  fileLines = fileName.readlines() %}
 
-<div id="{{ fileNamesIterator[:len(fileNamesIterator)-4] }}" class="title">Title: {{ fileLines[2] }}</div>
-<div class="author">Author: {{ fileLines[1] }}</div>
-<div class="date">Date Posted: {{ fileLines[0] }}</div>
-<br><br>
-<div class="mainText"> {{ fileLines[3] }} <br> {{ fileLines[4] }} </div>
-<hr>
+  <div id="{{ fileNamesIterator[:len(fileNamesIterator)-4] }}" class="title">Title: {{ fileLines[2] }}</div>
+  <div class="author">Author: {{ fileLines[1] }}</div>
+  <div class="date">Date Posted: {{ fileLines[0] }}</div>
+  <br><br>
+  <div class="mainText"> {{ fileLines[3] }} <br> {{ fileLines[4] }} </div>
+  <hr>
 {% endfor %}
 </body>
 </html>
