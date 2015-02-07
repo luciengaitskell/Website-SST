@@ -26,9 +26,7 @@
 <body>
 <div>Articles:<div>
 <br>
-{% for fileNamesIterator in fileNames
-  fileNameOpen = open(fileNamesIterator, "r")
-  fileLines = fileName.readlines() %}
+{% for fileNamesIterator in fileNames%}
 
   <div id="{{ fileNamesIterator[:len(fileNamesIterator)-4] }}" class="title">Title: {{ fileLines[2] }}</div>
   <div class="author">Author: {{ fileLines[1] }}</div>
