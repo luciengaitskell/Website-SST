@@ -24,7 +24,7 @@ def displayMain():
 	for ii in glob.glob("articles/*"):
 		fileNames.append(ii)
 
-	for ii in fileNames:
+	for ii in range((fileNames|length)):
 		newDate=(fileNames[ii])[8:(fileNames[ii]|length)-6]
 		dateNew=True
 		for jj in uniqueDates:
