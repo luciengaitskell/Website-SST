@@ -26,18 +26,13 @@
 <body>
 <div>Articles:<div>
 <br>
-{% for fileNamesIterator in fileNames %}
-  {% fileNameOpen = open(fileNamesIterator, "r") %}
-  {% fileLines = fileName.readlines() %}
-
-  <div id="{{ fileNamesIterator[:len(fileNamesIterator)-4] }}" class="title">Title: {{ fileLines[2] }}</div>
-  <div class="author">Author: {{ fileLines[1] }}</div>
-  <div class="date">Date Posted: {{ fileLines[0] }}</div>
+  {% while singleIncrement in range(len(titles)) %}
+  <div id="{{ str(fileNames[singleIncrement])[:len(fileNames[singleIncrement])-4] }}" class="title">Title: {{ fileLines[singleIncrement] }}</div>
+  <div class="author">Author: {{ fileLines[singleIncrement] }}</div>
+  <div class="date">Date Posted: {{ fileLines[singleIncrement] }}</div>
   <br><br>
-  <div class="mainText"> {{ fileLines[3] }} <br> {{ fileLines[4] }} </div>
+  <div class="mainText"> {{ fileLines[ii*2] }} <br> {{ fileLines[(ii*2)+1] }} </div>
   <hr>
-
-{% fileLines.close()
-  endfor %}
+  {% endfor %}
 </body>
 </html>

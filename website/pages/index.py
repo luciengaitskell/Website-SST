@@ -9,12 +9,26 @@ app = Flask(__name__)
 def displayMain():
 	fileNameOpen=""
 	fileNames=[]
-	fileNamesIterator=""
 	fileLines=[]
+	singleIncrement=0
+	titles=[]
+	names=[]
+	dates=[]
+	texts=[]
+
 	for ii in glob.glob("articles/*"):
 		fileNames.append(ii)
 
-	return render_template('main.html', fileNames=fileNames, fileNameOpen=fileNameOpen, fileLines=fileLines)
+	for ii in fileNames:
+		fileNameOpen = open(ii, "r")
+		jj = fileNameOpen.readlines()
+		dates.append(jj[0])
+		names.append(jj[1])
+		titles.append(jj[2])
+		texts.append(jj[3])
+		texts.append(jj[4])
+
+	return render_template('main.html', fileNames=fileNames, dates=dates, names=names, titles=titles, texts=texts, singleIncrement=singleIncrement)
 
 @app.route('/post/')
 def postMain():
