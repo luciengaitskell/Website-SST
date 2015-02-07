@@ -36,9 +36,9 @@ def displayMain():
 
 	uniqueDates.sort()
 
-	for ii in uniqueDates:
+	for ii in range(len(uniqueDates)):
 		for jj in fileNames:
-			if ii == (fileNames[ii])[8:len(fileNames[ii])-6]:
+			if uniqueDates[ii] == (fileNames[ii])[8:len(fileNames[ii])-6]:
 				fileNamesPart.append((fileNames[ii])[8:len(fileNames[ii])-4])
 
 		fileNamesPart.sort()
