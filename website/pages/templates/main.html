@@ -36,6 +36,8 @@
   <br><br>
   <div class="mainText"> {{ fileLines[3] }} <br> {{ fileLines[4] }} </div>
   <hr>
-{% endfor %}
+
+{% fileLines.close()
+  endfor %}
 </body>
 </html>
