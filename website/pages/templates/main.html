@@ -27,7 +27,7 @@
 <div>Articles:<div>
 <br>
 {% for fileNamesIterator in fileNames %}
-  {{fileNameOpen = open(fileNamesIterator, "r") }}
+  {% fileNameOpen = open(fileNamesIterator, "r") %}
   {% fileLines = fileName.readlines() %}
 
   <div id="{{ fileNamesIterator[:len(fileNamesIterator)-4] }}" class="title">Title: {{ fileLines[2] }}</div>
