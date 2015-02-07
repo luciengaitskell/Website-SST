@@ -26,7 +26,7 @@
 <body>
 <div>Articles:<div>
 <br>
-  {% for singleIncrement in range(titles.count)) %}
+  {% for singleIncrement in range(titles.count) %}
   <div id="{{ str(fileNames[singleIncrement])[:(fileNames[singleIncrement]|length)-4] }}" class="title">Title: {{ fileLines[singleIncrement] }}</div>
   <div class="author">Author: {{ fileLines[singleIncrement] }}</div>
   <div class="date">Date Posted: {{ fileLines[singleIncrement] }}</div>
