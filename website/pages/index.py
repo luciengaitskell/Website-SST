@@ -113,9 +113,9 @@ def postRecord():
 
 	file = open(filePath, "w")
 	file.write((str(articleDate) + "\n").encode("UTF-8"))
-	file.write((str(name) + "\n").encode("UTF-8"))
-	file.write((str(title) + "\n").encode("UTF-8"))
-	file.write((str(articleText) + "\n\n").encode("UTF-8"))
+	file.write((str(name).encode("UTF-8") + "\n"))
+	file.write((str(title).encode("UTF-8") + "\n"))
+	file.write((str(articleText).encode("UTF-8") + "\n\n"))
 	file.close()
 
 	return redirect(url_for('displayMain'))
