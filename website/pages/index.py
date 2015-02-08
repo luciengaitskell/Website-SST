@@ -40,11 +40,13 @@ def displayMain():
 	uniqueDates.sort()
 
 	for ii in range(len(uniqueDates)):
-		fileNamesNew=[]
+		fileNamesNew=["articles/article-20150207-1.txt","articles/article-20150207-1.txt"]
+
+		"""
 		for jj in fileNames:
 			if uniqueDates[ii] == (fileNames[ii])[17:len(fileNames[ii])-6]:
 				fileNamesNew.append((fileNames[ii])[17:len(fileNames[ii])-4])
-
+		"""
 		fileNamesNew.sort(reverse=True)
 
 		for jj in fileNamesNew:
