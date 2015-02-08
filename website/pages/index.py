@@ -57,7 +57,10 @@ def displayMain():
 
 		for ii in fileNamesSorted:
 			fileNameOpen = open((str(fileSubFolder) + str(ii)), "r")
-			jj = fileNameOpen.readlines().decode('utf8')
+			jj = fileNameOpen.readlines()
+
+			for gg in range(len(jj)):
+				jj[gg]=jj[gg].decode('utf8')
 			dates.append(jj[0])
 			names.append(jj[1])
 			titles.append(jj[2])
