@@ -60,7 +60,7 @@ def displayMain():
 			jj = fileNameOpen.readlines()
 
 			for gg in range(len(jj)):
-				jj[gg]=jj[gg].decode('utf8')
+				jj[gg]=jj[gg].decode('UTF-8')
 			dates.append(jj[0])
 			names.append(jj[1])
 			titles.append(jj[2])
@@ -112,10 +112,10 @@ def postRecord():
 				break
 
 	file = open(filePath, "w")
-	file.write((str(articleDate) + "\n").encode('utf8'))
-	file.write((str(name) + "\n").encode('utf8'))
-	file.write((str(title) + "\n").encode('utf8'))
-	file.write((str(articleText) + "\n\n").encode('utf8'))
+	file.write((str(articleDate) + "\n").encode("UTF-8"))
+	file.write((str(name) + "\n").encode("UTF-8"))
+	file.write((str(title) + "\n").encode("UTF-8"))
+	file.write((str(articleText) + "\n\n").encode("UTF-8"))
 	file.close()
 
 	return redirect(url_for('displayMain'))
@@ -140,7 +140,7 @@ def readMain(articleNumber=None):
 			articleFile=open(filePath)
 			lines = articleFile.readlines()
 			for ii in range(len(lines)):
-				lines[ii]=lines[ii].decode('utf8')
+				lines[ii]=lines[ii].decode('UTF-8')
 			return render_template('article-render.html', filePath=filePath, lines=lines, lineIterator=lineIterator)
 	else:
 		return "NO FILE WAS FOUND WITH THAT NAME"
