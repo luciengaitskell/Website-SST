@@ -40,6 +40,7 @@ def displayMain():
 	uniqueDates.sort()
 
 	for ii in range(len(uniqueDates)):
+		#fileNamesNew=[]
 		fileNamesNew=["articles/article-20150207-1.txt","articles/article-20150207-1.txt"]
 
 		"""
@@ -62,9 +63,9 @@ def displayMain():
 		texts.append(jj[3])
 		texts.append(jj[4])
 
-	return fileNamesSorted[1]
+	#return fileNamesSorted[1]
 	#return uniqueDates[0]
-	#return render_template('main.html', fileNamesSorted=fileNamesSorted, dates=dates, names=names, titles=titles, texts=texts, singleIncrement=singleIncrement)
+	return render_template('main.html', fileNamesSorted=fileNamesSorted, dates=dates, names=names, titles=titles, texts=texts, singleIncrement=singleIncrement)
 
 @app.route('/post/')
 def postMain():
