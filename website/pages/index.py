@@ -54,7 +54,7 @@ def displayMain():
 		for jj in fileNamesNew:
 			fileNamesSorted.append(str(fileBeginng) + str(jj) + str(fileExtention))
 
-	return fileNamesSorted[1]
+	return uniqueDates[1]
 	for ii in fileNamesSorted:
 		fileNameOpen = open((str(fileSubFolder) + str(ii)), "r")
 		jj = fileNameOpen.readlines()
