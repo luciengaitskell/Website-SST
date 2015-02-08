@@ -63,7 +63,8 @@ def displayMain():
 			names.append(jj[1])
 			titles.append(jj[2])
 			texts.append(jj[3])
-			texts.append(jj[4])
+			if jj>4:
+				texts.append(jj[4])
 	else:
 		noFiles=True
 
