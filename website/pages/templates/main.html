@@ -4,11 +4,10 @@
 <title>Posts - LUC NEWS</title>
 <style>
 
-  .overallTitle {
+  .mainTitle {
     font-size: 150%;
   }
 
-  }
   .title {
     font-size: 150%;
   }
@@ -25,19 +24,68 @@
     font-size: 100%;
   }
 
+  .container { position:relative; padding:0 0 0 55px; }
+
+  #sidebar {
+    position:fixed;
+    top:0; bottom:0; left:0;
+    width:50px;
+    background:#000;
+  }
+
+  #header { border:1px solid #000; width:100px; height:20px;
+    margin:0 0 5px 0;
+  }
+
+  #content { border:1px solid #000; width:100px; height:50px;
+    margin:5px 0 5px 0;
+  }
+
+  #footer { border:1px solid #000; width:100px; height:20px;
+    margin:5px 0 0 0;
+  }
+
 </style>
 </head>
 
 <body>
-<div class="overallTitle">Articles:<div>
-<br>
-  {% for singleIncrement in range(titles|length) %}
-  <div id="{{ (fileNamesSorted[singleIncrement])[:(fileNamesSorted[singleIncrement]|length)-4] }}" class="title"><a href="/articles/{{ (fileNamesSorted[singleIncrement])[8:(fileNamesSorted[singleIncrement]|length)-4] }}/">Title: {{ titles[singleIncrement] }}<a></div>
-  <div class="author">Author: {{ names[singleIncrement] }}</div>
-  <div class="date">Date Posted: {{ dates[singleIncrement] }}</div>
-  <br><br>
-  <div class="mainText"> {{ texts[singleIncrement*2] }} <br> {{ texts[(singleIncrement*2)+1] }} </div>
-  <hr>
-  {% endfor %}
+<div class="container">
+    <div id="sidebar">
+      SIDEBAR
+      <br>
+      <a href="/post/">POST</a>
+    </div>
+
+    <div id="header">
+      <div class="mainTitle">Articles:<div>
+      <br>
+      </div>
+
+
+    <div id="content">
+      {% for singleIncrement in range(titles|length) %}
+      <div id="{{ (fileNamesSorted[singleIncrement])[:(fileNamesSorted[singleIncrement]|length)-4] }}" class="title">
+        <a href="/articles/{{ (fileNamesSorted[singleIncrement])[8:(fileNamesSorted[singleIncrement]|length)-4] }}/">
+          Title: {{ titles[singleIncrement] }}
+        <a>
+      </div>
+
+      <div class="author">Author: {{ names[singleIncrement] }}</div>
+
+      <div class="date">Date Posted: {{ dates[singleIncrement] }}</div>
+
+      <br><br>
+      <div class="mainText"> {{ texts[singleIncrement*2] }} <br> {{ texts[(singleIncrement*2)+1] }} </div>
+
+      <hr>
+      {% endfor %}
+    </div>
+
+    <div id="footer">
+      Skillfully Designed By:
+      <br>
+      Lucien Gaitskell
+    </div>
+</div>
 </body>
 </html>
