@@ -41,7 +41,7 @@ def displayMain():
 
 	for ii in range(len(uniqueDates)):
 		#fileNamesNew=[]
-		fileNamesNew=["20150207-2","20150207-1"]
+		fileNamesNew=["20150207-1","20150207-2"]
 
 		"""
 		for jj in fileNames:
