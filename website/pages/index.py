@@ -111,10 +111,10 @@ def postRecord():
 				fileNamefound=False
 				break
 
-	articleDateWrite=(str(articleDate) + "\n").encode("UTF-8")
-	nameWrite=(str(name).encode("UTF-8") + "\n")
-	titleNew=(str(title).encode("UTF-8") + "\n")
-	articleTextNew=(str(articleText).encode("UTF-8") + "\n\n")
+	articleDateWrite=(str(articleDate.encode("UTF-8")) + "\n")
+	nameWrite=(str(name.encode("UTF-8")) + "\n")
+	titleNew=(str(title.encode("UTF-8")) + "\n")
+	articleTextNew=(str(articleText.encode("UTF-8")) + "\n\n")
 
 	file = open(filePath, "w")
 	file.write(articleDateWrite)
