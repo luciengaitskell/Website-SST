@@ -48,8 +48,8 @@ def displayMain():
 		#testVar=0
 		for jj in fileNames:
 			#testVar=testVar+1
-			if uniqueDates[ii] == (fileNames[ii])[17:len(fileNames[ii])-6]:
-				fileNamesNew.append((fileNames[ii])[17:len(fileNames[ii])-4])
+			if uniqueDates[ii] == (jj)[17:len(jj)-6]:
+				fileNamesNew.append((jj)[17:len(jj)-4])
 
 			"""if testVar>0:
 				return "appended: " + str(fileNamesNew[len(fileNamesNew)-1]) + ", was: " + str((fileNames[ii])[17:len(fileNames[ii])-4])"""
