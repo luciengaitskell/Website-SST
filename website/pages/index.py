@@ -37,7 +37,7 @@ def displayMain():
 		if dateNew == True:
 			uniqueDates.append(newDate)
 
-	uniqueDates.sort()
+	uniqueDates.sort(reverse=True)
 
 	for ii in range(len(uniqueDates)):
 		fileNamesNew=[]
