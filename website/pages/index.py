@@ -29,7 +29,6 @@ def displayMain():
 	for ii in glob.glob("articles/*"):
 		fileNames.append(ii)
 
-	return fileNames[0]
 	if len(fileNames)>0:
 		for ii in range(len(fileNames)):
 			newDate=(fileNames[ii])[17:len(fileNames[ii])-6]
