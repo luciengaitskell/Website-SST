@@ -87,8 +87,19 @@ def postRecord():
 	articleDate=time.strftime("%Y%m%d")
 	filePath=""
 	name=request.form.get("Name")
+
+	if not name:
+		name="Anonymous"
+
 	title=request.form.get("Title")
+
+	if not title:
+		title="Unamed"
+
 	articleText=request.form.get("articleText")
+
+	if not articleText:
+		articleText="THIS IS SPAM"
 
 	while fileNamefound == False:
 		articleNumber=articleNumber+1
