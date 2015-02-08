@@ -57,7 +57,7 @@ def displayMain():
 
 		for ii in fileNamesSorted:
 			fileNameOpen = open((str(fileSubFolder) + str(ii)), "r")
-			jj = fileNameOpen.readlines()
+			jj = fileNameOpen.readlines().decode('utf8')
 			dates.append(jj[0])
 			names.append(jj[1])
 			titles.append(jj[2])
@@ -98,10 +98,10 @@ def postRecord():
 				break
 
 	file = open(filePath, "w")
-	file.write(str(articleDate) + "\n")
-	file.write(str(name) + "\n")
-	file.write(str(title) + "\n")
-	file.write(str(articleText) + "\n\n")
+	file.write((str(articleDate) + "\n").encode('utf8'))
+	file.write((str(name) + "\n").encode('utf8'))
+	file.write((str(title) + "\n").encode('utf8'))
+	file.write((str(articleText) + "\n\n").encode('utf8'))
 	file.close()
 
 	return redirect(url_for('displayMain'))
@@ -124,7 +124,7 @@ def readMain(articleNumber=None):
 			return redirect('/articles', code=302)
 		else:
 			articleFile=open(filePath)
-			lines = articleFile.readlines()
+			lines = articleFile.readlines().decode('utf8')
 			return render_template('article-render.html', filePath=filePath, lines=lines, lineIterator=lineIterator)
 	else:
 		return "NO FILE WAS FOUND WITH THAT NAME"
