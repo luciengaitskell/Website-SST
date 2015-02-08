@@ -7,6 +7,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def displayMain():
+	noFiles=False
 	fileNameOpen=""
 	newDate=""
 	fileSubFolder="articles/"
@@ -24,45 +25,49 @@ def displayMain():
 	dates=[]
 	texts=[]
 
+
 	for ii in glob.glob("articles/*"):
 		fileNames.append(ii)
 
-	for ii in range(len(fileNames)):
-		newDate=(fileNames[ii])[17:len(fileNames[ii])-6]
-		dateNew=True
-		for jj in uniqueDates:
-			if jj == newDate:
-				dateNew=False
+	if len(fileNames)>0:
+		for ii in range(len(fileNames)):
+			newDate=(fileNames[ii])[17:len(fileNames[ii])-6]
+			dateNew=True
+			for jj in uniqueDates:
+				if jj == newDate:
+					dateNew=False
 
-		if dateNew == True:
-			uniqueDates.append(newDate)
+			if dateNew == True:
+				uniqueDates.append(newDate)
 
-	uniqueDates.sort(reverse=True)
+		uniqueDates.sort(reverse=True)
 
-	for ii in range(len(uniqueDates)):
-		fileNamesNew=[]
+		for ii in range(len(uniqueDates)):
+			fileNamesNew=[]
 
-		for jj in fileNames:
-			#testVar=testVar+1
-			if uniqueDates[ii] == (jj)[17:len(jj)-6]:
-				fileNamesNew.append((jj)[17:len(jj)-4])
+			for jj in fileNames:
+				#testVar=testVar+1
+				if uniqueDates[ii] == (jj)[17:len(jj)-6]:
+					fileNamesNew.append((jj)[17:len(jj)-4])
 
-		fileNamesNew.sort(reverse=True)
+			fileNamesNew.sort(reverse=True)
 
-		for jj in fileNamesNew:
-			fileNamesSorted.append(str(fileBeginng) + str(jj) + str(fileExtention))
+			for jj in fileNamesNew:
+				fileNamesSorted.append(str(fileBeginng) + str(jj) + str(fileExtention))
 
-	for ii in fileNamesSorted:
-		fileNameOpen = open((str(fileSubFolder) + str(ii)), "r")
-		jj = fileNameOpen.readlines()
-		dates.append(jj[0])
-		names.append(jj[1])
-		titles.append(jj[2])
-		texts.append(jj[3])
-		texts.append(jj[4])
+		for ii in fileNamesSorted:
+			fileNameOpen = open((str(fileSubFolder) + str(ii)), "r")
+			jj = fileNameOpen.readlines()
+			dates.append(jj[0])
+			names.append(jj[1])
+			titles.append(jj[2])
+			texts.append(jj[3])
+			texts.append(jj[4])
+	else:
+		noFiles=True
 
 	#return uniqueDates[1]
-	return render_template('main.html', fileNamesSorted=fileNamesSorted, dates=dates, names=names, titles=titles, texts=texts, singleIncrement=singleIncrement)
+	return render_template('main.html', noFiles=noFiles, fileNamesSorted=fileNamesSorted, dates=dates, names=names, titles=titles, texts=texts, singleIncrement=singleIncrement)
 
 @app.route('/post/')
 def postMain():

@@ -84,22 +84,24 @@
 
 
     <div id="content">
-      {% for singleIncrement in range(titles|length) %}
-      <div id="{{ (fileNamesSorted[singleIncrement])[:(fileNamesSorted[singleIncrement]|length)-4] }}" class="title">
-        <a href="/articles/{{ (fileNamesSorted[singleIncrement])[8:(fileNamesSorted[singleIncrement]|length)-4] }}/">
-          Title: {{ titles[singleIncrement] }}
-        <a>
-      </div>
+      {% if !noFiles %}
+        {% for singleIncrement in range(titles|length) %}
+        <div id="{{ (fileNamesSorted[singleIncrement])[:(fileNamesSorted[singleIncrement]|length)-4] }}" class="title">
+          <a href="/articles/{{ (fileNamesSorted[singleIncrement])[8:(fileNamesSorted[singleIncrement]|length)-4] }}/">
+            Title: {{ titles[singleIncrement] }}
+          <a>
+        </div>
 
-      <div class="author">Author: {{ names[singleIncrement] }}</div>
+        <div class="author">Author: {{ names[singleIncrement] }}</div>
 
-      <div class="date">Date Posted: {{ dates[singleIncrement] }}</div>
+        <div class="date">Date Posted: {{ dates[singleIncrement] }}</div>
 
-      <br><br>
-      <div class="mainText"> {{ texts[singleIncrement*2] }} <br> {{ texts[(singleIncrement*2)+1] }} </div>
+        <br><br>
+        <div class="mainText"> {{ texts[singleIncrement*2] }} <br> {{ texts[(singleIncrement*2)+1] }} </div>
 
-      <hr>
-      {% endfor %}
+        <hr>
+        {% endfor %}
+      {% endif %}
     </div>
 
     <div id="footer">
