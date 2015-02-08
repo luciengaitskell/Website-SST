@@ -46,9 +46,9 @@ def displayMain():
 		# What follows is the problem of the repeat
 
 		for jj in fileNames:
-			if uniqueDates[ii] == (fileNames[ii])[17:len(fileNames[ii])-7]:
-				fileNamesNew.append((fileNames[ii])[17:len(fileNames[ii])-5])
-		
+			if uniqueDates[ii] == (fileNames[ii])[17:len(fileNames[ii])-6]:
+				fileNamesNew.append((fileNames[ii])[17:len(fileNames[ii])-4])
+
 		fileNamesNew.sort(reverse=True)
 
 		for jj in fileNamesNew:
