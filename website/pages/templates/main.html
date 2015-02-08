@@ -84,7 +84,7 @@
 
 
     <div id="content">
-      {% if !noFiles %}
+      {% if noFiles==False %}
         {% for singleIncrement in range(titles|length) %}
         <div id="{{ (fileNamesSorted[singleIncrement])[:(fileNamesSorted[singleIncrement]|length)-4] }}" class="title">
           <a href="/articles/{{ (fileNamesSorted[singleIncrement])[8:(fileNamesSorted[singleIncrement]|length)-4] }}/">
