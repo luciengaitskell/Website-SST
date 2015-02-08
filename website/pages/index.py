@@ -127,7 +127,9 @@ def readMain(articleNumber=None):
 			return redirect('/articles', code=302)
 		else:
 			articleFile=open(filePath)
-			lines = articleFile.readlines().decode('utf8')
+			lines = articleFile.readlines()
+			for ii in range(len(lines)):
+				lines[ii]=lines[ii].decode('utf8')
 			return render_template('article-render.html', filePath=filePath, lines=lines, lineIterator=lineIterator)
 	else:
 		return "NO FILE WAS FOUND WITH THAT NAME"
