@@ -51,9 +51,11 @@ def displayMain():
 			if uniqueDates[ii] == (fileNames[ii])[17:len(fileNames[ii])-6]:
 				fileNamesNew.append((fileNames[ii])[17:len(fileNames[ii])-4])
 
-			if testVar>1:
-				return "appended: " + str(fileNamesNew[len(fileNamesNew)-1]) + ", was: " + str((fileNames[ii])[17:len(fileNames[ii])-4])
+			"""if testVar>1:
+				return "appended: " + str(fileNamesNew[len(fileNamesNew)-1]) + ", was: " + str((fileNames[ii])[17:len(fileNames[ii])-4])"""
 
+		return "ran " + str(testVar) + " time!"
+		
 		fileNamesNew.sort(reverse=True)
 
 		for jj in fileNamesNew:
