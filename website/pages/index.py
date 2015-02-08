@@ -111,11 +111,16 @@ def postRecord():
 				fileNamefound=False
 				break
 
+	articleDateWrite=(str(articleDate) + "\n").encode("UTF-8")
+	nameWrite=(str(name).encode("UTF-8") + "\n")
+	titleNew=(str(title).encode("UTF-8") + "\n")
+	articleTextNew=(str(articleText).encode("UTF-8") + "\n\n")
+
 	file = open(filePath, "w")
-	file.write((str(articleDate) + "\n").encode("UTF-8"))
-	file.write((str(name).encode("UTF-8") + "\n"))
-	file.write((str(title).encode("UTF-8") + "\n"))
-	file.write((str(articleText).encode("UTF-8") + "\n\n"))
+	file.write(articleDateWrite)
+	file.write(nameWrite)
+	file.write(titleNew)
+	file.write(articleTextNew)
 	file.close()
 
 	return redirect(url_for('displayMain'))
