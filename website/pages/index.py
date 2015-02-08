@@ -40,14 +40,15 @@ def displayMain():
 	uniqueDates.sort()
 
 	for ii in range(len(uniqueDates)):
-		#fileNamesNew=[]
-		fileNamesNew=["20150207-1","20150207-2"]
+		fileNamesNew=[]
+		#fileNamesNew=["20150207-1","20150207-2"]
 
-		"""
+		# What follows is the problem of the repeat
+
 		for jj in fileNames:
-			if uniqueDates[ii] == (fileNames[ii])[17:len(fileNames[ii])-6]:
-				fileNamesNew.append((fileNames[ii])[17:len(fileNames[ii])-4])
-		"""
+			if uniqueDates[ii] == (fileNames[ii])[17:len(fileNames[ii])-7]:
+				fileNamesNew.append((fileNames[ii])[17:len(fileNames[ii])-5])
+		
 		fileNamesNew.sort(reverse=True)
 
 		for jj in fileNamesNew:
