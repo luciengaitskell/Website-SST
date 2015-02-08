@@ -41,18 +41,11 @@ def displayMain():
 
 	for ii in range(len(uniqueDates)):
 		fileNamesNew=[]
-		#fileNamesNew=["20150207-1","20150207-2"]
 
-		# What follows is the problem of the repeat
-
-		#testVar=0
 		for jj in fileNames:
 			#testVar=testVar+1
 			if uniqueDates[ii] == (jj)[17:len(jj)-6]:
 				fileNamesNew.append((jj)[17:len(jj)-4])
-
-			"""if testVar>0:
-				return "appended: " + str(fileNamesNew[len(fileNamesNew)-1]) + ", was: " + str((fileNames[ii])[17:len(fileNames[ii])-4])"""
 
 		fileNamesNew.sort(reverse=True)
 
@@ -68,8 +61,6 @@ def displayMain():
 		texts.append(jj[3])
 		texts.append(jj[4])
 
-	#return fileNamesSorted[1]
-	#return uniqueDates[0]
 	return render_template('main.html', fileNamesSorted=fileNamesSorted, dates=dates, names=names, titles=titles, texts=texts, singleIncrement=singleIncrement)
 
 @app.route('/post/')
