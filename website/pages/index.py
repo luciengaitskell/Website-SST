@@ -60,7 +60,7 @@ def displayMain():
 		texts.append(jj[3])
 		texts.append(jj[4])
 
-	return (fileNames[1])[17:len(fileNames[1])-4]
+	return fileNamesSorted[0]
 	#return uniqueDates[0]
 	#return render_template('main.html', fileNamesSorted=fileNamesSorted, dates=dates, names=names, titles=titles, texts=texts, singleIncrement=singleIncrement)
 
