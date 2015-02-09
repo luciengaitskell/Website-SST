@@ -75,13 +75,13 @@ def displayMain():
 
 			#return str((newText[0])[:maxLineLength)])
 
-			if jj>4:
+			if len(newText[0]) > maxLineLength:
 				newText=[jj[3], jj[4]]
-				if len(newText[0]) > maxLineLength:
-					newText[0]=(newText[0])[:maxLineLength]
-					newText[1]=(newText[0])[maxLineLength:]
-					newText[1]=str(newText[1]) + str(jj[4])     #(newText[1])[:len(newText[1])-maxLineLength]+str("...")
+				newText[0]=(newText[0])[:maxLineLength]
+				newText[1]=(newText[0])[maxLineLength:]
+				newText[1]=str(newText[1]) + str(jj[4])
 
+			if jj>4 or len(newText) > 1:
 				if len(newText[1]) > maxLineLength:
 					newText[1]=str((newText[1])[:maxLineLength-len("...")]) + "..."
 
