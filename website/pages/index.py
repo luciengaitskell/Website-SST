@@ -62,7 +62,6 @@ def displayMain():
 			for gg in range(len(jj)):
 				jj[gg]=jj[gg].decode('UTF-8')
 			dates.append(jj[0])
-			return 
 			names.append(jj[1])
 			titles.append(jj[2])
 			texts.append(jj[3])
