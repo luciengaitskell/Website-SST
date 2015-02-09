@@ -10,12 +10,11 @@
   <p>Article {{ filePathSnipped[8:] }}<p>
   {% for lineIterator in range(lines|length) %}
     {% if lineIterator < 1 %}
-      <p> </p>
+      <p> first line </p>
     {% elif lineIterator < 2 %}
-      <p> </p>
+      <p> second line </p>
     {% else %}
-      <p> </p>
+      <p> third line </p>
     {% endif %}
-  <p>{{ lineIterator }}
   {% endfor %}
 </body>
