@@ -86,14 +86,13 @@ def displayMain():
 			else:
 				texts.append(jj[3])
 
-		dates.append(arrayToUnicode(dates))
-		names.append(arrayToUnicode(names))
-		titles.append(arrayToUnicode(titles))
-		texts.append(arrayToUnicode(texts))
+		dates = arrayToUnicode(dates)
+		names = arrayToUnicode(names)
+		titles = arrayToUnicode(titles)
+		texts = arrayToUnicode(texts)
 	else:
 		noFiles=True
 
-	return fileNamesSorted[1]
 	#return uniqueDates[1]
 	return render_template('main.html', noFiles=noFiles, fileNamesSorted=fileNamesSorted, dates=dates, names=names, titles=titles, texts=texts, singleIncrement=singleIncrement)
 
