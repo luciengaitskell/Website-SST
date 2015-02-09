@@ -22,6 +22,7 @@ def displayMain():
 	fileExtention=".txt"
 	dateNew=True
 	uniqueDates=[]
+	newText=[]
 	fileNames=[]
 	fileNamesNew=[]
 	fileNamesSorted=[]
@@ -67,24 +68,31 @@ def displayMain():
 			fileNameOpen = open((str(fileSubFolder) + str(ii)), "r")
 			jj = fileNameOpen.readlines()
 
-			"""for gg in range(len(jj)):
-				jj[gg]=jj[gg].decode('UTF-8')"""
 			dates.append(jj[0])
 			names.append(jj[1])
 			titles.append(jj[2])
 
 			#return str((newText[0])[:maxLineLength)])
 
+			for gg in range(len(jj))
+				if gg>2 and gg<5:
+					if gg==3:
+						newText.append(jj[3])
+					elif gg==4:
+							newText.append(jj[4])
+
 			if len(newText[0]) > maxLineLength:
 				newText=[jj[3], jj[4]]
 				newText[0]=(newText[0])[:maxLineLength]
-				newText[1]=(newText[0])[maxLineLength:]
-				newText[1]=str(newText[1]) + str(jj[4])
 
 			if jj>4 or len(newText) > 1:
+				newText[1]=(newText[0])[maxLineLength:]
 				if len(newText[1]) > maxLineLength:
 					newText[1]=str((newText[1])[:maxLineLength-len("...")]) + "..."
 
+				if len(jj) > 4:
+					newText[1]=str(newText[1]) + str(jj[4])
+					
 				texts.append(newText[0])
 				texts.append(newText[1])
 			else:
