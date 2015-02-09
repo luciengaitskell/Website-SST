@@ -134,7 +134,7 @@ def readMain(articleNumber=None):
 		fileBeginning="article-"
 		fileExtention=".txt"
 		filePath=str(fileSubfolder) + str(fileBeginning) + str(articleNumber) + str(fileExtention)
-		filePathSnipped=filePath[9:len(jj)-4]
+		filePathSnipped=filePath[9:len(filePath)-4]
 		fileIsThere=False
 		lineIterator=0
 		for name in glob.glob(filePath):
