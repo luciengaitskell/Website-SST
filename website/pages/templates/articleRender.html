@@ -1,0 +1,21 @@
+<!doctype html>
+
+<html>
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+  <title>{{ filePathSnipped }}</title>
+</head>
+
+<body>
+  <p>The Article<p>
+  {% for lineIterator in range(lines|lenght) %}
+    {% if lineIterator < 1 %}
+      <p> </p>
+    {% elif lineIterator < 2 %}
+      <p> </p>
+    {% else %}
+      <p> </p>
+    {% endif %}
+  <p>{{ lineIterator }}
+  {% endfor %}
+</body>

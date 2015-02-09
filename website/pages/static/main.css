@@ -1,0 +1,29 @@
+.mainTitle {
+  font-size: 150%;
+}
+
+.title {
+  font-size: 150%;
+}
+
+.author {
+  font-size: 100%;
+}
+
+.date {
+  font-size: 75%;
+}
+
+.mainText {
+  font-size: 100%;
+}
+
+.container {
+  position:relative;
+  padding:0 0 0 55px;
+}
+
+a:link, a:visited, a:hover, a:active {
+  text-decoration: none;
+  color: black;
+}

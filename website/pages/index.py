@@ -134,6 +134,7 @@ def readMain(articleNumber=None):
 		fileBeginning="article-"
 		fileExtention=".txt"
 		filePath=str(fileSubfolder) + str(fileBeginning) + str(articleNumber) + str(fileExtention)
+		filePathSnipped=filePath[9:len(jj)-4]
 		fileIsThere=False
 		lineIterator=0
 		for name in glob.glob(filePath):
@@ -146,7 +147,7 @@ def readMain(articleNumber=None):
 			lines = articleFile.readlines()
 			for ii in range(len(lines)):
 				lines[ii]=lines[ii].decode('UTF-8')
-			return render_template('article-render.html', filePath=filePath, lines=lines, lineIterator=lineIterator)
+			return render_template('articleRender.html', filePathSnipped=filePathSnipped, filePath=filePath, lines=lines, lineIterator=lineIterator)
 	else:
 		return "NO FILE WAS FOUND WITH THAT NAME"
 
