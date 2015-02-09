@@ -9,7 +9,7 @@ def arrayToUnicode(inputArray):
 	outputArray=[]
 
 	for gg in inputArray:
-		outputArray(gg.decode('UTF-8'))
+		outputArray.append(gg.decode('UTF-8'))
 	return outputArray
 
 @app.route('/')
