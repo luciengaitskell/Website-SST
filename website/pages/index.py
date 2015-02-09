@@ -78,29 +78,29 @@ def displayMain():
 
 			#return str((newText[0])[:maxLineLength)])
 
-			newText=[]
-			newText.append(jj[3])
+			newText=[jj[3],None]
 
 			if len(newText[0]) > maxLineLength:
 				newText[0]=(newText[0])[:maxLineLength]
-				newText.append((jj[3])[maxLineLength:])
+				newText[1]=(jj[3])[maxLineLength:]
 
-			if jj>4 or len(newText) > 1:
-				newText.append("")#need to create a elemet in the 1 place
+			#if len(jj)>4 or newText[1] != None: #more than one text lines or the first line text carries over
+				#newText.append("")#need to create a elemet in the 1 place
 				#return "it equals: " + str(newText[1])
 				#newText[1]=(newText[0])[maxLineLength:]
 
-				if len(newText) >1:
-					if len(newText[1]) > maxLineLength:
-						newText[1]=str((newText[1])[:maxLineLength-len("...")]) + "..."
+			if newText[1] != None:
+				if len(newText[1]) > maxLineLength:
+					newText[1]=str((newText[1])[:maxLineLength-len("...")]) + "..."
 
-				if len(jj) > 4:
-					newText[1]=str(newText[1]) + str(jj[4])
+			if len(jj) > 4:
+				newText[1]=str(newText[1]) + str(jj[4])
 
-				texts.append(newText[0])
-				texts.append(newText[1])
-			else:
+			texts.append(newText[0])
+			texts.append(newText[1])
+"""			else:
 				texts.append(jj[3])
+				texts.append(None)"""
 
 		dates = arrayToUnicode(dates)
 		names = arrayToUnicode(names)
