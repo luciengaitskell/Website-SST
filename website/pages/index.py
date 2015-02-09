@@ -98,10 +98,7 @@ def displayMain():
 
 			texts.append(newText[0])
 			texts.append(newText[1])
-"""			else:
-				texts.append(jj[3])
-				texts.append(None)"""
-
+			
 		dates = arrayToUnicode(dates)
 		names = arrayToUnicode(names)
 		titles = arrayToUnicode(titles)
