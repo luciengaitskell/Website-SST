@@ -73,9 +73,9 @@ def displayMain():
 			names.append(jj[1])
 			titles.append(jj[2])
 
-			newText=[jj[3],jj[4]]
+			newText=[jj[3], jj[4]]
 			if len(newText[0]) > maxLineLength:
-				return len(newText[0])
+				return newText[0]
 				newText[0]=(newText[0])[:len(newText[0])-maxLineLength]
 				newText[1]=(newText[0])[maxLineLength:]+str(newText[1])
 				newText[1]=(newText[1])[:len(newText[1])-maxLineLength]+str("...")
