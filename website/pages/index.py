@@ -78,7 +78,7 @@ def displayMain():
 
 			#return str((newText[0])[:maxLineLength)])
 
-			newText=[jj[3],None]
+			newText=[jj[3],False]
 
 			if len(newText[0]) > maxLineLength:
 				newText[0]=(newText[0])[:maxLineLength]
@@ -89,7 +89,7 @@ def displayMain():
 				#return "it equals: " + str(newText[1])
 				#newText[1]=(newText[0])[maxLineLength:]
 
-			if newText[1] != None:
+			if newText[1] != False:
 				if len(newText[1]) > maxLineLength:
 					newText[1]=str((newText[1])[:maxLineLength-len("...")]) + "..."
 
@@ -98,7 +98,7 @@ def displayMain():
 
 			texts.append(newText[0])
 			texts.append(newText[1])
-			
+
 		dates = arrayToUnicode(dates)
 		names = arrayToUnicode(names)
 		titles = arrayToUnicode(titles)
