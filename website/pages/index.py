@@ -78,7 +78,7 @@ def displayMain():
 
 			#return str((newText[0])[:maxLineLength)])
 
-			newText=[jj[3],False]
+			newText=[jj[3],""]
 
 			if len(newText[0]) > maxLineLength:
 				newText[0]=(newText[0])[:maxLineLength]
@@ -89,7 +89,7 @@ def displayMain():
 				#return "it equals: " + str(newText[1])
 				#newText[1]=(newText[0])[maxLineLength:]
 
-			if newText[1] != False:
+			if newText[1] != "":
 				if len(newText[1]) > maxLineLength:
 					newText[1]=str((newText[1])[:maxLineLength-len("...")]) + "..."
 
