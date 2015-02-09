@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route('/favicon.ico')
 def favicon():
 	return redirect(url_for('static', filename='favicon.ico'))
-	
+
 def arrayToUnicode(inputArray):
 	outputArray=[]
 
@@ -72,9 +72,9 @@ def displayMain():
 			fileNameOpen = open((str(fileSubFolder) + str(ii)), "r")
 			jj = fileNameOpen.readlines()
 
-			dates.append(jj[0])
+			titles.append(jj[0])
 			names.append(jj[1])
-			titles.append(jj[2])
+			dates.append(jj[2])
 
 			#return str((newText[0])[:maxLineLength)])
 
@@ -153,9 +153,9 @@ def postRecord():
 	articleTextNew=(str(articleText.encode("UTF-8")) + "\n\n")
 
 	file = open(filePath, "w")
-	file.write(articleDateWrite)
-	file.write(nameWrite)
 	file.write(titleNew)
+	file.write(nameWrite)
+	file.write(articleDateWrite)
 	file.write(articleTextNew)
 	file.close()
 
