@@ -5,6 +5,11 @@ import glob
 
 app = Flask(__name__)
 
+def arrayToUnicode(inputArray):
+	for gg in range(len(inputArray)):
+		outputArray[gg]=inputArray[gg].decode('UTF-8')
+	return outputArray
+
 @app.route('/')
 def displayMain():
 	noFiles=False
@@ -20,6 +25,7 @@ def displayMain():
 	fileNamesSorted=[]
 	fileLines=[]
 	singleIncrement=0
+	maxLineLenght=30
 	titles=[]
 	names=[]
 	dates=[]
@@ -59,14 +65,29 @@ def displayMain():
 			fileNameOpen = open((str(fileSubFolder) + str(ii)), "r")
 			jj = fileNameOpen.readlines()
 
-			for gg in range(len(jj)):
-				jj[gg]=jj[gg].decode('UTF-8')
+			"""for gg in range(len(jj)):
+				jj[gg]=jj[gg].decode('UTF-8')"""
 			dates.append(jj[0])
 			names.append(jj[1])
 			titles.append(jj[2])
-			texts.append(jj[3])
-			if jj>4: #there are more then one text lines
+
+			newText=[jj[3],jj[4]]
+			if len(newText[0]) > maxLineLenght:
+				newText[1]=(newText[0])[maxLineLenght:]+str(newText[1])
+				newText[0]=(newText[0])[:newText[0]-maxLineLenght]
+				newText[1]=(newText[1])[:newText[1]-maxLineLenght]+str(...)
+				texts.append(newText[0])
+				texts.append(newText[1])
+			elif jj>4:
+				texts.append(jj[3])
 				texts.append(jj[4])
+			else:
+				texts.append(jj[3])
+
+		dates.append(arrayToUnicode[dates])
+		names.append(arrayToUnicode[names])
+		titles.append(arrayToUnicode[titles])
+		texts.append(arrayToUnicode[texts])
 	else:
 		noFiles=True
 
