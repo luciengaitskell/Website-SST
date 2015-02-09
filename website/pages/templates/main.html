@@ -58,7 +58,7 @@
     font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
     font-style: normal;
     font-variant: normal;
-
+    text-decoration: none;
     position: relative;
     /*border:1px solid #000;*/
     text-align: center;
@@ -107,7 +107,7 @@
         {% for singleIncrement in range(titles|length) %}
         <div id="{{ (fileNamesSorted[singleIncrement])[:(fileNamesSorted[singleIncrement]|length)-4] }}" class="title">
           <a href="/articles/{{ (fileNamesSorted[singleIncrement])[8:(fileNamesSorted[singleIncrement]|length)-4] }}/">
-            Title: {{ titles[singleIncrement] }}
+            <!--Title: -->{{ titles[singleIncrement] }}
           <a>
         </div>
 
