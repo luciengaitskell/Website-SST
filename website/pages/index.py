@@ -77,6 +77,7 @@ def displayMain():
 			newText.append(jj[3])
 
 			if len(newText[0]) > maxLineLength:
+				return "longer than normal"
 				newText[0]=(newText[0])[:maxLineLength]
 				newText.append((newText[0])[maxLineLength:])
 
