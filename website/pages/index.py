@@ -7,8 +7,9 @@ app = Flask(__name__)
 
 def arrayToUnicode(inputArray):
 	outputArray=[]
-	for gg in range(len(inputArray)):
-		outputArray[gg]=inputArray[gg].decode('UTF-8')
+
+	for gg in inputArray:
+		outputArray(gg.decode('UTF-8'))
 	return outputArray
 
 @app.route('/')
