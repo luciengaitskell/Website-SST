@@ -92,7 +92,11 @@
         <div class="date">Date Posted: {{ dates[singleIncrement] }}</div>
 
         <br><br>
-        <div class="mainText"> {{ texts[singleIncrement*2] }} <br> {{ texts[(singleIncrement*2)+1] }} </div>
+        <div class="mainText">{{ texts[singleIncrement*2] }}<br>
+          {% if texts[(singleIncrement*2)+1] != None %}
+            {{ texts[(singleIncrement*2)+1] }}
+          {% endif %}
+          </div>
 
         <hr>
         {% endfor %}
