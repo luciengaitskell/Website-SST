@@ -93,6 +93,7 @@ def displayMain():
 	else:
 		noFiles=True
 
+	return fileNamesSorted[1]
 	#return uniqueDates[1]
 	return render_template('main.html', noFiles=noFiles, fileNamesSorted=fileNamesSorted, dates=dates, names=names, titles=titles, texts=texts, singleIncrement=singleIncrement)
 
