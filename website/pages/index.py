@@ -86,13 +86,14 @@ def displayMain():
 				newText.append((jj[3])[maxLineLength:])
 
 			if jj>4 or len(newText) > 1:
+				newText.append("")#need to create a elemet in the 1 place
 				#return "it equals: " + str(newText[1])
 				#newText[1]=(newText[0])[maxLineLength:]
 
 				if len(newText) >1:
 					if len(newText[1]) > maxLineLength:
 						newText[1]=str((newText[1])[:maxLineLength-len("...")]) + "..."
-						
+
 				if len(jj) > 4:
 					newText[1]=str(newText[1]) + str(jj[4])
 
