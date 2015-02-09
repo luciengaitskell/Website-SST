@@ -65,7 +65,7 @@ def displayMain():
 			names.append(jj[1])
 			titles.append(jj[2])
 			texts.append(jj[3])
-			if jj>4:
+			if jj>4: #there are more then one text lines
 				texts.append(jj[4])
 	else:
 		noFiles=True
