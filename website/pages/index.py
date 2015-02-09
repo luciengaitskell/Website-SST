@@ -88,9 +88,11 @@ def displayMain():
 			if jj>4 or len(newText) > 1:
 				#return "it equals: " + str(newText[1])
 				#newText[1]=(newText[0])[maxLineLength:]
-				if len(newText[1]) > maxLineLength:
-					newText[1]=str((newText[1])[:maxLineLength-len("...")]) + "..."
 
+				if len(newText) >1:
+					if len(newText[1]) > maxLineLength:
+						newText[1]=str((newText[1])[:maxLineLength-len("...")]) + "..."
+						
 				if len(jj) > 4:
 					newText[1]=str(newText[1]) + str(jj[4])
 
