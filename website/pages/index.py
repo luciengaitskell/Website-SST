@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, add_url_rule
+from flask import Flask, render_template, request, redirect, url_for
 from file_len import file_length
 import time
 import glob
