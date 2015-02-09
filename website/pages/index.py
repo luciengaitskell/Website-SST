@@ -27,7 +27,7 @@ def displayMain():
 	fileNamesSorted=[]
 	fileLines=[]
 	singleIncrement=0
-	maxLineLenght=30
+	maxLineLength=30
 	titles=[]
 	names=[]
 	dates=[]
@@ -74,11 +74,11 @@ def displayMain():
 			titles.append(jj[2])
 
 			newText=[jj[3],jj[4]]
-			if len(newText[0]) > maxLineLenght:
-				newText[0]=(newText[0])[:len(newText[0])-maxLineLenght]
-				return len(newText[0])-maxLineLenght
-				newText[1]=(newText[0])[maxLineLenght:]+str(newText[1])
-				newText[1]=(newText[1])[:len(newText[1])-maxLineLenght]+str("...")
+			if len(newText[0]) > maxLineLength:
+				newText[0]=(newText[0])[:len(newText[0])-maxLineLength]
+				return len(newText[0])-maxLineLength
+				newText[1]=(newText[0])[maxLineLength:]+str(newText[1])
+				newText[1]=(newText[1])[:len(newText[1])-maxLineLength]+str("...")
 				texts.append(newText[0])
 				texts.append(newText[1])
 			elif jj>4:
