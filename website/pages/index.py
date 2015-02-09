@@ -84,10 +84,10 @@ def displayMain():
 			else:
 				texts.append(jj[3])
 
-		dates.append(arrayToUnicode[dates])
-		names.append(arrayToUnicode[names])
-		titles.append(arrayToUnicode[titles])
-		texts.append(arrayToUnicode[texts])
+		dates.append(arrayToUnicode(dates))
+		names.append(arrayToUnicode(names))
+		titles.append(arrayToUnicode(titles))
+		texts.append(arrayToUnicode(texts))
 	else:
 		noFiles=True
 
