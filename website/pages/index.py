@@ -75,15 +75,14 @@ def displayMain():
 			#return str((newText[0])[:maxLineLength)])
 
 			for gg in range(len(jj)):
-				if gg>2 and gg<5:
-					if gg==3:
-						newText.append(jj[3])
-					elif gg==4:
-							newText.append(jj[4])
+				if gg==3:
+					newText.append(jj[3])
+				elif gg==4:
+						newText.append(jj[4])
 
 			if len(newText[0]) > maxLineLength:
-				newText=[jj[3], jj[4]]
 				newText[0]=(newText[0])[:maxLineLength]
+				newText[1]=(newText[0])[maxLineLength:]
 
 			if jj>4 or len(newText) > 1:
 				newText[1]=(newText[0])[maxLineLength:]
