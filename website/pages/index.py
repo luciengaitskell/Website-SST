@@ -74,7 +74,7 @@ def displayMain():
 
 			#return str((newText[0])[:maxLineLength)])
 
-			for gg in range(len(jj))
+			for gg in range(len(jj)):
 				if gg>2 and gg<5:
 					if gg==3:
 						newText.append(jj[3])
@@ -92,7 +92,7 @@ def displayMain():
 
 				if len(jj) > 4:
 					newText[1]=str(newText[1]) + str(jj[4])
-					
+
 				texts.append(newText[0])
 				texts.append(newText[1])
 			else:
