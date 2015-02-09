@@ -98,7 +98,7 @@ def displayMain():
 
 			texts.append(newText[0])
 			texts.append(newText[1])
-			return newText[1]
+			#return newText[1]
 
 		dates = arrayToUnicode(dates)
 		names = arrayToUnicode(names)
