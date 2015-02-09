@@ -77,11 +77,11 @@ def displayMain():
 			newText.append(jj[3])
 
 			if len(newText[0]) > maxLineLength:
-				return "longer than normal"
 				newText[0]=(newText[0])[:maxLineLength]
 				newText.append((newText[0])[maxLineLength:])
 
 			if jj>4 or len(newText) > 1:
+				return "got in da loop"
 				newText[1]=(newText[0])[maxLineLength:]
 				if len(newText[1]) > maxLineLength:
 					newText[1]=str((newText[1])[:maxLineLength-len("...")]) + "..."
