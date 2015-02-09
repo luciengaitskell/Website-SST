@@ -74,7 +74,8 @@ def displayMain():
 
 			#return str((newText[0])[:maxLineLength)])
 
-			newText.append(jj[3])
+			newText=[]
+			newText[1]=jj[3]
 
 			if len(newText[0]) > maxLineLength:
 				newText[0]=(newText[0])[:maxLineLength]
