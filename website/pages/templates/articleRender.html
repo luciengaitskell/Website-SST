@@ -7,7 +7,7 @@
 </head>
 
 <body>
-  <p>The Article<p>
+  <p>Article {{ filePathSnipped[8:] }}<p>
   {% for lineIterator in range(lines|length) %}
     {% if lineIterator < 1 %}
       <p> </p>
