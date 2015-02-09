@@ -73,17 +73,20 @@ def displayMain():
 			names.append(jj[1])
 			titles.append(jj[2])
 
-			newText=[jj[3], jj[4]]
-			return str((newText[0])[:(len(newText[0])-maxLineLength)])
-			if len(newText[0]) > maxLineLength:
-				newText[0]=(newText[0])[:(len(newText[0])-maxLineLength)]
-				newText[1]=(newText[0])[maxLineLength:]+str(newText[1])
-				newText[1]=(newText[1])[:len(newText[1])-maxLineLength]+str("...")
+			#return str((newText[0])[:maxLineLength)])
+
+			if jj>4:
+				newText=[jj[3], jj[4]]
+				if len(newText[0]) > maxLineLength:
+					newText[0]=(newText[0])[:maxLineLength]
+					newText[1]=(newText[0])[maxLineLength:]
+					newText[1]=str(newText[1]) + str(jj[4])     #(newText[1])[:len(newText[1])-maxLineLength]+str("...")
+
+				if len(newText[1]) > maxLineLength:
+					newText[1]=str((newText[1])[:maxLineLength-len("...")]) + "..."
+
 				texts.append(newText[0])
 				texts.append(newText[1])
-			elif jj>4:
-				texts.append(jj[3])
-				texts.append(jj[4])
 			else:
 				texts.append(jj[3])
 
