@@ -2,4 +2,4 @@
 
 cd /var/www/Website-SST/website/pages
 
-sudo screen python index.py
+sudo python index.py
