@@ -192,9 +192,9 @@ def readMain(articleNumber=None):
 def helpPage():
 	return render_template('helpPage.html')
 
-@app.route('/signature/')
+"""@app.route('/signature/')
 def signature():
-	return render_template('signature.html')
+	return render_template('signature.html')"""
 
 
 if __name__ == "__main__":
