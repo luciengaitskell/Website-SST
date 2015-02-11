@@ -193,7 +193,7 @@ def helpPage():
 	return render_template('helpPage.html')
 
 @app.route('/signature/')
-def helpPage():
+def signature():
 	return render_template('signature.html')
 
 
