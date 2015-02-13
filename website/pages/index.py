@@ -10,8 +10,9 @@ def deleteArticle():
 	password="daWebsitePass"
 	searchword = request.args.get('key', '')
 
-	#	return "test"
-	return 'tmp' in session
+	if 'username' in session:
+        return 'Logged in as %s' % escape(session['username'])
+    return 'You are not logged in'
 
 @app.route('/favicon.ico')
 def favicon():
