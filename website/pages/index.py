@@ -68,7 +68,10 @@ def loginCheckPage():
 	password=request.form.get("password")
 	remember=request.form.get("remeberPass")
 	credsCorrect=int(loginCheck(username,password,userPass))
-	return str(remember)
+
+	if remember=="on":
+		return str(remember)
+	return "cheese"
 
 	if credsCorrect==1:
 		return redirect("/")
