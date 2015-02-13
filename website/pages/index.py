@@ -8,6 +8,9 @@ app = Flask(__name__)
 @app.route('/deleteArticle')
 def deleteArticle():
 	searchword = request.args.get('key', '')
+
+	if searchword=="":
+		return "test"
 	return searchword
 
 @app.route('/favicon.ico')
