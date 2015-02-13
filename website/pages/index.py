@@ -17,7 +17,7 @@ def loginCheck(username,password,logins, timeOut=-1):
 			if 'username' in session:
 				if session['username']==logins[indexNumb][0]:
 					if session['password']==logins[indexNumb][1]:
-						passUserCorrect="cheese"
+						passUserCorrect=True
 				break
 		elif str(username)==logins[indexNumb][0]:
 			if str(password)==logins[indexNumb][1]:
