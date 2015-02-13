@@ -20,10 +20,11 @@ def loginCheck(username,password,logins, timeOut=True):
 	#timeOut is -1 or less for default, 0 for forever, or how many minutes
 	passUserCorrect=0
 
-	if not timeOut or username==False:
-		makeSessionPermanent()
-	else:
-		makeSessionDefault()
+	if username!=False:
+		if not timeOut:
+			makeSessionPermanent()
+		else:
+			makeSessionDefault()
 
 	for indexNumb in range(len(logins)):
 		if username==False:
