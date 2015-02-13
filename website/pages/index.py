@@ -17,8 +17,8 @@ def loginCheck(username,password,logins, timeOut=-1):
 			if 'username' in session:
 				if session['username']==logins[indexNumb][0]:
 					if session['password']==logins[indexNumb][1]:
-						passUserCorrect=True
-				break		
+						passUserCorrect="cheese"
+				break
 		elif str(username)==logins[indexNumb][0]:
 			if str(password)==logins[indexNumb][1]:
 				passUserCorrect=True
@@ -45,11 +45,13 @@ def loginCheckPage():
 	username=request.form.get("username")
 	password=request.form.get("password")
 	credsCorrect=loginCheck(username,password,userPass)
-
+	return credsCorrect
+	"""
 	if credsCorrect==True:
 		return redirect("/")
 	else: #they arn't correct
 		return redirect("/login/?inputIncorrect=True")
+	"""
 
 '''
 @app.route('/deleteArticle')
