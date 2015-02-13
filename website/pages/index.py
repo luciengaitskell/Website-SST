@@ -10,22 +10,22 @@ userPass=[["ur_mom", "stuff"],["user", "pass"]]
 def loginCheck(username,password,logins, timeOut=-1):
 	#username is False check cache
 	#timeOut is -1 or less for default, 0 for forever, or how many minutes
-	passUserCorrect=False
+	passUserCorrect=0
 
 	for indexNumb in range(len(logins)):
 		if username==False:
 			if 'username' in session:
 				if session['username']==logins[indexNumb][0]:
 					if session['password']==logins[indexNumb][1]:
-						passUserCorrect=True
+						passUserCorrect=1
 				break
 		elif str(username)==logins[indexNumb][0]:
 			if str(password)==logins[indexNumb][1]:
-				passUserCorrect=True
+				passUserCorrect=1
 				session['username']=str(username)
 				session['password']=str(password)
 			break
-	return passUserCorrect #returns True if the creds are correct and False if they arn't
+	return str(passUserCorrect) #returns True if the creds are correct and False if they arn't
 
 
 # a "/" after the link is only for ones that users visit, ones without are form submit pages and other things
@@ -51,10 +51,10 @@ def loginPage():
 def loginCheckPage():
 	username=request.form.get("username")
 	password=request.form.get("password")
-	credsCorrect=loginCheck(username,password,userPass)
+	credsCorrect=int(loginCheck(username,password,userPass))
 	return credsCorrect
 	"""
-	if credsCorrect==True:
+	if credsCorrect==1:
 		return redirect("/")
 	else: #they arn't correct
 		return redirect("/login/?inputIncorrect=True")
