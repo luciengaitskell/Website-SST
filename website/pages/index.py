@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session, Markup
 from file_len import file_length
+from datetime import timedelta
 import time
 import glob
 
@@ -7,10 +8,22 @@ app = Flask(__name__)
 
 userPass=[["ur_mom", "stuff"],["user", "pass"]]
 
-def loginCheck(username,password,logins, timeOut=-1):
+def makeSessionPermanent():
+    session.permanent = True
+    app.permanent_session_lifetime = timedelta(days=31)
+
+def makeSessionDefault():
+    session.permanent = False
+
+def loginCheck(username,password,logins, timeOut=True):
 	#username is False check cache
 	#timeOut is -1 or less for default, 0 for forever, or how many minutes
 	passUserCorrect=0
+
+	if not timeOut:
+		makeSessionPermanent()
+	else:
+		makeSessionDefault()
 
 	for indexNumb in range(len(logins)):
 		if username==False:
@@ -25,6 +38,8 @@ def loginCheck(username,password,logins, timeOut=-1):
 				session['username']=str(username)
 				session['password']=str(password)
 			break
+
+	makeSessionDefault()
 	return str(passUserCorrect) #returns True if the creds are correct and False if they arn't
 
 
@@ -51,14 +66,14 @@ def loginPage():
 def loginCheckPage():
 	username=request.form.get("username")
 	password=request.form.get("password")
+	remember=request.form.get("remeberPass")
 	credsCorrect=int(loginCheck(username,password,userPass))
-	return str(credsCorrect)
-	"""
+	return str(remember)
+
 	if credsCorrect==1:
 		return redirect("/")
 	else: #they arn't correct
 		return redirect("/login/?inputIncorrect=True")
-	"""
 
 '''
 @app.route('/deleteArticle')
