@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 from file_len import file_length
 import time
 import glob
@@ -7,11 +7,11 @@ app = Flask(__name__)
 
 @app.route('/deleteArticle')
 def deleteArticle():
+	password="daWebsitePass"
 	searchword = request.args.get('key', '')
 
-	if searchword=="":
-		return "test"
-	return searchword
+	#	return "test"
+	return session['tmp']
 
 @app.route('/favicon.ico')
 def favicon():
