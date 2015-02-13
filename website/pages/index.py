@@ -9,7 +9,6 @@ userPass=[["ur_mom", "stuff"],["user", "pass"]]
 
 def loginCheck(username,password,logins):
 	passUserCorrect=False
-	indexNumb
 
 	for indexNumb in range(len(logins)):
 		if logins[ii][0]==username:
