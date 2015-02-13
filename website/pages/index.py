@@ -40,7 +40,7 @@ def loginCheck(username,password,logins, timeOut=True):
 				session['password']=str(password)
 			break
 
-	makeSessionDefault()
+	#makeSessionDefault()
 	return str(passUserCorrect) #returns True if the creds are correct and False if they arn't
 
 
