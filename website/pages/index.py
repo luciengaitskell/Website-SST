@@ -11,7 +11,7 @@ def deleteArticle():
 	searchword = request.args.get('key', '')
 
 	#	return "test"
-	return session['tmp']
+	return 'tmp' in session
 
 @app.route('/favicon.ico')
 def favicon():
