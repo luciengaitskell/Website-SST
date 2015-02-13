@@ -24,10 +24,11 @@ def loginCheck(username,password,logins):
 # a "/" after the link is only for ones that users visit, ones without are form submit pages and other things
 @app.route('/login/')
 def loginPage():
-	request.args.get('inputIncorrect', '')
+	inputIncorrect=request.args.get('inputIncorrect', '')
 
 	if str(inputIncorrect)!="True":
 		inputIncorrect=False
+		return "u got it wrong"
 
 	return render_template('login.html')
 
