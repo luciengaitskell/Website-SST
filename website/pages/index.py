@@ -29,6 +29,12 @@ def loginCheck(username,password,logins, timeOut=-1):
 
 
 # a "/" after the link is only for ones that users visit, ones without are form submit pages and other things
+
+@app.route('/login/')
+def autoLoginTest():
+	credsCorrect=loginCheck(-1,-1,userPass)
+	return credsCorrect
+
 @app.route('/login/')
 def loginPage():
 	inputIncorrect=request.args.get('inputIncorrect', '')
