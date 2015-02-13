@@ -30,7 +30,7 @@ def loginCheck(username,password,logins, timeOut=-1):
 
 # a "/" after the link is only for ones that users visit, ones without are form submit pages and other things
 
-@app.route('/login/')
+@app.route('/test/')
 def autoLoginTest():
 	credsCorrect=loginCheck(-1,-1,userPass)
 	return session['username']
