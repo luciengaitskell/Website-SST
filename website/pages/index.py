@@ -30,6 +30,7 @@ def loginCheck(username,password,logins, timeOut=True):
 			if 'username' in session:
 				if session['username']==logins[indexNumb][0]:
 					if session['password']==logins[indexNumb][1]:
+						return "remembered"
 						passUserCorrect=1
 				break
 		elif str(username)==logins[indexNumb][0]:
@@ -67,7 +68,7 @@ def loginCheckPage():
 	username=request.form.get("username")
 	password=request.form.get("password")
 	remember=request.form.get("remeberPass")
-	
+
 	if remember=="on":
 		remeberInput=False
 	else:
@@ -75,6 +76,7 @@ def loginCheckPage():
 
 	credsCorrect=int(loginCheck(username,password,userPass,remeberInput))
 
+	return str(credsCorrect)
 	if credsCorrect==1:
 		return redirect("/")
 	else: #they arn't correct
