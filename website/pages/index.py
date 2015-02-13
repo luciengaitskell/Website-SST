@@ -11,7 +11,7 @@ def loginCheck(username,password,logins):
 	passUserCorrect=False
 
 	for indexNumb in range(len(logins)):
-		if logins[ii][0]==username:
+		if logins[indexNumb][0]==username:
 			if logins[indexNumb][1]==password:
 				passUserCorrect=True
 				session['username']=username
