@@ -7,15 +7,23 @@ app = Flask(__name__)
 
 userPass=[["ur_mom", "stuff"],["user", "pass"]]
 
-def loginCheck(username,password,logins):
+def loginCheck(username,password,logins, timeOut=-1):
+	#username is False check cache
+	#timeOut is -1 or less for default, 0 for forever, or how many minutes
 	passUserCorrect=False
 
 	for indexNumb in range(len(logins)):
-		if logins[indexNumb][0]==username:
-			if logins[indexNumb][1]==password:
+		if username==False:
+			if 'username' in session:
+				if session['username']==logins[indexNumb][0]:
+					if session['password']==logins[indexNumb][1]:
+						passUserCorrect=True
+				break		
+		elif str(username)==logins[indexNumb][0]:
+			if str(password)==logins[indexNumb][1]:
 				passUserCorrect=True
-				session['username']=username
-				session['password']=password
+				session['username']=str(username)
+				session['password']=str(password)
 			break
 	return passUserCorrect #returns True if the creds are correct and False if they arn't
 
