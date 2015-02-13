@@ -12,6 +12,7 @@ def deleteArticle():
 
 	if 'username' in session:
         return 'Logged in as %s' % escape(session['username'])
+		
     return 'You are not logged in'
 
 @app.route('/favicon.ico')
