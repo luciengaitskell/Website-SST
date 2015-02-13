@@ -52,7 +52,7 @@ def loginCheckPage():
 	username=request.form.get("username")
 	password=request.form.get("password")
 	credsCorrect=int(loginCheck(username,password,userPass))
-	return credsCorrect
+	return str(credsCorrect)
 	"""
 	if credsCorrect==1:
 		return redirect("/")
