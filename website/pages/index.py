@@ -37,7 +37,6 @@ def loginPage():
 def loginCheckPage():
 	username=request.form.get("username")
 	password=request.form.get("password")
-	credsCorrect
 	credsCorrect=loginCheck(username,password,userPass)
 
 	if credsCorrect==True:
