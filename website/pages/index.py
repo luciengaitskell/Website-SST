@@ -28,6 +28,7 @@ def loginPage():
 
 	if str(inputIncorrect)!="True":
 		inputIncorrect=False
+	else:
 		return "u got it wrong"
 
 	return render_template('login.html')
