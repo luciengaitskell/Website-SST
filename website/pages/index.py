@@ -1,20 +1,59 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, Markup
 from file_len import file_length
 import time
 import glob
 
 app = Flask(__name__)
 
+userPass=[["ur_mom", "stuff"],["user", "pass"]]
+
+def loginCheck(username,password,logins):
+	passUserCorrect=False
+	indexNumb
+
+	for indexNumb in range(len(logins)):
+		if logins[ii][0]==username:
+			if logins[indexNumb][1]==password:
+				passUserCorrect=True
+				session['username']=username
+				session['password']=password
+			break
+	return passUserCorrect #returns True if the creds are correct and False if they arn't
+
+
+# a "/" after the link is only for ones that users visit, ones without are form submit pages and other things
+@app.route('/login/')
+def loginPage():
+	request.args.get('inputIncorrect', '')
+
+	if str(inputIncorrect)!="True":
+		inputIncorrect=False
+
+	return render_template('login.html')
+
+@app.route('/loginCheck', methods=['POST'])
+def loginCheckPage():
+	username=request.form.get("username")
+	password=request.form.get("password")
+	credsCorrect
+	credsCorrect=loginCheck(username,password,userPass)
+
+	if credsCorrect==True:
+		return redirect("/")
+	else: #they arn't correct
+		return redirect("/login/?inputIncorrect=True")
+
+'''
 @app.route('/deleteArticle')
 def deleteArticle():
-	password="daWebsitePass"
-	searchword = request.args.get('key', '')
+
+	searchword = request.args.get('articleName', '')
 
 	if 'username' in session:
 		return'Logged in as %s' % escape(session['username'])
 
 	return 'You are not logged in'
-
+'''
 @app.route('/favicon.ico')
 def favicon():
 	return redirect(url_for('static', filename='favicon.ico'))
@@ -118,7 +157,14 @@ def displayMain():
 		noFiles=True
 
 	#return uniqueDates[1]
-	return render_template('main.html', noFiles=noFiles, fileNamesSorted=fileNamesSorted, dates=dates, names=names, titles=titles, texts=texts, singleIncrement=singleIncrement)
+	return render_template('main.html'
+	, noFiles=noFiles
+	, fileNamesSorted=fileNamesSorted
+	, dates=dates
+	, names=names
+	, titles=titles
+	, texts=texts
+	, singleIncrement=singleIncrement)
 
 @app.route('/post/')
 def postMain():
@@ -171,8 +217,15 @@ def postRecord():
 	file.close()
 
 	return redirect(url_for('displayMain'))
-	#return "Your Name is: " + str(name) + ", The Title is: " + str(title) + ", \n You said: \n\n" + str(articleText) + ", IT WAS POSTED TO " + str(filePath)
-
+	"""return str("Your Name is: "
+	 + str(name)
+	 + ", The Title is: "
+	 + str(title)
+	 + ", \n You said: \n\n"
+	 + str(articleText)
+	 + ", IT WAS POSTED TO "
+	 + str(filePath))
+	"""
 @app.route('/articles/')
 @app.route('/articles/<articleNumber>/')
 def readMain(articleNumber=None):
@@ -208,6 +261,7 @@ def signature():
 
 
 if __name__ == "__main__":
+	app.secret_key = 'Ymsf,sfatwBU!Iwruh,bus'
     app.debug = True
     app.run(
         host='0.0.0.0',

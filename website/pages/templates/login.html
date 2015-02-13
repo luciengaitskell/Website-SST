@@ -4,24 +4,18 @@
 <title>Post - LUC NEWS</title>
 <button type="button" onclick="window.location='/';">&lt;&lt;home</button>
 <br>
-<h1>Post Article</h1>
+<h1>login</h1>
 </head>
 
 <body>
-<form action="/post/record" method="POST">
+<form action="/loginCheck" method="POST">
   Title:
-  <INPUT TYPE="text" NAME="Title"
+  <INPUT TYPE="text" NAME="username"
    SIZE="50" MAXLENGTH="40">
    <br>
   Name:
-  <INPUT TYPE="text" NAME="Name"
+  <INPUT TYPE="password" NAME="password"
    SIZE="30" MAXLENGTH="40">
-   <br>
-   <br>
-   <TEXTAREA NAME="articleText"
-   wrap="soft"
-   ROWS="3" COLS="25"></TEXTAREA>
-
 <br><br>
 
 <INPUT TYPE="submit">
