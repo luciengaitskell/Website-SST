@@ -32,9 +32,9 @@ def loginCheck(username,password,logins, timeOut=-1):
 
 @app.route('/test/')
 def autoLoginTest():
-	credsCorrect=loginCheck(-1,-1,userPass)
-	return session['username']
-	#return str(credsCorrect)
+	credsCorrect=loginCheck(False,-1,userPass)
+	#return session['username']
+	return str(credsCorrect)
 
 @app.route('/login/')
 def loginPage():
