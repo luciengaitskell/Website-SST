@@ -60,62 +60,62 @@
 
 <body>
 <div class="container">
-    <div id="sidebar">
-      <br>
-      <br>
-      <br>
-      <b>LINKS</b>
-      <br>
-      <br>
-      <button type="button" onclick="window.location='/post/';">POST</button>
-      <br>
-      <br>
-      <button type="button" onclick="window.location='/help/';">HELP</button>
+<div id="sidebar">
+<br>
+<br>
+<br>
+<b>LINKS</b>
+<br>
+<br>
+<button type="button" onclick="window.location='/post/';">POST</button>
+<br>
+<br>
+<button type="button" onclick="window.location='/help/';">HELP</button>
 
-      <!--<a href="/post/">   POST</a>-->
-    </div>
+<!--<a href="/post/">   POST</a>-->
+</div>
 
-    <div id="header">
-      <div class="mainTitle">Articles:<div>
-      <br>
-      </div>
+<div id="header">
+<div class="mainTitle">Articles:<div>
+<br>
+</div>
 
 
-    <div id="content">
-      {% if noFiles==False %}
-        {% for singleIncrement in range(titles|length) %}
-        <div id="{{ (fileNamesSorted[singleIncrement])[:((fileNamesSorted[singleIncrement])|length)-4] }}" class="title">
-          <a href="/articles/{{ (fileNamesSorted[singleIncrement])[8:(fileNamesSorted[singleIncrement]|length)-4] }}/">
-            <!--Title: -->{{ titles[singleIncrement] }}
-          <a>
-        </div>
+<div id="content">
+{% if noFiles==False %}
+{% for singleIncrement in range(titles|length) %}
+<div id="{{ (fileNamesSorted[singleIncrement])[:((fileNamesSorted[singleIncrement])|length)-4] }}" class="title">
+<a href="/articles/{{ (fileNamesSorted[singleIncrement])[8:(fileNamesSorted[singleIncrement]|length)-4] }}/">
+<!--Title: -->{{ titles[singleIncrement] }}
+<a>
+</div>
 
-        <div class="author">Author: {{ names[singleIncrement] }}</div>
+<div class="author">Author: {{ names[singleIncrement] }}</div>
 
-        <div class="date">Date Posted: {{ dates[singleIncrement] }}</div>
+<div class="date">Date Posted: {{ dates[singleIncrement] }}</div>
 
-        <br><br>
-        <div class="mainText">{{ texts[singleIncrement*2] }}
-          {% if texts[(singleIncrement*2)+1] != "" %}
-            <br>
-            {{ texts[(singleIncrement*2)+1] }}
-          {% else %}
-            fake
-          {% endif %}
-          </div>
+<br><br>
+<div class="mainText">{{ texts[singleIncrement*2] }}
+{% if texts[(singleIncrement*2)+1] != "" %}
+<br>
+{{ texts[(singleIncrement*2)+1] }}
+{% else %}
+fake
+{% endif %}
+</div>
 
-        <hr>
-        {% endfor %}
-      {% else %}
-        <p> Looks Like No One Has Posted Anything<p>
-        <p> Why Don't You?<p>
-      {% endif %}
-    </div>
+<hr>
+{% endfor %}
+{% else %}
+<p> Looks Like No One Has Posted Anything<p>
+<p> Why Don't You?<p>
+{% endif %}
+</div>
 
-    <div id="footer">
-      Skillfully Designed By:
-      Lucien Gaitskell
-    </div>
+<div id="footer">
+Skillfully Designed By:
+Lucien Gaitskell
+</div>
 </div>
 </body>
 </html>
