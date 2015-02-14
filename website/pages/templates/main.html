@@ -9,6 +9,8 @@
    font-style: normal;
    font-variant: normal;
    font-size: 10px;
+   margin-left: 200px;
+   float: right;
   }
   #sidebar {
     font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
@@ -83,7 +85,7 @@
 
 <div id="header">
 <div class="mainTitle">Articles:<div>
-<div style="margin-left: 200px;float: right;">
+<div id="annouce">
 {% if username != False %}
 Hey {{ username }}!<br>
 <button type="button" onclick="window.location='/signOut/';">SIGNOUT</button>
