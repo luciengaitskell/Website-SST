@@ -50,7 +50,7 @@ def loginCheckRedirect(username,password,logins, linkTrue, linkFalse, timeOut=Tr
 	if result==1:
 		return redirect(linkTrue)
 	else:
-		return redirect(linkNo)
+		return redirect(linkFalse)
 
 # a "/" after the link is only for ones that users visit, ones without are form submit pages and other things
 
