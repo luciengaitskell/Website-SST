@@ -31,7 +31,7 @@ def loginCheck(username,password,logins, timeOut=True):
 			if 'username' in session:
 				if session['username']==logins[indexNumb][0]:
 					if session['password']==logins[indexNumb][1]:
-						#return "remembered"
+						return "remembered"
 						passUserCorrect=1
 				break
 		elif str(username)==logins[indexNumb][0]:
