@@ -31,7 +31,7 @@ def loginCheck(username,password,logins, timeOut=True):
 			if 'username' in session:
 				if session['username']==logins[indexNumb][0]:
 					if session['password']==logins[indexNumb][1]:
-						return "remembered"
+						#return "remembered"
 						passUserCorrect=1
 				break
 		elif str(username)==logins[indexNumb][0]:
@@ -43,7 +43,7 @@ def loginCheck(username,password,logins, timeOut=True):
 
 	#makeSessionDefault()
 	#return redirect("/")
-	return str(passUserCorrect) #returns True if the creds are correct and False if they arn't
+	return str(passUserCorrect) #returns 1 if the creds are correct and 0 if they arn't
 
 def loginCheckRedirect(username,password,logins, linkTrue, linkFalse, timeOut=True):
 	result=loginCheck(username,password,logins, timeOut)
