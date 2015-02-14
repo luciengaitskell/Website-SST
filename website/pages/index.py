@@ -55,6 +55,12 @@ def loginCheckRedirect(username,password,logins, linkTrue, linkFalse, timeOut=Tr
 
 # a "/" after the link is only for ones that users visit, ones without are form submit pages and other things
 
+@app.route('/signOut/')
+def signOut():
+    session['username']=""
+    session['password']=""
+    return redirect('/')
+
 @app.route('/test/')
 def autoLoginTest():
 	credsCorrect=loginCheck(False,-1,userPass)
