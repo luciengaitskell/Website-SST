@@ -47,7 +47,7 @@ def loginCheck(username,password,logins, timeOut=True):
 
 def loginCheckRedirect(username,password,logins, linkTrue, linkFalse, timeOut=True):
 	result=loginCheck(username,password,logins, timeOut)
-    #return str(result)
+	#return str(result)
 	if int(result)==1:
 		return redirect(linkTrue)
 	else:
@@ -57,9 +57,9 @@ def loginCheckRedirect(username,password,logins, linkTrue, linkFalse, timeOut=Tr
 
 @app.route('/signOut/')
 def signOut():
-    session['username']=""
-    session['password']=""
-    return redirect('/')
+	session['username']=""
+	session['password']=""
+	return redirect('/')
 
 @app.route('/test/')
 def autoLoginTest():
@@ -142,12 +142,12 @@ def displayMain():
 	names=[]
 	dates=[]
 	texts=[]
-    loggedIn=loginCheck(False,False,userPass)
-    loggedIn=int(loggedIn)
-    username=False
+	loggedIn=loginCheck(False,False,userPass)
+	loggedIn=int(loggedIn)
+	username=False
 
-    if loggedIn==1:
-        username=session['username']
+	if loggedIn==1:
+		username=session['username']
 
 	for ii in glob.glob("articles/*"):
 		fileNames.append(ii)
@@ -226,7 +226,7 @@ def displayMain():
 	, titles=titles
 	, texts=texts
 	, singleIncrement=singleIncrement
-    , username=username)
+	, username=username)
 
 @app.route('/post/')
 def postMain():
