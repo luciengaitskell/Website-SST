@@ -86,7 +86,7 @@ def loginCheckPage():
 
 	#credsCorrect=int(loginCheck(username,password,userPass,remeberInput))
 
-	return loginCheckRedirect(username,password,logins, linkTrue, linkFalse, remeberInput)
+	return loginCheckRedirect(username,password,userPass, linkTrue, linkFalse, remeberInput)
 
 	'''#return str(credsCorrect)
 	if credsCorrect==1:
