@@ -31,7 +31,7 @@ def loginCheck(username,password,logins, timeOut=True):
 			if 'username' in session:
 				if session['username']==logins[indexNumb][0]:
 					if session['password']==logins[indexNumb][1]:
-						return "remembered"
+						#return "remembered"
 						passUserCorrect=1
 				break
 		elif str(username)==logins[indexNumb][0]:
@@ -42,8 +42,15 @@ def loginCheck(username,password,logins, timeOut=True):
 			break
 
 	#makeSessionDefault()
-	return str(passUserCorrect) #returns True if the creds are correct and False if they arn't
+    return redirect("/")
+	#return str(passUserCorrect) #returns True if the creds are correct and False if they arn't
 
+def loginCheckRedirect(username,password,logins, linkTrue, linkFalse, timeOut=True):
+    result=loginCheck(username,password,logins, timeOut)
+    if result==1:
+        return redirect(linkTrue)
+    else:
+        return redirect(linkNo)
 
 # a "/" after the link is only for ones that users visit, ones without are form submit pages and other things
 
@@ -69,19 +76,23 @@ def loginCheckPage():
 	username=request.form.get("username")
 	password=request.form.get("password")
 	remember=request.form.get("remeberPass")
+    linkTrue='/'
+    linkFalse='/login/?inputIncorrect=True'
 
 	if remember=="on":
 		remeberInput=False
 	else:
 		remeberInput=True
 
-	credsCorrect=int(loginCheck(username,password,userPass,remeberInput))
+	#credsCorrect=int(loginCheck(username,password,userPass,remeberInput))
 
-	return str(credsCorrect)
+    return loginCheckRedirect(username,password,logins, linkTrue, linkFalse, remeberInput)
+
+	'''#return str(credsCorrect)
 	if credsCorrect==1:
 		return redirect("/")
 	else: #they arn't correct
-		return redirect("/login/?inputIncorrect=True")
+		return redirect("/login/?inputIncorrect=True")'''
 
 '''
 @app.route('/deleteArticle')
@@ -287,7 +298,11 @@ def readMain(articleNumber=None):
 			lines = articleFile.readlines()
 			for ii in range(len(lines)):
 				lines[ii]=lines[ii].decode('UTF-8')
-			return render_template('articleRender.html', filePathSnipped=filePathSnipped, filePath=filePath, lines=lines, lineIterator=lineIterator)
+			return render_template('articleRender.html'
+            , filePathSnipped=filePathSnipped
+            , filePath=filePath
+            , lines=lines
+            , lineIterator=lineIterator)
 	else:
 		return "NO FILE WAS FOUND WITH THAT NAME"
 
