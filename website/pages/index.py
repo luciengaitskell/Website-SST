@@ -42,8 +42,8 @@ def loginCheck(username,password,logins, timeOut=True):
 			break
 
 	#makeSessionDefault()
-	return redirect("/")
-	#return str(passUserCorrect) #returns True if the creds are correct and False if they arn't
+	#return redirect("/")
+	return str(passUserCorrect) #returns True if the creds are correct and False if they arn't
 
 def loginCheckRedirect(username,password,logins, linkTrue, linkFalse, timeOut=True):
 	result=loginCheck(username,password,logins, timeOut)
