@@ -77,6 +77,14 @@
 
 <div id="header">
 <div class="mainTitle">Articles:<div>
+<div style="float: right">
+{% if username != False %}
+Hey {{ username }}!<br>
+<button type="button" onclick="window.location='/signOut/';">SIGNOUT</button>
+{% else %}
+<button type="button" onclick="window.location='/login/';">LOGIN</button>
+{% endif %}
+<div>
 <br>
 </div>
 
