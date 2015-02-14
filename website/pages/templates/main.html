@@ -84,7 +84,7 @@
 </div>
 
 <div id="header">
-<div class="mainTitle">Articles:<div>
+<div class="mainTitle">Articles:</div>
 <div id="annouce">
 {% if username != False %}
 Hey {{ username }}!<br>
@@ -92,7 +92,7 @@ Hey {{ username }}!<br>
 {% else %}
 <button type="button" onclick="window.location='/login/';">LOGIN</button>
 {% endif %}
-<div>
+</div>
 <br>
 </div>
 
@@ -103,7 +103,7 @@ Hey {{ username }}!<br>
 <div id="{{ (fileNamesSorted[singleIncrement])[:((fileNamesSorted[singleIncrement])|length)-4] }}" class="title">
 <a href="/articles/{{ (fileNamesSorted[singleIncrement])[8:(fileNamesSorted[singleIncrement]|length)-4] }}/">
 <!--Title: -->{{ titles[singleIncrement] }}
-<a>
+</a>
 </div>
 
 <div class="author">Author: {{ names[singleIncrement] }}</div>
