@@ -84,15 +84,15 @@ def loginCheckPage():
 	else:
 		remeberInput=True
 
-	#credsCorrect=int(loginCheck(username,password,userPass,remeberInput))
+	credsCorrect=int(loginCheck(username,password,userPass,remeberInput))
 
-	return loginCheckRedirect(username,password,userPass, linkTrue, linkFalse, remeberInput)
+	#return loginCheckRedirect(username,password,userPass, linkTrue, linkFalse, remeberInput)
 
-	'''#return str(credsCorrect)
+	#return str(credsCorrect)
 	if credsCorrect==1:
 		return redirect("/")
 	else: #they arn't correct
-		return redirect("/login/?inputIncorrect=True")'''
+		return redirect("/login/?inputIncorrect=True")
 
 '''
 @app.route('/deleteArticle')
