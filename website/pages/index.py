@@ -47,6 +47,7 @@ def loginCheck(username,password,logins, timeOut=True):
 
 def loginCheckRedirect(username,password,logins, linkTrue, linkFalse, timeOut=True):
 	result=loginCheck(username,password,logins, timeOut)
+    return str(result)
 	if result==1:
 		return redirect(linkTrue)
 	else:
