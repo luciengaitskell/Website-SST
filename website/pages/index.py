@@ -9,48 +9,48 @@ app = Flask(__name__)
 userPass=[["ur_mom", "stuff"],["user", "pass"]]
 
 def makeSessionPermanent():
-    session.permanent = True
-    app.permanent_session_lifetime = timedelta(days=31)
+	session.permanent = True
+	app.permanent_session_lifetime = timedelta(days=31)
 
 def makeSessionDefault():
-    session.permanent = False
+	session.permanent = False
 
 def loginCheck(username,password,logins, timeOut=True):
-    #username is False check cache
-    #timeOut is -1 or less for default, 0 for forever, or how many minutes
-    passUserCorrect=0
+	#username is False check cache
+	#timeOut is -1 or less for default, 0 for forever, or how many minutes
+	passUserCorrect=0
 
-    if username!=False:
-        if not timeOut:
-            makeSessionPermanent()
-        else:
-            makeSessionDefault()
+	if username!=False:
+		if not timeOut:
+			makeSessionPermanent()
+		else:
+			makeSessionDefault()
 
-    for indexNumb in range(len(logins)):
-        if username==False:
-            if 'username' in session:
-                if session['username']==logins[indexNumb][0]:
-                    if session['password']==logins[indexNumb][1]:
-                        #return "remembered"
-                        passUserCorrect=1
-                break
-        elif str(username)==logins[indexNumb][0]:
-            if str(password)==logins[indexNumb][1]:
-                passUserCorrect=1
-                session['username']=str(username)
-                session['password']=str(password)
-            break
+	for indexNumb in range(len(logins)):
+		if username==False:
+			if 'username' in session:
+				if session['username']==logins[indexNumb][0]:
+					if session['password']==logins[indexNumb][1]:
+						#return "remembered"
+						passUserCorrect=1
+				break
+		elif str(username)==logins[indexNumb][0]:
+			if str(password)==logins[indexNumb][1]:
+				passUserCorrect=1
+				session['username']=str(username)
+				session['password']=str(password)
+			break
 
-    #makeSessionDefault()
-    return redirect("/")
+	#makeSessionDefault()
+	return redirect("/")
 	#return str(passUserCorrect) #returns True if the creds are correct and False if they arn't
 
 def loginCheckRedirect(username,password,logins, linkTrue, linkFalse, timeOut=True):
-    result=loginCheck(username,password,logins, timeOut)
-    if result==1:
-        return redirect(linkTrue)
-    else:
-        return redirect(linkNo)
+	result=loginCheck(username,password,logins, timeOut)
+	if result==1:
+		return redirect(linkTrue)
+	else:
+		return redirect(linkNo)
 
 # a "/" after the link is only for ones that users visit, ones without are form submit pages and other things
 
@@ -76,8 +76,8 @@ def loginCheckPage():
 	username=request.form.get("username")
 	password=request.form.get("password")
 	remember=request.form.get("remeberPass")
-    linkTrue='/'
-    linkFalse='/login/?inputIncorrect=True'
+	linkTrue='/'
+	linkFalse='/login/?inputIncorrect=True'
 
 	if remember=="on":
 		remeberInput=False
@@ -86,7 +86,7 @@ def loginCheckPage():
 
 	#credsCorrect=int(loginCheck(username,password,userPass,remeberInput))
 
-    return loginCheckRedirect(username,password,logins, linkTrue, linkFalse, remeberInput)
+	return loginCheckRedirect(username,password,logins, linkTrue, linkFalse, remeberInput)
 
 	'''#return str(credsCorrect)
 	if credsCorrect==1:
@@ -299,10 +299,10 @@ def readMain(articleNumber=None):
 			for ii in range(len(lines)):
 				lines[ii]=lines[ii].decode('UTF-8')
 			return render_template('articleRender.html'
-            , filePathSnipped=filePathSnipped
-            , filePath=filePath
-            , lines=lines
-            , lineIterator=lineIterator)
+			, filePathSnipped=filePathSnipped
+			, filePath=filePath
+			, lines=lines
+			, lineIterator=lineIterator)
 	else:
 		return "NO FILE WAS FOUND WITH THAT NAME"
 
