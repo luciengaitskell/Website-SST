@@ -20,7 +20,7 @@
 
 .container {
   position:relative;
-  padding:0 0 0 0;
+  padding:0 0 0 55px;
 }
 
 a:link, a:visited, a:hover, a:active {
