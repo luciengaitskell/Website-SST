@@ -54,7 +54,8 @@ def loginCheckRedirect(username,password,logins, linkTrue, linkFalse, timeOut=Tr
 		return redirect(linkFalse)
 
 
-# a "/" after the link is only for ones that users visit, ones without are form submit pages and other things
+# a "/" after the link is only for ones that users visit
+# ones without are form submit pages and other things
 
 @app.route('/signOut/')
 def signOut():
@@ -151,13 +152,7 @@ def displayMain():
 	names=[]
 	dates=[]
 	texts=[]
-	loggedIn=loginCheck(False,False,userPass)
-	loggedIn=int(loggedIn)
-	username=False
-
-	if loggedIn==1:
-		username=session['username']
-
+	
 	for ii in glob.glob("articles/*"):
 		fileNames.append(ii)
 
@@ -234,8 +229,7 @@ def displayMain():
 	, names=names
 	, titles=titles
 	, texts=texts
-	, singleIncrement=singleIncrement
-	, username=username)
+	, singleIncrement=singleIncrement)
 
 @app.route('/post/')
 def postMain():
@@ -258,7 +252,7 @@ def postRecord():
 	articleDate=time.strftime("%Y%m%d")
 	filePath=""
 	name=request.form.get("Name")
-	if name==None:#it's just the username
+	if name==None:#it's just the stored username
 		name=session['username']
 
 	if not name:#it's blank
