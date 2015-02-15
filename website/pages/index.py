@@ -258,7 +258,8 @@ def postRecord():
 	articleDate=time.strftime("%Y%m%d")
 	filePath=""
 	name=request.form.get("Name")
-	return name
+	if name==None:
+		return "poo"
 
 	if not name:#it's blank
 		name="Anonymous"
