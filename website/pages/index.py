@@ -245,6 +245,7 @@ def postMain():
 
 	if loggedIn==1:
 		username=session['username']
+		return "ur logged in"
 
 	return render_template('postArticle.html', username=username)
 
@@ -258,7 +259,7 @@ def postRecord():
 	articleDate=time.strftime("%Y%m%d")
 	filePath=""
 	name=request.form.get("Name")
-	
+
 	if not name:#it's blank
 		name="Anonymous"
 
