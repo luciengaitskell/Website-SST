@@ -69,7 +69,7 @@ def signOut():
 
 @app.route('/test/', methods=['POST'])
 def tests():
-	name=request.form.get("poo")
+	name=request.form.get("Name")
 	return name
 
 @app.route('/login/')
