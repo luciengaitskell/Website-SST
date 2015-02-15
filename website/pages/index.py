@@ -245,7 +245,6 @@ def postMain():
 
 	if loggedIn==1:
 		username=session['username']
-		return "ur logged in"
 
 	return render_template('postArticle.html', username=username)
 
