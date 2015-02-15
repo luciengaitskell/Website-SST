@@ -61,11 +61,16 @@ def signOut():
 	session['password']=""
 	return redirect('/')
 
-@app.route('/test/')
-def autoLoginTest():
+#@app.route('/test/')
+"""def autoLoginTest():
 	credsCorrect=loginCheck(False,-1,userPass)
 	#return session['username']
-	return str(credsCorrect)
+	return str(credsCorrect)"""
+
+@app.route('/test/', methods=['POST'])
+def tests():
+	name=request.form.get("poo")
+	return name
 
 @app.route('/login/')
 def loginPage():
@@ -243,12 +248,12 @@ def postRecord():
 	filePath=""
 	name=request.form.get("Name")
 
-	if not name:
+	if not name:#it's blank
 		name="Anonymous"
 
 	title=request.form.get("Title")
 
-	if not title:
+	if not title:#it's blank
 		title="Unamed"
 
 	articleText=request.form.get("articleText")
