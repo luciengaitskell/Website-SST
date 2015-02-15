@@ -152,7 +152,7 @@ def displayMain():
 	names=[]
 	dates=[]
 	texts=[]
-	
+
 	for ii in glob.glob("articles/*"):
 		fileNames.append(ii)
 
@@ -229,7 +229,8 @@ def displayMain():
 	, names=names
 	, titles=titles
 	, texts=texts
-	, singleIncrement=singleIncrement)
+	, singleIncrement=singleIncrement
+	, username=username)
 
 @app.route('/post/')
 def postMain():
