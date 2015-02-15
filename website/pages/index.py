@@ -258,8 +258,8 @@ def postRecord():
 	articleDate=time.strftime("%Y%m%d")
 	filePath=""
 	name=request.form.get("Name")
-	if name==None:
-		return "poo"
+	if name==None:#it's just the username
+		name=session['username']
 
 	if not name:#it's blank
 		name="Anonymous"
