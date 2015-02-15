@@ -79,11 +79,9 @@ def tests():
 @app.route('/login/')
 def loginPage():
 	inputIncorrect=request.args.get('inputIncorrect', '')
-
-	if str(inputIncorrect)=="True":
-		return "u got it wrong"
-
-	return render_template('login.html')
+	inputIncorrect=str(inputIncorrect)
+	
+	return render_template('login.html',inputIncorrect=inputIncorrect)
 
 @app.route('/loginCheck', methods=['POST'])
 def loginCheckPage():

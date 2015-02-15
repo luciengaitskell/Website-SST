@@ -8,6 +8,9 @@
 </head>
 
 <body>
+{% if inputIncorrect=="True" %}
+<div style="color: red;">YOU GOT YOUR CREDENTIALS</div>
+{% endif %}
 <form action="/loginCheck" method="POST">
 Username:
 <INPUT TYPE="text" NAME="username"
@@ -17,7 +20,7 @@ Password:
 <INPUT TYPE="password" NAME="password"
  SIZE="40" MAXLENGTH="40"><br>
 
-Remember Me: 
+Remember Me:
 <INPUT TYPE="checkbox" NAME="remeberPass">
 
 <br><br>
