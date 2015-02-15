@@ -69,8 +69,11 @@ def signOut():
 
 @app.route('/test/', methods=['POST'])
 def tests():
-	name=request.form.get("Name")
-	return name
+	if "Name" in request.form:
+		name=request.form.get("Name")
+		return name
+	else:
+		return "wasn't there"
 
 @app.route('/login/')
 def loginPage():
