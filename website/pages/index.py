@@ -56,10 +56,10 @@ def loginCheckRedirect(username,password,logins, linkTrue, linkFalse, timeOut=Tr
 
 # a "/" after the link is only for ones that users visit, ones without are form submit pages and other things
 
-@app.route('/signOut/')
+@app.route('/logOut/')
 def signOut():
-	session['username']=""
-	session['password']=""
+	session['username']=False
+	session['password']=False
 	return redirect('/')
 
 #@app.route('/test/')
