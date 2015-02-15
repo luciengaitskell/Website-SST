@@ -19,7 +19,11 @@
    NAME="Name"
    SIZE="30"
    MAXLENGTH="40"
+   {% if username != False %} {# if the user is signed in #}
+   value="{{ username }}"
    disabled
+   {% endif %}
+
    >
    <br>
    <br>
