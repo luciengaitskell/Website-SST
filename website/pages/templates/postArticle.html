@@ -8,15 +8,22 @@
 </head>
 
 <body>
-<form action="/test/" method="POST">
-<!--<form action="/post/record" method="POST">-->
+<form action="/post/record" method="POST">
   Title:
   <INPUT TYPE="text" NAME="Title"
    SIZE="50" MAXLENGTH="40">
    <br>
   Name:
-  <INPUT TYPE="text" NAME="Name"
-   SIZE="30" MAXLENGTH="40">
+  <INPUT
+   TYPE="text"
+   NAME="Name"
+   SIZE="30"
+   MAXLENGTH="40"
+   {% if username == False %} {# if the user is signed in #}
+   value="{{ username }}"
+   disabled
+   {% endif %}
+   >
    <br>
    <br>
    <TEXTAREA NAME="articleText"
