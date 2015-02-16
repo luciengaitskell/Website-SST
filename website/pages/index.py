@@ -351,7 +351,8 @@ def readMain(articleNumber=None):
 						, lines=lines
 						, lineIterator=lineIterator)
 
-				return "YOU DON'T HAVE PERMS"
+					return "ur signed in"
+				return "YOU DON'T HAVE PERMS	"
 			else:
 				return render_template('articleRender.html'
 				, filePathSnipped=filePathSnipped
