@@ -66,7 +66,7 @@ def signOut():
 
 @app.route('/test/')
 def testFunc():
-	return str(url_for(base_url))
+	return str(url_for(path))
 """def autoLoginTest():
 	credsCorrect=loginCheck(False,-1,userPass)
 	#return session['username']
@@ -348,7 +348,6 @@ def signature():
 
 
 if __name__ == "__main__":
-	app.config['SERVER_NAME']="lucien.ddns.net/"
 	app.secret_key = 'Ymsf,sfatwBU!Iwruh,bus'
 	app.debug = True
 	app.run(
