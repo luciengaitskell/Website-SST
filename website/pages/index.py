@@ -281,7 +281,7 @@ def postRecord():
 		file = open(filePath, "r")
 		lines=file.readlines()
 		#return lines[0]
-		articleDate=lines[0]
+		articleDate=lines[2]
 		file.close()
 	else:
 		while fileNamefound == False:
