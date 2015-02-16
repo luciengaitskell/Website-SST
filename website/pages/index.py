@@ -343,7 +343,7 @@ def readMain(articleNumber=None):
 
 			if request.path == "/articles/" + str(articleNumber) + "/edit/":
 				if loginCheck(False, False, userPass):
-					if str(lines[1])[:7]==str(session['username']):
+					if str(lines[1])[:6]==str(session['username']):
 						session['filePath']=filePath;
 						return render_template('articleEditor.html'
 						, filePathSnipped=filePathSnipped
