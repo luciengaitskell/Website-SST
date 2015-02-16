@@ -256,6 +256,7 @@ def postRecord():
 	fileNamefound = False
 
 	articleNumber=0
+
 	articleDate=time.strftime("%Y%m%d")
 	filePath=""
 	name=request.form.get("Name")
@@ -275,15 +276,19 @@ def postRecord():
 	if not articleText:
 		articleText="THIS IS SPAM"
 
-	while fileNamefound == False:
-		articleNumber=articleNumber+1
-		filePath=str(fileSubFolder) + str(fileBeginning) + str(articleDate) + "-" + str(articleNumber) + str(fileExtention)
+	if request.path = "/post/edit":
+		session['filePath']
+	else:
+		while fileNamefound == False:
+			articleNumber=articleNumber+1
+			filePath=str(fileSubFolder) + str(fileBeginning) + str(articleDate) + "-" + str(articleNumber) + str(fileExtention)
 
-		fileNamefound=True # gets set back to False if the name is already used
-		for ii in glob.glob("articles/*"):
-			if ii==filePath:
-				fileNamefound=False
-				break
+			fileNamefound=True # gets set back to False if the name is already used
+			for ii in glob.glob("articles/*"):
+				if ii==filePath:
+					fileNamefound=False
+					break
+
 
 	articleDateWrite=(str(articleDate.encode("UTF-8")) + "\n")
 	nameWrite=(str(name.encode("UTF-8")) + "\n")
@@ -297,7 +302,7 @@ def postRecord():
 	file.write(articleTextNew)
 	file.close()
 
-	return redirect(url_for('displayMain'))
+	return redirect("/")
 	"""return str("Your Name is: "
 	 + str(name)
 	 + ", The Title is: "
@@ -330,7 +335,12 @@ def readMain(articleNumber=None):
 				lines[ii]=lines[ii].decode('UTF-8')
 
 			if request.path == "/articles/" + str(articleNumber) + "/edit/":
-				return "u wanted to edit " + str(articleNumber)
+				session['filePath']=filePath;
+				return render_template('articleEditor.html'
+				, filePathSnipped=filePathSnipped
+				, filePath=filePath
+				, lines=lines
+				, lineIterator=lineIterator)
 			else:
 				return render_template('articleRender.html'
 				, filePathSnipped=filePathSnipped
