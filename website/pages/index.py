@@ -53,6 +53,8 @@ def loginCheckRedirect(username,password,logins, linkTrue, linkFalse, timeOut=Tr
 	else:
 		return redirect(linkFalse)
 
+def getArticleStuff():
+
 
 # a "/" after the link is only for ones that users visit, ones without are form submit pages and other things
 
@@ -62,7 +64,9 @@ def signOut():
 	session['password']=False
 	return redirect('/')
 
-#@app.route('/test/')
+@app.route('/test/')
+def testFunc():
+	return base_url
 """def autoLoginTest():
 	credsCorrect=loginCheck(False,-1,userPass)
 	#return session['username']
@@ -80,7 +84,7 @@ def tests():
 def loginPage():
 	inputIncorrect=request.args.get('inputIncorrect', '')
 	inputIncorrect=str(inputIncorrect)
-	
+
 	return render_template('login.html',inputIncorrect=inputIncorrect)
 
 @app.route('/loginCheck', methods=['POST'])
@@ -306,6 +310,7 @@ def postRecord():
 	"""
 @app.route('/articles/')
 @app.route('/articles/<articleNumber>/')
+@app.route('/articles/<articleNumber>/edit/')
 def readMain(articleNumber=None):
 	if articleNumber!=None:
 		fileSubfolder="articles/"
