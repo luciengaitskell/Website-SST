@@ -276,7 +276,7 @@ def postRecord():
 	if not articleText:
 		articleText="THIS IS SPAM"
 
-	if request.path = "/post/edit":
+	if request.path == "/post/edit":
 		session['filePath']
 	else:
 		while fileNamefound == False:
