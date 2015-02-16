@@ -280,6 +280,7 @@ def postRecord():
 		filePath=session['filePath']
 		file = open(filePath, "r")
 		lines=file.readlines()
+		return lines[0]
 		articleDate=lines[2]
 		file.close()
 	else:
