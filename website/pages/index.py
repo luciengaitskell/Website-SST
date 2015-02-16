@@ -54,7 +54,7 @@ def loginCheckRedirect(username,password,logins, linkTrue, linkFalse, timeOut=Tr
 		return redirect(linkFalse)
 
 def getArticleStuff():
-
+	pass
 
 # a "/" after the link is only for ones that users visit, ones without are form submit pages and other things
 
