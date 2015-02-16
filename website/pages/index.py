@@ -339,13 +339,19 @@ def readMain(articleNumber=None):
 			for ii in range(len(lines)):
 				lines[ii]=lines[ii].decode('UTF-8')
 
+			articleFile.close()
+
 			if request.path == "/articles/" + str(articleNumber) + "/edit/":
-				session['filePath']=filePath;
-				return render_template('articleEditor.html'
-				, filePathSnipped=filePathSnipped
-				, filePath=filePath
-				, lines=lines
-				, lineIterator=lineIterator)
+				if loginCheck(False, False, userPass):
+					if lines[1]==session['username']:
+						session['filePath']=filePath;
+						return render_template('articleEditor.html'
+						, filePathSnipped=filePathSnipped
+						, filePath=filePath
+						, lines=lines
+						, lineIterator=lineIterator)
+
+				return "YOU DON'T HAVE PERMS"
 			else:
 				return render_template('articleRender.html'
 				, filePathSnipped=filePathSnipped
