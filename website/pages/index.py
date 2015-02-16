@@ -278,6 +278,10 @@ def postRecord():
 
 	if request.path == "/post/edit":
 		filePath=session['filePath']
+		file = open(filePath, "w")
+		lines=file.readlines()
+		articleDate=lines[2]
+		file.close()
 	else:
 		while fileNamefound == False:
 			articleNumber=articleNumber+1
