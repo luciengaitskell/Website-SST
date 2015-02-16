@@ -348,6 +348,7 @@ def signature():
 
 
 if __name__ == "__main__":
+	app.config['lucieng.ddns.net']
 	app.secret_key = 'Ymsf,sfatwBU!Iwruh,bus'
 	app.debug = True
 	app.run(
