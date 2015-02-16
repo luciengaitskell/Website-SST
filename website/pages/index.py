@@ -333,12 +333,14 @@ def readMain(articleNumber=None):
 			for ii in range(len(lines)):
 				lines[ii]=lines[ii].decode('UTF-8')
 
-			return str(request.path)
-			return render_template('articleRender.html'
-			, filePathSnipped=filePathSnipped
-			, filePath=filePath
-			, lines=lines
-			, lineIterator=lineIterator)
+			if request.path == "/articles/" + str(articleNumber) + "/edit/":
+				return "u wanted to edit " + str(articleNumber)
+			else:
+				return render_template('articleRender.html'
+				, filePathSnipped=filePathSnipped
+				, filePath=filePath
+				, lines=lines
+				, lineIterator=lineIterator)
 	else:
 		return "NO FILE WAS FOUND WITH THAT NAME"
 
