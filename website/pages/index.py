@@ -7,7 +7,7 @@ import glob
 app = Flask(__name__)
 
 userPass=[["ur_mom", "stuff"],["user", "pass"]]
-fileSubfolder="articles/"
+fileSubFolder="articles/"
 fileBeginning="article-"
 fileExtention=".txt"
 
@@ -277,7 +277,7 @@ def postRecord():
 
 	while fileNamefound == False:
 		articleNumber=articleNumber+1
-		filePath=str(fileSubfolder) + str(fileBeginning) + str(articleDate) + "-" + str(articleNumber) + str(fileExtention)
+		filePath=str(fileSubFolder) + str(fileBeginning) + str(articleDate) + "-" + str(articleNumber) + str(fileExtention)
 
 		fileNamefound=True # gets set back to False if the name is already used
 		for ii in glob.glob("articles/*"):
@@ -313,7 +313,7 @@ def postRecord():
 def readMain(articleNumber=None):
 	if articleNumber!=None:
 		lineIterator=0
-		filePath=str(fileSubfolder) + str(fileBeginning) + str(articleNumber) + str(fileExtention)
+		filePath=str(fileSubFolder) + str(fileBeginning) + str(articleNumber) + str(fileExtention)
 		#filePathSnipped=filePath[9:len(filePath)-4] # moved lower and now easier to read
 		fileIsThere=False
 
