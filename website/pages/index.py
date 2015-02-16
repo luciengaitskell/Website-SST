@@ -7,6 +7,9 @@ import glob
 app = Flask(__name__)
 
 userPass=[["ur_mom", "stuff"],["user", "pass"]]
+fileSubfolder="articles/"
+fileBeginning="article-"
+fileExtention=".txt"
 
 def makeSessionPermanent():
 	session.permanent = True
@@ -137,9 +140,6 @@ def displayMain():
 	noFiles=False
 	fileNameOpen=""
 	newDate=""
-	fileSubFolder="articles/"
-	fileBeginng="article-"
-	fileExtention=".txt"
 	dateNew=True
 	uniqueDates=[]
 	newText=[]
@@ -187,7 +187,7 @@ def displayMain():
 			fileNamesNew.sort(reverse=True)
 
 			for jj in fileNamesNew:
-				fileNamesSorted.append(str(fileBeginng) + str(jj) + str(fileExtention))
+				fileNamesSorted.append(str(fileBeginning) + str(jj) + str(fileExtention))
 
 		for ii in fileNamesSorted:
 			fileNameOpen = open((str(fileSubFolder) + str(ii)), "r")
@@ -251,11 +251,10 @@ def postMain():
 	return render_template('postArticle.html', username=username)
 
 @app.route('/post/record', methods=['POST'])
+@app.route('/post/edit', methods=['POST'])
 def postRecord():
-	fileNamefound= False
-	fileSubfolder="articles/"
-	fileBeginning="article-"
-	fileExtention=".txt"
+	fileNamefound = False
+
 	articleNumber=0
 	articleDate=time.strftime("%Y%m%d")
 	filePath=""
@@ -314,9 +313,6 @@ def postRecord():
 def readMain(articleNumber=None):
 	if articleNumber!=None:
 		lineIterator=0
-		fileSubfolder="articles/"
-		fileBeginning="article-"
-		fileExtention=".txt"
 		filePath=str(fileSubfolder) + str(fileBeginning) + str(articleNumber) + str(fileExtention)
 		#filePathSnipped=filePath[9:len(filePath)-4] # moved lower and now easier to read
 		fileIsThere=False
