@@ -277,7 +277,7 @@ def postRecord():
 		articleText="THIS IS SPAM"
 
 	if request.path == "/post/edit":
-		session['filePath']
+		filePath=session['filePath']
 	else:
 		while fileNamefound == False:
 			articleNumber=articleNumber+1
