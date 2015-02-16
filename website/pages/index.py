@@ -343,14 +343,14 @@ def readMain(articleNumber=None):
 
 			if request.path == "/articles/" + str(articleNumber) + "/edit/":
 				if loginCheck(False, False, userPass):
-					if str(lines[1])==str(session['username']):
+					if str(lines[1])[:7]==str(session['username']):
 						session['filePath']=filePath;
 						return render_template('articleEditor.html'
 						, filePathSnipped=filePathSnipped
 						, filePath=filePath
 						, lines=lines
 						, lineIterator=lineIterator)
-					return "u need: " + str(lines[1])[7:] + ", but ur: " + str(session['username'])[6:]
+					return "u need: " + str(lines[1]) + ", but ur: " + str(session['username'])
 				return "YOU DON'T HAVE PERMS"
 			else:
 				return render_template('articleRender.html'
