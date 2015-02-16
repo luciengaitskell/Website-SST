@@ -350,7 +350,7 @@ def readMain(articleNumber=None):
 						, filePath=filePath
 						, lines=lines
 						, lineIterator=lineIterator)
-					return "u need: " + str(lines[1]) + ", but ur: " + str(session['username'])
+					return "u need: " + len(str(lines[1])) + ", but ur: " + len(str(session['username']))
 				return "YOU DON'T HAVE PERMS	"
 			else:
 				return render_template('articleRender.html'
