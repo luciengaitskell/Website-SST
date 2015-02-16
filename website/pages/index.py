@@ -66,7 +66,7 @@ def signOut():
 
 @app.route('/test/')
 def testFunc():
-	return str(request.path)[:3]
+	return str(request.path)[1:3]
 """def autoLoginTest():
 	credsCorrect=loginCheck(False,-1,userPass)
 	#return session['username']
