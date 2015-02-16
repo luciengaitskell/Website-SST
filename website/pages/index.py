@@ -66,7 +66,7 @@ def signOut():
 
 @app.route('/test/')
 def testFunc():
-	return str(request.path)[1:3]
+	return str(request.path)
 """def autoLoginTest():
 	credsCorrect=loginCheck(False,-1,userPass)
 	#return session['username']
@@ -313,23 +313,27 @@ def postRecord():
 @app.route('/articles/<articleNumber>/edit/')
 def readMain(articleNumber=None):
 	if articleNumber!=None:
+		lineIterator=0
 		fileSubfolder="articles/"
 		fileBeginning="article-"
 		fileExtention=".txt"
 		filePath=str(fileSubfolder) + str(fileBeginning) + str(articleNumber) + str(fileExtention)
-		filePathSnipped=filePath[9:len(filePath)-4]
+		#filePathSnipped=filePath[9:len(filePath)-4] # moved lower and now easier to read
 		fileIsThere=False
-		lineIterator=0
+
 		for name in glob.glob(filePath):
 			fileIsThere=True
 
 		if fileIsThere==False:
 			return redirect('/articles', code=302)
 		else:
+			filePathSnipped=str(fileBeginning)+str(articleNumber)
 			articleFile=open(filePath)
 			lines = articleFile.readlines()
 			for ii in range(len(lines)):
 				lines[ii]=lines[ii].decode('UTF-8')
+
+			return str(request.path)
 			return render_template('articleRender.html'
 			, filePathSnipped=filePathSnipped
 			, filePath=filePath
