@@ -244,7 +244,7 @@ def postMain():
 	loggedIn=loginCheck(False,False,userPass)
 	loggedIn=int(loggedIn)
 	username=False
-	return loggedIn
+	return str(loggedIn)
 	if loggedIn==1:
 		username=session['username']
 
