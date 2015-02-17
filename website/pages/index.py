@@ -340,7 +340,7 @@ def readMain(articleNumber=None):
 								name=lines[ii]
 							elif ii>3:
 								text=''' "\n" + '''str(text) + str(lines[ii])
-						return str(text)
+						#return str(text)
 						#had to omit last char from the file from the line (it stopped it working)
 						session['filePath']=filePath;
 						return render_template('articleEditor.html'
