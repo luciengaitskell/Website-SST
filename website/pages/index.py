@@ -339,7 +339,7 @@ def readMain(articleNumber=None):
 							elif ii==1:
 								name=lines[ii]
 							elif ii>3:
-								text= ''' "\n" + ''' str(text) + str(lines[ii])
+								text= str(text) + str(lines[ii])
 						#return str(text)
 						#had to omit last char from the file from the line (it stopped it working)
 						session['filePath']=filePath;
