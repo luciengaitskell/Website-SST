@@ -331,7 +331,6 @@ def readMain(articleNumber=None):
 			if request.path == "/articles/" + str(articleNumber) + "/edit/":
 				if loginCheck(False, False, userPass):
 					if str(lines[1])[:len(lines[1])-1]==str(session['username']):
-
 						text=lines[3]
 						for ii in range(len(lines)):
 							if ii==0:
@@ -339,7 +338,7 @@ def readMain(articleNumber=None):
 							elif ii==1:
 								name=lines[ii]
 							elif ii>3:
-								text= str(text) + str(lines[ii])
+								text= str(text) + str(lines[ii]) # the line already has carrage returns in them
 						#return str(text)
 						#had to omit last char from the file from the line (it stopped it working)
 						session['filePath']=filePath;
