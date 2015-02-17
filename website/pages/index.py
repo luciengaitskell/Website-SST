@@ -18,7 +18,7 @@ def makeSessionPermanent():
 def makeSessionDefault():
 	session.permanent = False
 
-def loginCheck(username,password,logins, timeOut=True):
+def loginCheckMain(username, password, logins, cacheCheck, timeOut=True):
 	#username is False check cache
 	#timeOut is -1 or less for default, 0 for forever, or how many minutes
 	passUserCorrect=0
@@ -30,7 +30,7 @@ def loginCheck(username,password,logins, timeOut=True):
 			makeSessionDefault()
 
 	for indexNumb in range(len(logins)):
-		if username==False:
+		if cacheCheck==True:
 			if 'username' in session:
 				if session['username']==logins[indexNumb][0]:
 					if session['password']==logins[indexNumb][1]:
@@ -49,15 +49,23 @@ def loginCheck(username,password,logins, timeOut=True):
 	return str(passUserCorrect) #returns 1 if the creds are correct and 0 if they arn't
 
 def loginCheckRedirect(username,password,logins, linkTrue, linkFalse, timeOut=True):
-	result=loginCheck(username,password,logins, timeOut)
+	result=loginCheckMain(username, password, logins, False, timeOut)
 	#return str(result)
 	if int(result)==1:
 		return redirect(linkTrue)
 	else:
 		return redirect(linkFalse)
 
-def getArticleStuff():
-	pass
+def loginCheckCache(logins): # checks if the cache contains a match for creds in logins
+	return loginCheckMain(False, False, logins, True)
+
+def loginCheckCacheMatch(username, password):
+	# checks if cache matches the input username and pass
+	return loginCheckMain(username, password, [ ], True)
+
+def loginCheckSignin(username, password, logins, timeOut):
+	# checks if the user and pass match a login, has a time out option
+	return loginCheckMain(username, password, logins, False, timeOut)
 
 # a "/" after the link is only for ones that users visit, ones without are form submit pages and other things
 
