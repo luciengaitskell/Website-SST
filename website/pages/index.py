@@ -62,6 +62,17 @@ def loginCheckMain(username, password, logins, cacheCheck, timeOut=True):
 	#return redirect("/")
 	return str(passUserCorrect) #returns 1 if the creds are correct and 0 if they arn't
 
+def loginCheckCache(logins): # checks if the cache contains a match for creds in logins
+	return loginCheckMain(False, False, logins, True)
+
+def loginCheckCacheMatch(username, password):
+	# checks if cache matches the input username and pass
+	return loginCheckMain(username, password, [ ], True)
+
+def loginCheckSignin(username, password, logins, timeOut=True):
+	# checks if the user and pass match a login, has a time out option
+	return loginCheckMain(username, password, logins, False, timeOut)
+
 def loginCheckRedirect(username,password,logins, linkTrue, linkFalse, timeOut=True):
 	result=loginCheckSignin(username, password, logins, False, timeOut)
 	#return str(result)
@@ -70,16 +81,6 @@ def loginCheckRedirect(username,password,logins, linkTrue, linkFalse, timeOut=Tr
 	else:
 		return redirect(linkFalse)
 
-def loginCheckCache(logins): # checks if the cache contains a match for creds in logins
-	return loginCheckMain(False, False, logins, True)
-
-def loginCheckCacheMatch(username, password):
-	# checks if cache matches the input username and pass
-	return loginCheckMain(username, password, [ ], True)
-
-def loginCheckSignin(username, password, logins, timeOut):
-	# checks if the user and pass match a login, has a time out option
-	return loginCheckMain(username, password, logins, False, timeOut)
 
 # a "/" after the link is only for ones that users visit, ones without are form submit pages and other things
 
@@ -101,7 +102,7 @@ def displayMain():
 	names=[]
 	dates=[]
 	texts=[]
-	loggedIn=loginCheck(False,False,userPass)
+	loggedIn=loginCheckCache(userPass)
 	loggedIn=int(loggedIn)
 	username=False
 
@@ -195,7 +196,7 @@ def loginPage():
 
 	return render_template('login.html',inputIncorrect=inputIncorrect)
 
-@app.route('/loginCheck', methods=['POST'])
+@app.route('/fileSubFolder', methods=['POST'])
 def loginCheckPage():
 	username=request.form.get("username")
 	password=request.form.get("password")
@@ -207,8 +208,6 @@ def loginCheckPage():
 		remeberInput=False
 	else:
 		remeberInput=True
-
-	#credsCorrect=int(loginCheck(username,password,userPass,remeberInput))
 
 	return loginCheckRedirect(username,password,userPass, linkTrue, linkFalse, remeberInput)
 
@@ -244,7 +243,7 @@ def arrayToUnicode(inputArray):
 
 @app.route('/post/')
 def postMain():
-	loggedIn=loginCheck(False,False,userPass)
+	loggedIn=loginCheckCache(userPass)
 	loggedIn=int(loggedIn)
 	username=False
 
@@ -346,7 +345,7 @@ def readMain(articleNumber=None):
 			articleFile.close()
 
 			if request.path == "/articles/" + str(articleNumber) + "/edit/":
-				if int(loginCheck(False, False, userPass))==1:
+				if int(loginCheckCache(userPass))==1:
 					if str(lines[1])[:len(lines[1])-1]==str(session['username']):
 						text=lines[3]
 						for ii in range(len(lines)):
@@ -384,23 +383,6 @@ def helpPage():
 @app.route('/test/')
 def testFunc():
 	return str(request.path)
-"""def autoLoginTest():
-	credsCorrect=loginCheck(False,-1,userPass)
-	#return session['username']
-	return str(credsCorrect)"""
-
-"""@app.route('/test/', methods=['POST'])
-def tests():
-	if "Name" in request.form:
-		name=request.form.get("Name")
-		return name
-	else:
-		return "wasn't there" """
-
-"""@app.route('/signature/')
-def signature():
-	return render_template('signature.html')"""
-
 
 if __name__ == "__main__":
 	app.secret_key = 'Ymsf,sfatwBU!Iwruh,bus'
