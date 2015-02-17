@@ -324,7 +324,7 @@ def readMain(articleNumber=None):
 			articleFile.close()
 
 			if request.path == "/articles/" + str(articleNumber) + "/edit/":
-				if loginCheck(False, False, userPass):
+				if int(loginCheck(False, False, userPass))==1:
 					if str(lines[1])[:len(lines[1])-1]==str(session['username']):
 						text=lines[3]
 						for ii in range(len(lines)):
