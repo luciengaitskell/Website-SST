@@ -20,10 +20,17 @@ def makeSessionDefault():
 
 def loginCheckMain(username, password, logins, cacheCheck, timeOut=True):
 	#username is False check cache
-	#timeOut is -1 or less for default, 0 for forever, or how many minutes
 	passUserCorrect=0
+	mode=False
+	#mode set
+	if (username==False or password==False) and cacheCheck:# mode: loginCheckCache
+		mode=1
+	elif cacheCheck: # mode: loginCheckCacheMatch
+		mode=2
+	elif not cacheCheck: #mode: loginCheckSignin
+		mode=3
 
-	if username!=False:
+	if not cacheCheck: # its a signin
 		if not timeOut:
 			makeSessionPermanent()
 		else:
@@ -32,8 +39,15 @@ def loginCheckMain(username, password, logins, cacheCheck, timeOut=True):
 	for indexNumb in range(len(logins)):
 		if cacheCheck==True:
 			if 'username' in session:
-				if session['username']==logins[indexNumb][0]:
-					if session['password']==logins[indexNumb][1]:
+				userCheck=logins[indexNumb][0]
+				passCheck=logins[indexNumb][1]
+
+				if username!=False:
+					userCheck=username
+					passCheck=password
+
+				if session['username']==userCheck:
+					if session['password']==passCheck:
 						#return "remembered"
 						passUserCorrect=1
 						break
@@ -49,7 +63,7 @@ def loginCheckMain(username, password, logins, cacheCheck, timeOut=True):
 	return str(passUserCorrect) #returns 1 if the creds are correct and 0 if they arn't
 
 def loginCheckRedirect(username,password,logins, linkTrue, linkFalse, timeOut=True):
-	result=loginCheckMain(username, password, logins, False, timeOut)
+	result=loginCheckSignin(username, password, logins, False, timeOut)
 	#return str(result)
 	if int(result)==1:
 		return redirect(linkTrue)
