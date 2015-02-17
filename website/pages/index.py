@@ -61,80 +61,6 @@ def getArticleStuff():
 
 # a "/" after the link is only for ones that users visit, ones without are form submit pages and other things
 
-@app.route('/logOut/')
-def signOut():
-	session['username']=False
-	session['password']=False
-	return redirect('/')
-
-@app.route('/test/')
-def testFunc():
-	return str(request.path)
-"""def autoLoginTest():
-	credsCorrect=loginCheck(False,-1,userPass)
-	#return session['username']
-	return str(credsCorrect)"""
-
-"""@app.route('/test/', methods=['POST'])
-def tests():
-	if "Name" in request.form:
-		name=request.form.get("Name")
-		return name
-	else:
-		return "wasn't there" """
-
-@app.route('/login/')
-def loginPage():
-	inputIncorrect=request.args.get('inputIncorrect', '')
-	inputIncorrect=str(inputIncorrect)
-
-	return render_template('login.html',inputIncorrect=inputIncorrect)
-
-@app.route('/loginCheck', methods=['POST'])
-def loginCheckPage():
-	username=request.form.get("username")
-	password=request.form.get("password")
-	remember=request.form.get("remeberPass")
-	linkTrue='/'
-	linkFalse='/login/?inputIncorrect=True'
-
-	if remember=="on":
-		remeberInput=False
-	else:
-		remeberInput=True
-
-	#credsCorrect=int(loginCheck(username,password,userPass,remeberInput))
-
-	return loginCheckRedirect(username,password,userPass, linkTrue, linkFalse, remeberInput)
-
-	#return str(credsCorrect)
-	'''if credsCorrect==1:
-		return redirect("/")
-	else: #they arn't correct
-		return redirect("/login/?inputIncorrect=True")'''
-
-'''
-@app.route('/deleteArticle')
-def deleteArticle():
-
-	searchword = request.args.get('articleName', '')
-
-	if 'username' in session:
-		return'Logged in as %s' % escape(session['username'])
-
-	return 'You are not logged in'
-'''
-@app.route('/favicon.ico')
-def favicon():
-	return redirect(url_for('static', filename='favicon.ico'))
-
-def arrayToUnicode(inputArray):
-	outputArray=[]
-
-	for gg in inputArray:
-		outputArray.append(gg.decode('UTF-8'))
-	return outputArray
-
 @app.route('/')
 def displayMain():
 	noFiles=False
@@ -238,6 +164,67 @@ def displayMain():
 	, texts=texts
 	, singleIncrement=singleIncrement
 	, username=username)
+
+@app.route('/logOut/')
+def signOut():
+	session['username']=False
+	session['password']=False
+	return redirect('/')
+
+
+@app.route('/login/')
+def loginPage():
+	inputIncorrect=request.args.get('inputIncorrect', '')
+	inputIncorrect=str(inputIncorrect)
+
+	return render_template('login.html',inputIncorrect=inputIncorrect)
+
+@app.route('/loginCheck', methods=['POST'])
+def loginCheckPage():
+	username=request.form.get("username")
+	password=request.form.get("password")
+	remember=request.form.get("remeberPass")
+	linkTrue='/'
+	linkFalse='/login/?inputIncorrect=True'
+
+	if remember=="on":
+		remeberInput=False
+	else:
+		remeberInput=True
+
+	#credsCorrect=int(loginCheck(username,password,userPass,remeberInput))
+
+	return loginCheckRedirect(username,password,userPass, linkTrue, linkFalse, remeberInput)
+
+	#return str(credsCorrect)
+	'''if credsCorrect==1:
+		return redirect("/")
+	else: #they arn't correct
+		return redirect("/login/?inputIncorrect=True")'''
+
+'''
+@app.route('/deleteArticle')
+def deleteArticle():
+
+	searchword = request.args.get('articleName', '')
+
+	if 'username' in session:
+		return'Logged in as %s' % escape(session['username'])
+
+	return 'You are not logged in'
+'''
+@app.route('/favicon.ico')
+def favicon():
+	return redirect(url_for('static', filename='favicon.ico'))
+
+def arrayToUnicode(inputArray):
+	outputArray=[]
+
+	for gg in inputArray:
+		outputArray.append(gg.decode('UTF-8'))
+	return outputArray
+
+
 
 @app.route('/post/')
 def postMain():
@@ -377,6 +364,22 @@ def readMain(articleNumber=None):
 @app.route('/help/')
 def helpPage():
 	return render_template('helpPage.html')
+	
+@app.route('/test/')
+def testFunc():
+	return str(request.path)
+"""def autoLoginTest():
+	credsCorrect=loginCheck(False,-1,userPass)
+	#return session['username']
+	return str(credsCorrect)"""
+
+"""@app.route('/test/', methods=['POST'])
+def tests():
+	if "Name" in request.form:
+		name=request.form.get("Name")
+		return name
+	else:
+		return "wasn't there" """
 
 """@app.route('/signature/')
 def signature():
