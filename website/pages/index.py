@@ -333,7 +333,6 @@ def readMain(articleNumber=None):
 					if str(lines[1])[:len(lines[1])-1]==str(session['username']):
 
 						text=lines[3]
-						return text
 						for ii in range(len(lines)):
 							if ii==0:
 								title=lines[ii]
@@ -341,7 +340,7 @@ def readMain(articleNumber=None):
 								name=lines[ii]
 							elif ii>3:
 								text="\n" + str(text) + str(lines[ii])
-
+						return text
 						#had to omit last char from the file from the line (it stopped it working)
 						session['filePath']=filePath;
 						return render_template('articleEditor.html'
