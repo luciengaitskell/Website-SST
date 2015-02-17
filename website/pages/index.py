@@ -196,7 +196,7 @@ def loginPage():
 
 	return render_template('login.html',inputIncorrect=inputIncorrect)
 
-@app.route('/fileSubFolder', methods=['POST'])
+@app.route('/loginCheck', methods=['POST'])
 def loginCheckPage():
 	username=request.form.get("username")
 	password=request.form.get("password")
