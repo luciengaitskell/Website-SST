@@ -11,19 +11,24 @@
 <form action="/post/edit" method="POST">
 Title:
 <INPUT TYPE="text" NAME="Title"
- SIZE="50" MAXLENGTH="40">
+ SIZE="50" MAXLENGTH="40"
+ value="{{ title }}"
+ >
  <br>
 Name:
 <INPUT
  TYPE="text"
  NAME="Name"
  SIZE="30"
- MAXLENGTH="40">
+ MAXLENGTH="40"
+ value="{{ name }}"
+ disabled
+ >
  <br>
  <br>
  <TEXTAREA NAME="articleText"
  wrap="soft"
- ROWS="3" COLS="25">{{ "line 1\nline2" }}</TEXTAREA>
+ ROWS="3" COLS="25">{{ text }}</TEXTAREA>
 
 <br><br>
 

@@ -344,13 +344,25 @@ def readMain(articleNumber=None):
 			if request.path == "/articles/" + str(articleNumber) + "/edit/":
 				if loginCheck(False, False, userPass):
 					if str(lines[1])[:len(lines[1])-1]==str(session['username']):
+
+						text=lines[3]
+						for ii in range(len(lines)):
+							if ii==0:
+								title=lines[ii]
+							elif ii==1:
+								name=lines[ii]
+							elif ii>3:
+								text="\n" + str(text) + str(lines[ii])
+
 						#had to omit last char from the file from the line (it stopped it working)
 						session['filePath']=filePath;
 						return render_template('articleEditor.html'
 						, filePathSnipped=filePathSnipped
 						, filePath=filePath
 						, lines=lines
-						, lineIterator=lineIterator)
+						, title=title
+						, name=name
+						, text=text)
 					return "u need: " + str(lines[1]) + ", but ur: " + str(session['username'])
 				return "YOU DON'T HAVE PERMS"
 			else:
