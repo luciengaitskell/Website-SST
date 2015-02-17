@@ -333,6 +333,7 @@ def readMain(articleNumber=None):
 					if str(lines[1])[:len(lines[1])-1]==str(session['username']):
 
 						text=lines[3]
+						return text
 						for ii in range(len(lines)):
 							if ii==0:
 								title=lines[ii]
@@ -364,7 +365,7 @@ def readMain(articleNumber=None):
 @app.route('/help/')
 def helpPage():
 	return render_template('helpPage.html')
-	
+
 @app.route('/test/')
 def testFunc():
 	return str(request.path)
