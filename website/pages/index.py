@@ -89,18 +89,18 @@ def displayMain():
 	for ii in glob.glob("articles/*"):
 		fileNames.append(ii)
 
-	if len(fileNames)>0:
-		for ii in range(len(fileNames)):
-			newDate=(fileNames[ii])[17:len(fileNames[ii])-6]
+	if len(fileNames)>0: # there are files
+		for ii in range(len(fileNames)): # for each file
+			newDate=(fileNames[ii])[17:len(fileNames[ii])-6] # Date of the file
 			dateNew=True
-			for jj in uniqueDates:
+			for jj in uniqueDates: # Finding if the date of the file is new
 				if jj == newDate:
 					dateNew=False
 
 			if dateNew == True:
-				uniqueDates.append(newDate)
+				uniqueDates.append(newDate) # adding file date if its good
 
-		uniqueDates.sort(reverse=True)
+		uniqueDates.sort(reverse=True) # sorting the dates so the latest ones are first
 
 		for ii in range(len(uniqueDates)):
 			fileNamesNew=[]
@@ -118,6 +118,7 @@ def displayMain():
 		for ii in fileNamesSorted:
 			fileNameOpen = open((str(fileSubFolder) + str(ii)), "r")
 			jj = fileNameOpen.readlines()
+			fileNameOpen.close()
 
 			titles.append(jj[0])
 			names.append(jj[1])
@@ -130,13 +131,6 @@ def displayMain():
 			if len(newText[0]) > maxLineLength:
 				newText[0]=(newText[0])[:maxLineLength]
 				newText[1]=(jj[3])[maxLineLength:]
-
-			#if len(jj)>4 or newText[1] != None: #more than one text lines or the first line text carries over
-				#newText.append("")#need to create a elemet in the 1 place
-				#return "it equals: " + str(newText[1])
-				#newText[1]=(newText[0])[maxLineLength:]
-
-			if newText[1] != "":
 				if len(newText[1]) > maxLineLength:
 					newText[1]=str((newText[1])[:maxLineLength-len("...")]) + "..."
 
@@ -282,10 +276,11 @@ def postRecord():
 					break
 
 
-	articleDateWrite=(str(articleDate.encode("UTF-8")) + "\n")
-	nameWrite=(str(name.encode("UTF-8")) + "\n")
+
 	titleNew=(str(title.encode("UTF-8")) + "\n")
-	articleTextNew=(str(articleText.encode("UTF-8")) + "\n\n")
+	nameWrite=(str(name.encode("UTF-8")) + "\n")
+	articleDateWrite=(str(articleDate.encode("UTF-8")) + "\n")
+	articleTextNew=(str(articleText.encode("UTF-8"))) # removed the + "\n\n"
 
 	file = open(filePath, "w")
 	file.write(titleNew)
