@@ -10,7 +10,7 @@ userPass=[["ur_mom", "stuff"],["user", "pass"]]
 fileSubFolder="articles/"
 fileBeginning="article-"
 fileExtention=".txt"
-
+#remove dis comment
 def makeSessionPermanent():
 	session.permanent = True
 	app.permanent_session_lifetime = timedelta(days=31)
