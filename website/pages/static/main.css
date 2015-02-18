@@ -2,12 +2,13 @@
   font-size: 150%;
 }
 
-.title {
-  font-size: 150%;
-}
 
 .title:hover {
   color: blue;
+}
+
+.title {
+  font-size: 150%;
 }
 
 .author {
