@@ -145,7 +145,7 @@ def displayMain():
 			fileNameOpen.close()
 
 			if int(loginCheckCache(userPass))==1:
-				return "ur: " + str(session['username']) + ", but u need: " + str((jj[1])[:len(jj[1])-1])
+				#return "ur: " + str(session['username']) + ", but u need: " + str((jj[1])[:len(jj[1])-1])
 				if session['username']==(jj[1])[:len(jj[1])-1]:
 
 					editableFiles.append("/" + str(fileSubFolder) + str(ii)[:len(ii)-4] + "/")
