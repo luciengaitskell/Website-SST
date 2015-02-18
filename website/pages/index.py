@@ -350,6 +350,7 @@ def readMain(articleNumber=None):
 			fileIsThere=True
 
 		if fileIsThere==False:
+			return str(articleNumber)
 			return redirect('/articles', code=302)
 		else:
 			filePathSnipped=str(fileBeginning)+str(articleNumber)
