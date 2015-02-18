@@ -112,6 +112,9 @@ Hey {{ username }}!<br>
 <div id="{{ (fileNamesSorted[singleIncrement])[:((fileNamesSorted[singleIncrement])|length)-4] }}" class="title">
 <a href="/articles/{{ (fileNamesSorted[singleIncrement])[8:(fileNamesSorted[singleIncrement]|length)-4] }}/">
 <!--Title: -->{{ titles[singleIncrement] }}
+{% if editableFiles[singleIncrement] != False %}
+<button type="button" onclick="window.location='{{ editableFiles[singleIncrement] }}';">EDIT</button>
+{% endif %}
 </a>
 </div>
 

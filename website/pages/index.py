@@ -138,10 +138,19 @@ def displayMain():
 			for jj in fileNamesNew:
 				fileNamesSorted.append(str(fileBeginning) + str(jj) + str(fileExtention))
 
+		editableFiles=[]
 		for ii in fileNamesSorted:
 			fileNameOpen = open((str(fileSubFolder) + str(ii)), "r")
 			jj = fileNameOpen.readlines()
 			fileNameOpen.close()
+
+			if int(loginCheckCache(userPass)==1):
+				if session['username']==(jj[1])[:len(jj[1])-1]:
+					editableFiles.append("/" + str(fileSubFolder) + str(ii)[:len(ii)-4] + "/")
+				else:
+					editableFiles.append(False)
+			else:
+				editableFiles.append(False)
 
 			titles.append(jj[0])
 			names.append(jj[1])
@@ -180,7 +189,8 @@ def displayMain():
 	, titles=titles
 	, texts=texts
 	, singleIncrement=singleIncrement
-	, username=username)
+	, username=username
+	, editableFiles=editableFiles)
 
 @app.route('/logOut/')
 def signOut():
@@ -209,7 +219,12 @@ def loginCheckPage():
 	else:
 		remeberInput=True
 
-	return loginCheckRedirect(username,password,userPass, linkTrue, linkFalse, remeberInput)
+	return loginCheckRedirect(username
+	, password
+	, userPass
+	, linkTrue
+	, linkFalse
+	, remeberInput)
 
 	#return str(credsCorrect)
 	'''if credsCorrect==1:
