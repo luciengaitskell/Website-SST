@@ -2,13 +2,13 @@
   font-size: 150%;
 }
 
-
-.title:hover {
-  background-color: yellow;
-}
-
 .title {
   font-size: 150%;
+}
+
+.titleLink:hover {
+  font-size: inherit;
+  background-color: yellow;
 }
 
 .author {
