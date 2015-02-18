@@ -113,7 +113,8 @@ Hey {{ username }}!<br>
 <a href="/articles/{{ (fileNamesSorted[singleIncrement])[8:(fileNamesSorted[singleIncrement]|length)-4] }}/">
 <!--Title: -->{{ titles[singleIncrement] }}
 {% if editableFiles[singleIncrement] != False %}
-<button type="button" onclick="window.location='{{ editableFiles[singleIncrement] }}';">EDIT</button>
+<!--{{ editableFiles[singleIncrement] }}-->
+<button type="button" onclick="window.location='/articles/20150216-1/edit/';">EDIT</button>
 {% endif %}
 </a>
 </div>
