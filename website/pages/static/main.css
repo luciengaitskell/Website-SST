@@ -4,10 +4,12 @@
 
 .title {
   font-size: 150%;
+  color:black;
 }
 
 .titleLink:hover {
   font-size: inherit;
+  color:red;
   background-color: yellow;
 }
 
