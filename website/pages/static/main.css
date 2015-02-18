@@ -3,7 +3,12 @@
 }
 
 .title {
+  color: black;
   font-size: 150%;
+}
+
+.title:hover {
+  color: blue;
 }
 
 .author {
