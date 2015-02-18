@@ -112,11 +112,10 @@ Hey {{ username }}!<br>
 <div id="{{ (fileNamesSorted[singleIncrement])[:((fileNamesSorted[singleIncrement])|length)-4] }}" class="title">
 <a href="/articles/{{ (fileNamesSorted[singleIncrement])[8:(fileNamesSorted[singleIncrement]|length)-4] }}/">
 <!--Title: -->{{ titles[singleIncrement] }}
-{% if editableFiles[singleIncrement] != False %}
-<!--window.location='{{ editableFiles[singleIncrement] }}'-->
-<button type="button" onclick="alert("fuck");">EDIT</button>
-{% endif %}
 </a>
+{% if editableFiles[singleIncrement] != False %}
+<button type="button" onclick="window.location='{{ editableFiles[singleIncrement] }}';">EDIT</button>
+{% endif %}
 </div>
 
 <div class="author">Author: {{ names[singleIncrement] }}</div>
