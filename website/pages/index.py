@@ -102,6 +102,7 @@ def displayMain():
 	names=[]
 	dates=[]
 	texts=[]
+	editableFiles=[]
 	loggedIn=loginCheckCache(userPass)
 	loggedIn=int(loggedIn)
 	username=False
@@ -138,7 +139,6 @@ def displayMain():
 			for jj in fileNamesNew:
 				fileNamesSorted.append(str(fileBeginning) + str(jj) + str(fileExtention))
 
-		editableFiles=[]
 		for ii in fileNamesSorted:
 			fileNameOpen = open((str(fileSubFolder) + str(ii)), "r")
 			jj = fileNameOpen.readlines()
@@ -179,6 +179,7 @@ def displayMain():
 		titles = arrayToUnicode(titles)
 		texts = arrayToUnicode(texts)
 	else:
+		editableFiles.append(False)
 		noFiles=True
 
 	#return uniqueDates[1]
