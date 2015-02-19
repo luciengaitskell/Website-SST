@@ -258,7 +258,7 @@ def signUp():
 	return render_template('signUp.html')
 
 @app.route('/signUp/check')
-def signUp():
+def signUpCheck():
 	return "poo"
 
 
