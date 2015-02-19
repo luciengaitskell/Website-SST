@@ -255,7 +255,14 @@ def arrayToUnicode(inputArray):
 
 @app.route('/signUp/')
 def signUp():
-	return render_template('signUp.html')
+	passMatch = request.args.get('passMatch', '')
+	if passMatch=="False":
+		passMatch=False
+	else:
+		passMatch=True
+
+	return render_template('signUp.html'
+	, passMatch=passMatch)
 
 @app.route('/signUp/check')
 def signUpCheck():
