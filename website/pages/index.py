@@ -257,6 +257,11 @@ def arrayToUnicode(inputArray):
 def signUp():
 	return render_template('signUp.html')
 
+@app.route('/signUp/check')
+def signUp():
+	return "poo"
+
+
 @app.route('/post/')
 def postMain():
 	loggedIn=loginCheckCache(userPass)
