@@ -77,7 +77,7 @@ def loginCheckSignin(username, password, logins, timeOut=True):
 def loginCheckRedirect(username,password,logins, linkTrue, linkFalse, timeOut=True):
 	result=loginCheckSignin(username, password, logins, timeOut)
 	#return str(result)
-	if int(result)==1:
+	if result[0]!=False:
 		return redirect(linkTrue)
 	else:
 		return redirect(linkFalse)
@@ -105,11 +105,7 @@ def displayMain():
 	texts=[]
 	editableFiles=[]
 	loggedIn=loginCheckCache(userPass)
-	loggedIn=int(loggedIn)
-	username=False
-
-	if loggedIn==1:
-		username=session['username']
+	username=loggedIn[0]
 
 	for ii in glob.glob("articles/*"):
 		fileNames.append(ii)
@@ -145,9 +141,9 @@ def displayMain():
 			jj = fileNameOpen.readlines()
 			fileNameOpen.close()
 
-			if int(loginCheckCache(userPass))==1:
+			if username!=False:
 				#return "ur: " + str(session['username']) + ", but u need: " + str((jj[1])[:len(jj[1])-1])
-				if session['username']==(jj[1])[:len(jj[1])-1]:
+				if username==(jj[1])[:len(jj[1])-1]:
 					editableFiles.append("/" + str(fileSubFolder) + str(ii)[len(fileBeginning):len(ii)-4] + "/edit/")
 				else:
 					editableFiles.append(False)
@@ -262,11 +258,7 @@ def arrayToUnicode(inputArray):
 @app.route('/post/')
 def postMain():
 	loggedIn=loginCheckCache(userPass)
-	loggedIn=int(loggedIn)
-	username=False
-
-	if loggedIn==1:
-		username=session['username']
+	username=loggedIn[0]
 
 	return render_template('postArticle.html', username=username)
 
@@ -343,6 +335,7 @@ def postRecord():
 @app.route('/articles/<articleNumber>/edit/')
 def readMain(articleNumber=None):
 	if articleNumber!=None:
+		loggedIn=loginCheckCache(userPass)
 		lineIterator=0
 		filePath=str(fileSubFolder) + str(fileBeginning) + str(articleNumber) + str(fileExtention)
 		#filePathSnipped=filePath[9:len(filePath)-4] # moved lower and now easier to read
@@ -364,7 +357,7 @@ def readMain(articleNumber=None):
 			articleFile.close()
 
 			if request.path == "/articles/" + str(articleNumber) + "/edit/":
-				if int(loginCheckCache(userPass))==1:
+				if loggedIn[0]!=False:
 					if str(lines[1])[:len(lines[1])-1]==str(session['username']):
 						text=lines[3]
 						for ii in range(len(lines)):
@@ -385,7 +378,7 @@ def readMain(articleNumber=None):
 						, name=name
 						, text=text)
 					return "u need: " + str(lines[1]) + ", but ur: " + str(session['username'])
-				return "YOU DON'T HAVE PERMS"
+				return "YOU ARN'T EVEN SIGNED IN"
 			else:
 				return render_template('articleRender.html'
 				, filePathSnipped=filePathSnipped
