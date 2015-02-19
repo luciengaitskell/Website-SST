@@ -1,30 +1,30 @@
 <!doctype html>
 <html>
 <head>
-<title>Login - LUC NEWS</title>
+<title>Sign Up - LUC NEWS</title>
 <button type="button" onclick="window.location='/';">&lt;&lt;home</button>
 <br>
-<h1>login</h1>
+<h1>Sign Up</h1>
 </head>
 
 <body>
-{% if inputIncorrect=="True" %}
-<div style="color: red;">YOU GOT YOUR CREDENTIALS INCORRECT</div>
-{% endif %}
 <form action="/loginCheck" method="POST">
 Username:
 <INPUT TYPE="text" NAME="username"
  SIZE="30" MAXLENGTH="40">
- <br>
+<br>
+Email:
+<INPUT TYPE="text" NAME="email"
+ SIZE="30" MAXLENGTH="40">
+<br>
+<br>
 Password:
-<INPUT TYPE="password" NAME="password"
+<INPUT TYPE="password" NAME="password1"
  SIZE="40" MAXLENGTH="40"><br>
-
-Remember Me:
-<INPUT TYPE="checkbox" NAME="remeberPass">
-
+<br>
+<INPUT TYPE="password" NAME="password2"
+ SIZE="40" MAXLENGTH="40"><br>
 <br><br>
-
 <INPUT TYPE="submit">
 </form>
 </body>

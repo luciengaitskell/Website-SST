@@ -253,7 +253,9 @@ def arrayToUnicode(inputArray):
 		outputArray.append(gg.decode('UTF-8'))
 	return outputArray
 
-
+@app.route('/signUp/')
+def signUp():
+	return render_template('signUp.html')
 
 @app.route('/post/')
 def postMain():
