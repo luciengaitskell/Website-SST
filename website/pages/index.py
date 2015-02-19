@@ -20,7 +20,7 @@ def makeSessionDefault():
 
 def loginCheckMain(username, password, logins, cacheCheck, timeOut=True):
 	#username is False check cache
-	passUserCorrect=0
+	userPassOut=[False,False]
 	mode=False
 	#mode set
 	if (username==False or password==False) and cacheCheck:# mode: loginCheckCache
@@ -47,20 +47,21 @@ def loginCheckMain(username, password, logins, cacheCheck, timeOut=True):
 					passCheck=password
 
 				if session['username']==userCheck:
-					if session['password']==passCheck:
-						#return "remembered"
-						passUserCorrect=1
-						break
+					if password==False:
+						userPassOut=[userCheck, False]
+					elif session['password']==passCheck:
+						userPassOut=[userCheck, passCheck]
+					break #if the username is correct but the pass isn't it still exits
 		elif str(username)==logins[indexNumb][0]:
 			if str(password)==logins[indexNumb][1]:
-				passUserCorrect=1
+				userPassOut=[str(username), str(password)]
 				session['username']=str(username)
 				session['password']=str(password)
-			break
+			break #if the username is correct but the pass isn't it still exits
 
 	#makeSessionDefault()
 	#return redirect("/")
-	return str(passUserCorrect) #returns 1 if the creds are correct and 0 if they arn't
+	return userPassOut #returns 1 if the creds are correct and 0 if they arn't
 
 def loginCheckCache(logins): # checks if the cache contains a match for creds in logins
 	return loginCheckMain(False, False, logins, True)
@@ -115,7 +116,7 @@ def displayMain():
 
 	if len(fileNames)>0: # there are files
 		for ii in range(len(fileNames)): # for each file
-			newDate=(fileNames[ii])[17:len(fileNames[ii])-6] # Date of the file
+			newDate=(fileNames[ii])[(len(fileSubFolder)+len(fileBeginning)):len(fileNames[ii])-6] # Date of the file
 			dateNew=True
 			for jj in uniqueDates: # Finding if the date of the file is new
 				if jj == newDate:
@@ -131,8 +132,8 @@ def displayMain():
 
 			for jj in fileNames:
 				#testVar=testVar+1
-				if uniqueDates[ii] == (jj)[17:len(jj)-6]:
-					fileNamesNew.append((jj)[17:len(jj)-4])
+				if uniqueDates[ii] == (jj)[(len(fileSubFolder)+len(fileBeginning)):len(jj)-6]:
+					fileNamesNew.append((jj)[(len(fileSubFolder)+len(fileBeginning)):len(jj)-4])
 
 			fileNamesNew.sort(reverse=True)
 
