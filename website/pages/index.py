@@ -20,6 +20,7 @@ def findNewFileName(leadingPath, extention):
 		filePath=str(leadingPath) + str(fileNumber) + str(extention)
 		for ii in glob.glob(str(leadingPath) + "*" + str(extention)):
 			if ii!=filePath:
+				fileFound=True
 				pathOutput=filePath
 				break
 
