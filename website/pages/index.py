@@ -284,7 +284,7 @@ def signUp():
 	return render_template('signUp.html'
 	, error=error
 	, username=username
-	, password=password)
+	, email=email)
 
 @app.route('/signUp/check', methods=['POST'])
 def signUpCheck():
