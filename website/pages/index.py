@@ -277,7 +277,7 @@ def signUp():
 
 @app.route('/signUp/check', methods=['POST'])
 def signUpCheck():
-	filePathBeg="/logins/"
+	filePathBeg="logins/"
 	credentials=[request.form.get("username")
 	, request.form.get("email")
 	, request.form.get("password1")
