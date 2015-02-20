@@ -11,6 +11,19 @@ fileSubFolder="articles/"
 fileBeginning="article-"
 fileExtention=".txt"
 #remove dis comment
+
+def findNewFileName(leadingPath, extention):
+	fileNumber=0
+	while not fileFound:
+		fileNumber=fileNumber+1
+		filePath=str(leadingPath) + str(fileNumber) + str(extention)
+		for ii in glob.glob(str(leadingPath) + "*" + str(extention)):
+			if ii!=filePath:
+				pathOutput=filePath
+				break
+
+	return str(pathOutput)
+
 def makeSessionPermanent():
 	session.permanent = True
 	app.permanent_session_lifetime = timedelta(days=31)
@@ -261,17 +274,11 @@ def signUp():
 
 @app.route('/signUp/check', methods=['POST'])
 def signUpCheck():
+	filePathBeg="/logins/"
 	credentials=[request.form.get("username")
 	, request.form.get("email")
 	, request.form.get("password1")
 	, request.form.get("password2")]
-
-	filePath="/logins/" + str(credentials[1]) + str()
-
-	'''username=request.form.get("username")
-	email=request.form.get("email")
-	password1=request.form.get("password1")
-	password2=request.form.get("password2")'''
 
 	for ii in range(len(credentials)):
 		if credentials[ii]=="":
@@ -280,6 +287,7 @@ def signUpCheck():
 	if credentials[2]!=credentials[3]:
 		return redirect("/signUp/?error=1")
 
+	filePath=findNewFileName(str(filePathBeg), str(fileExtention))
 	file = open(filePath,"w")
 	for ii in credentials:
 		if ii==credentials[len(credentials)-1]: #last one
