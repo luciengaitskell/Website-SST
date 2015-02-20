@@ -255,20 +255,40 @@ def arrayToUnicode(inputArray):
 
 @app.route('/signUp/')
 def signUp():
-	passMatch = request.args.get('passMatch', '')
-	if passMatch=="False":
-		passMatch=False
-	else:
-		passMatch=True
+	error = request.args.get('error', '') # 1: Passwords don't match, 2: cred empty (str)
 
 	return render_template('signUp.html'
-	, passMatch=passMatch)
+	, error=error)
 
-@app.route('/signUp/check')
+@app.route('/signUp/check', methods=['POST'])
 def signUpCheck():
+	credentials=[request.form.get("username")
+	, request.form.get("email")
+	, request.form.get("password1")
+	, request.form.get("password2")]
+
+	filePath="/logins/" + str(credentials[1]) + str()
+
+	'''username=request.form.get("username")
+	email=request.form.get("email")
+	password1=request.form.get("password1")
+	password2=request.form.get("password2")'''
+
+	for ii in range(len(credentials)):
+		if credentials[ii]=="":
+			return redirect("/signUp/?error=2")
+
+	if credentials[2]!=credentials[3]:
+		return redirect("/signUp/?error=1")
+
+	file = open(filePath,"w")
+	for ii in credentials:
+		if ii==credentials[len(credentials)-1]: #last one
+			file.write(ii)
+		else:
+			file.write(str(ii)+"\n")
+	file.close()
 	return "poo"
-
-
 @app.route('/post/')
 def postMain():
 	loggedIn=loginCheckCache(userPass)

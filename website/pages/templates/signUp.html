@@ -8,9 +8,14 @@
 </head>
 
 <body>
-{% if passMatch==False %}
+{% if error=="1" %}
 <div style="color: red;">YOUR PASSWORDS DIDN'T MATCH</div>
 {% endif %}
+
+{% if error=="1" %}
+<div style="color: red;">PLEASE FILL OUT EVERYTHING</div>
+{% endif %}
+
 <form action="/signUp/check" method="POST">
 Username:<br>
 <INPUT TYPE="text" NAME="username"
