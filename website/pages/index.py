@@ -299,7 +299,7 @@ def signUpCheck():
 	filePath=findNewFileName(str(filePathBeg), str(fileExtention))
 	file = open(filePath,"w")
 	for ii in credentials:
-		if ii==credentials[len(credentials)-1]: #last one
+		if ii==credentials[len(credentials)-2]: # 2nd to last one (1st pass)
 			file.write(ii)
 		else:
 			file.write(str(ii)+"\n")
