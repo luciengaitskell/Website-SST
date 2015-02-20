@@ -15,15 +15,22 @@ fileExtention=".txt"
 def findNewFileName(leadingPath, extention):
 	fileNumber=0
 	fileFound=False
+	filesThere=False
 	while not fileFound:
 		fileNumber=fileNumber+1
 		filePath=str(leadingPath) + str(fileNumber) + str(extention)
 		for ii in glob.glob(str(leadingPath) + "*" + str(extention)):
+			filesThere=True
 			if ii!=filePath:
 				return "found"
 				fileFound=True
 				pathOutput=filePath
 				break
+
+		if filesThere==False:
+			fileFound=True
+			pathOutput=filePath
+			break
 
 	return str(pathOutput)
 
