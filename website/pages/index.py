@@ -296,7 +296,7 @@ def signUpCheck():
 		else:
 			file.write(str(ii)+"\n")
 	file.close()
-	return "poo"
+	return str(filePath)
 @app.route('/post/')
 def postMain():
 	loggedIn=loginCheckCache(userPass)
