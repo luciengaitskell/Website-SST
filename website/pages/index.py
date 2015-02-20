@@ -14,6 +14,7 @@ fileExtention=".txt"
 
 def findNewFileName(leadingPath, extention):
 	fileNumber=0
+	fileFound=False
 	while not fileFound:
 		fileNumber=fileNumber+1
 		filePath=str(leadingPath) + str(fileNumber) + str(extention)
