@@ -19,11 +19,19 @@
 <form action="/signUp/check" method="POST">
 Username:<br>
 <INPUT TYPE="text" NAME="username"
- SIZE="30" MAXLENGTH="40">
+ SIZE="30" MAXLENGTH="40"
+ {% if username != False %}
+ value={{ username }}
+ {% endif %}
+ >
 <br>
 Email:<br>
 <INPUT TYPE="text" NAME="email"
- SIZE="30" MAXLENGTH="40">
+ SIZE="30" MAXLENGTH="40"
+ {% if email != False %}
+ value={{ email }}
+ {% endif %}
+ >
 <br>
 <br>
 <br>

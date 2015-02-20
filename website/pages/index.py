@@ -278,8 +278,13 @@ def arrayToUnicode(inputArray):
 @app.route('/signUp/')
 def signUp():
 	error = request.args.get('error', '') # 1: Passwords don't match, 2: cred empty (str)
+	username = request.args.get('username', False)
+	email = request.args.get('email', False)
+
 	return render_template('signUp.html'
-	, error=error)
+	, error=error
+	, username=username
+	, password=password)
 
 @app.route('/signUp/check', methods=['POST'])
 def signUpCheck():
@@ -291,10 +296,10 @@ def signUpCheck():
 
 	for ii in range(len(credentials)):
 		if credentials[ii]=="":
-			return redirect("/signUp/?error=2")
+			return redirect("/signUp/?error=2&username=" + str(credentials[0]) + "&email=" + str(credentials[1]))
 
 	if credentials[2]!=credentials[3]:
-		return redirect("/signUp/?error=1")
+		return redirect("/signUp/?error=1&username=" + str(credentials[0]) + "&email=" + str(credentials[1]))
 
 	filePath=findNewFileName(str(filePathBeg), str(fileExtention))
 	file = open(filePath,"w")
