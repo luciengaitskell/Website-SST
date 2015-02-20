@@ -256,7 +256,7 @@ def arrayToUnicode(inputArray):
 @app.route('/signUp/')
 def signUp():
 	error = request.args.get('error', '') # 1: Passwords don't match, 2: cred empty (str)
-
+	return error
 	return render_template('signUp.html'
 	, error=error)
 
