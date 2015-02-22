@@ -23,7 +23,6 @@ def getLogins():
 		file.close()
 		usernameWrite=lines[0]
 		usernameWrite=usernameWrite[:len(usernameWrite)-1]
-		return usernameWrite
 		passwordWrite=lines[2]
 		passwordWrite=passwordWrite[:len(passwordWrite)-1]
 		userPass.append([usernameWrite, passwordWrite])
@@ -465,7 +464,7 @@ def helpPage():
 
 @app.route('/test/')
 def testFunc():
-	return str(userPass[2][0])
+	return str(userPass[1][0])
 
 if __name__ == "__main__":
 	app.secret_key = 'Ymsf,sfatwBU!Iwruh,bus'
