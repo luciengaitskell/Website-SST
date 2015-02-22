@@ -21,7 +21,7 @@ def getLogins():
 		lines=file.readlines()
 		file.close()
 		userPass.append([lines[0],lines[2]])
-	return "poo"
+	pass
 def findNewFileName(leadingPath, extention):
 	fileNumber=0
 	fileFound=False
