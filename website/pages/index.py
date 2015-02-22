@@ -98,7 +98,7 @@ def loginCheckMain(username, password, logins, cacheCheck, timeOut=True):
 
 	#makeSessionDefault()
 	#return redirect("/")
-	return userPassOut #returns 1 if the creds are correct and 0 if they arn't
+	return userPassOut
 
 def loginCheckCache(logins): # checks if the cache contains a match for creds in logins
 	return loginCheckMain(False, False, logins, True)
@@ -464,7 +464,7 @@ def helpPage():
 
 @app.route('/test/')
 def testFunc():
-	return str(userPass[2][0])[:userPass[2][0]-1]
+	return str(userPass[2][0])[:len(userPass[2][0])-1]
 
 if __name__ == "__main__":
 	app.secret_key = 'Ymsf,sfatwBU!Iwruh,bus'
