@@ -22,6 +22,7 @@ def getLogins():
 		file.close()
 		usernameWrite=lines[0]
 		usernameWrite=usernameWrite[:len(usernameWrite)-1]
+		return usernameWrite
 		passwordWrite=lines[2]
 		passwordWrite=passwordWrite[:len(passwordWrite)-1]
 		userPass.append([usernameWrite, passwordWrite])
