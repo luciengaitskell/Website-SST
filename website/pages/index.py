@@ -6,7 +6,7 @@ import glob
 
 app = Flask(__name__)
 
-userPass=[["ur_mom", "stuff"],["cheese", "pass"]]
+userPass=[]
 fileSubFolder="articles/" #articles
 fileBeginning="article-"
 fileExtention=".txt"
@@ -16,6 +16,7 @@ loginsExtention=".txt"
 
 @app.before_request
 def getLogins():
+	userPass=[["ur_mom", "stuff"],["cheese", "pass"]]
 	for ii in glob.glob(str(loginsSubFolder)+ "*" + str(loginsExtention)):
 		file=open(ii,"r")
 		lines=file.readlines()
