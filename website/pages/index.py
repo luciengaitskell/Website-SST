@@ -14,7 +14,7 @@ fileExtention=".txt"
 loginsSubFolder="logins/" #logins
 loginsExtention=".txt"
 
-@app.before_request()
+@app.before_request
 def getLogins():
 	global userPass
 	for ii in glob.glob(str(loginsSubFolder)+ "*" + str(loginsExtention)):
