@@ -7,11 +7,21 @@ import glob
 app = Flask(__name__)
 
 userPass=[["ur_mom", "stuff"],["user", "pass"]]
-fileSubFolder="articles/"
+fileSubFolder="articles/" #articles
 fileBeginning="article-"
 fileExtention=".txt"
-#remove dis comment
 
+loginsSubFolder="logins/" #logins
+loginsExtention=".txt"
+
+@app.before_request
+def getLogins():
+	for ii in glob.glob(str(loginsSubFolder)+ "*" + str(loginsExtention)):
+		file=open(ii,"r")
+		lines=file.readlines()
+		file.close()
+		userPass.append([lines[0],lines[2]])
+	return "poo"
 def findNewFileName(leadingPath, extention):
 	fileNumber=0
 	fileFound=False
@@ -303,7 +313,7 @@ def signUpCheck():
 
 	filePath=findNewFileName(str(filePathBeg), str(fileExtention))
 	file = open(filePath,"w")
-	for ii in credentials:
+	for ii in credentials[:len(credentials)-1]:#excludes last
 		if ii==credentials[len(credentials)-2]: # 2nd to last one (1st pass)
 			file.write(ii)
 		else:
@@ -449,7 +459,7 @@ def helpPage():
 
 @app.route('/test/')
 def testFunc():
-	return str(request.path)
+	return str(userPass[2][0])
 
 if __name__ == "__main__":
 	app.secret_key = 'Ymsf,sfatwBU!Iwruh,bus'
