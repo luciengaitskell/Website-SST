@@ -15,7 +15,7 @@ loginsSubFolder="logins/" #logins
 loginsExtention=".txt"
 
 @app.before_request
-def getLogins(userPass):
+def getLogins():
 	userPass=[["ur_mom", "stuff"],["cheese", "pass"]]
 	for ii in glob.glob(str(loginsSubFolder)+ "*" + str(loginsExtention)):
 		file=open(ii,"r")
