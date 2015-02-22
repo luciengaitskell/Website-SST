@@ -310,7 +310,7 @@ def signUpCheck():
 
 	for ii in credentials:
 		if isinstance(ii,unicode):
-			return redirect("/signUp/?error=3)
+			return redirect("/signUp/?error=3")
 
 
 	for ii in range(len(credentials)):
