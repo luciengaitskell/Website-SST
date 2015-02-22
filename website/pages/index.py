@@ -308,6 +308,11 @@ def signUpCheck():
 	, request.form.get("password1")
 	, request.form.get("password2")]
 
+	for ii in credentials:
+		if isinstance(ii,unicode):
+			return redirect("/signUp/?error=3&username=" + str(credentials[0]) + "&email=" + str(credentials[1]))
+			
+
 	for ii in range(len(credentials)):
 		if credentials[ii]=="":
 			return redirect("/signUp/?error=2&username=" + str(credentials[0]) + "&email=" + str(credentials[1]))

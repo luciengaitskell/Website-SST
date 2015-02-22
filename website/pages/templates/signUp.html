@@ -16,6 +16,10 @@
 <div style="color: red;">PLEASE FILL OUT EVERYTHING</div>
 {% endif %}
 
+{% if error=="3" %}
+<div style="color: red;">UNSUPPORTED CHARACTERS WERE USED</div>
+{% endif %}
+
 <form action="/signUp/check" method="POST">
 Username:<br>
 <INPUT TYPE="text" NAME="username"
