@@ -14,10 +14,9 @@ fileExtention=".txt"
 loginsSubFolder="logins/" #logins
 loginsExtention=".txt"
 
-def getLogins(userPassIn=[]):
-	if userPassIn == []:
-		userPassIn=[]
-
+@app.before_request()
+def getLogins():
+	global userPass
 	for ii in glob.glob(str(loginsSubFolder)+ "*" + str(loginsExtention)):
 		file=open(ii,"r")
 		lines=file.readlines()
@@ -26,8 +25,8 @@ def getLogins(userPassIn=[]):
 		usernameWrite=usernameWrite[:len(usernameWrite)-1]
 		passwordWrite=lines[2]
 		passwordWrite=passwordWrite[:len(passwordWrite)-1]
-		userPassIn.append([usernameWrite, passwordWrite])
-	return userPassIn
+		userPass.append([usernameWrite, passwordWrite])
+	pass
 def findNewFileName(leadingPath, extention):
 	fileNumber=0
 	fileFound=False
@@ -125,7 +124,6 @@ def loginCheckRedirect(username,password,logins, linkTrue, linkFalse, timeOut=Tr
 
 @app.route('/')
 def displayMain():
-	userPass=getLogins(userPass)
 	noFiles=False
 	fileNameOpen=""
 	newDate=""
@@ -246,7 +244,6 @@ def loginPage():
 
 @app.route('/loginCheck', methods=['POST'])
 def loginCheckPage():
-	userPass=getLogins(userPass)
 	username=request.form.get("username")
 	password=request.form.get("password")
 	remember=request.form.get("remeberPass")
@@ -467,8 +464,7 @@ def helpPage():
 
 @app.route('/test/')
 def testFunc():
-	userPass=getLogins(userPass)
-	pass
+	return str(userPass[2][0])
 
 if __name__ == "__main__":
 	app.secret_key = 'Ymsf,sfatwBU!Iwruh,bus'
