@@ -24,7 +24,7 @@ def getLogins():
 		usernameWrite=lines[0]
 		usernameWrite=usernameWrite[:len(usernameWrite)-1]
 		passwordWrite=lines[2]
-		passwordWrite=passwordWrite[:len(passwordWrite)-1]
+		#passwordWrite=passwordWrite[:len(passwordWrite)-1] #WASN'T NEEDED WAS EOF
 		userPass.append([usernameWrite, passwordWrite])
 	pass
 def findNewFileName(leadingPath, extention):
@@ -249,7 +249,6 @@ def loginCheckPage():
 	remember=request.form.get("remeberPass")
 	linkTrue='/'
 	linkFalse='/login/?inputIncorrect=True'
-	return str(userPass[2])
 	if remember=="on":
 		remeberInput=False
 	else:
