@@ -20,7 +20,11 @@ def getLogins():
 		file=open(ii,"r")
 		lines=file.readlines()
 		file.close()
-		userPass.append([lines[0],lines[2]])
+		usernameWrite=lines[0]
+		usernameWrite=usernameWrite[:len(usernameWrite)-1]
+		passwordWrite=lines[2]
+		passwordWrite=passwordWrite[:len(passwordWrite)-1]
+		userPass.append([usernameWrite, passwordWrite])
 	pass
 def findNewFileName(leadingPath, extention):
 	fileNumber=0
