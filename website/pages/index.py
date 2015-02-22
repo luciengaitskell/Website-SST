@@ -249,7 +249,7 @@ def loginCheckPage():
 	remember=request.form.get("remeberPass")
 	linkTrue='/'
 	linkFalse='/login/?inputIncorrect=True'
-
+	return str(userPass[2])
 	if remember=="on":
 		remeberInput=False
 	else:
@@ -464,7 +464,7 @@ def helpPage():
 
 @app.route('/test/')
 def testFunc():
-	return str(userPass[2][0])[:len(userPass[2][0])-1]
+	return str(userPass[2][0])
 
 if __name__ == "__main__":
 	app.secret_key = 'Ymsf,sfatwBU!Iwruh,bus'
