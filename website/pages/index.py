@@ -459,7 +459,7 @@ def helpPage():
 
 @app.route('/test/')
 def testFunc():
-	return str(userPass[2][0])
+	return str(userPass[0][0])
 
 if __name__ == "__main__":
 	app.secret_key = 'Ymsf,sfatwBU!Iwruh,bus'
