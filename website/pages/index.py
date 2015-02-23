@@ -326,11 +326,11 @@ def signUpCheck():
 
 	filePath=findNewFileName(str(filePathBeg), str(fileExtention))
 	file = open(filePath,"w")
-	for ii in credentials[:len(credentials)-1]:#excludes last
-		if ii==credentials[len(credentials)-2]: # 2nd to last one (1st pass)
-			file.write(ii)
+	for ii in range(len(credentials[:len(credentials)-1])):#excludes last
+		if ii==len(credentials)-2: # 2nd to last one (1st pass)
+			file.write(credentials[ii])
 		else:
-			file.write(str(ii)+"\n")
+			file.write(str(credentials[ii])+"\n")
 	file.close()
 	return str(filePath)
 @app.route('/post/')
