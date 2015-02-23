@@ -27,6 +27,10 @@ def getLogins():
 		#passwordWrite=passwordWrite[:len(passwordWrite)-1] #WASN'T NEEDED WAS EOF
 		userPass.append([usernameWrite, passwordWrite])
 	pass
+
+def is_ascii(s):
+    return all(ord(c) < 128 for c in s)
+
 def findNewFileName(leadingPath, extention):
 	fileNumber=0
 	fileFound=False
@@ -308,10 +312,10 @@ def signUpCheck():
 	, request.form.get("password1")
 	, request.form.get("password2")]
 
-	for ii in credentials:
-		if isinstance(ii,unicode):
-			return redirect("/signUp/?error=3")
 
+	for ii in credentials:
+		if not is_ascii(ii):
+			return redirect("/signUp/?error=3")
 
 	for ii in range(len(credentials)):
 		if credentials[ii]=="":
