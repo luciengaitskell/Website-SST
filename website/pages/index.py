@@ -263,10 +263,10 @@ def loginCheckPage():
 
 	linkTrue='/'
 	linkFalse='/login/?inputIncorrect=True'
-	if remember=="on":
-		remeberInput=False
+	if inputCreds[2]=="on":
+		notRemeberInput=False
 	else:
-		remeberInput=True
+		notRemeberInput=True
 
 	for ii in inputCreds:
 		if not is_ascii(ii):
@@ -276,7 +276,7 @@ def loginCheckPage():
 	, userPass
 	, linkTrue
 	, linkFalse
-	, remeberInput)
+	, notRemeberInput)
 
 	#return str(credsCorrect)
 	'''if credsCorrect==1:
