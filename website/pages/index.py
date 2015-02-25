@@ -88,10 +88,14 @@ def loginCheckMain(username, password, logins, cacheCheck, timeOut=True):
 					passCheck=password
 
 				if session['username']==userCheck:
-					if password==False:
-						userPassOut=[userCheck, False]
-					elif session['password']==passCheck:
-						userPassOut=[userCheck, passCheck]
+					if 'password' in session:
+						if session['password']==passCheck:
+							userPassOut=[userCheck, passCheck]
+						else:
+							userPassOut=[userCheck, False] #if username matches but the pass doesn't
+					else:
+						userPassOut=[userCheck, False] #if username matches but the pass doesn't
+
 					break #if the username is correct but the pass isn't it still exits
 		elif str(username)==logins[indexNumb][0]:
 			if str(password)==logins[indexNumb][1]:
@@ -313,16 +317,20 @@ def signUpCheck():
 	, request.form.get("password2")]
 
 
-	for ii in credentials:
+	for ii in credentials:#stoping unicode characters (error 3)
 		if not is_ascii(ii):
 			return redirect("/signUp/?error=3")
 
-	for ii in range(len(credentials)):
+	for ii in range(len(credentials)):#checking for empty spaces(error 2)
 		if credentials[ii]=="":
 			return redirect("/signUp/?error=2&username=" + str(credentials[0]) + "&email=" + str(credentials[1]))
 
-	if credentials[2]!=credentials[3]:
+	if credentials[2]!=credentials[3]:# redirects if passwords arn't the same (error 1)
 		return redirect("/signUp/?error=1&username=" + str(credentials[0]) + "&email=" + str(credentials[1]))
+
+	session['username']=credentials[0]
+	if ((loginCheckCacheMatch(credentials[0], credentials[2]))[0])!=False:#the username is taken (error 4)
+		return redirect("/signUp/?error=4&username=" + str(credentials[0]) + "&email=" + str(credentials[1]))
 
 	filePath=findNewFileName(str(filePathBeg), str(fileExtention))
 	file = open(filePath,"w")

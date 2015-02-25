@@ -20,6 +20,10 @@
 <div style="color: red;">UNSUPPORTED CHARACTERS WERE USED</div>
 {% endif %}
 
+{% if error=="4" %}
+<div style="color: red;">THAT USERNAME HAS BEEN TAKEN</div>
+{% endif %}
+
 <form action="/signUp/check" method="POST">
 Username:<br>
 <INPUT TYPE="text" NAME="username"
