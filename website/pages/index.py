@@ -252,9 +252,15 @@ def loginPage():
 
 @app.route('/loginCheck', methods=['POST'])
 def loginCheckPage():
-	username=request.form.get("username")
+	'''username=request.form.get("username")
 	password=request.form.get("password")
-	remember=request.form.get("remeberPass")
+	remember=request.form.get("remeberPass")'''
+
+	inputCreds=[
+	request.form.get("username")
+	, request.form.get("password")
+	, request.form.get("remeberPass")]
+
 	linkTrue='/'
 	linkFalse='/login/?inputIncorrect=True'
 	if remember=="on":
@@ -262,8 +268,11 @@ def loginCheckPage():
 	else:
 		remeberInput=True
 
-	return loginCheckRedirect(username
-	, password
+	for ii in inputCreds:
+		if not is_ascii(ii):
+			return redirect('/login/')
+	return loginCheckRedirect(inputCreds[0]
+	, inputCreds[1]
 	, userPass
 	, linkTrue
 	, linkFalse
