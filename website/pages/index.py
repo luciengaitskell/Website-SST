@@ -329,7 +329,7 @@ def signUpCheck():
 		return redirect("/signUp/?error=1&username=" + str(credentials[0]) + "&email=" + str(credentials[1]))
 
 	session['username']=credentials[0]#only need to check the username
-	if ((loginCheckCache())[0])!=False:#the username is taken (error 4)
+	if ((loginCheckCache(userPass))[0])!=False:#the username is taken (error 4)
 		return redirect("/signUp/?error=4&username=" + str(credentials[0]) + "&email=" + str(credentials[1]))
 
 	filePath=findNewFileName(str(filePathBeg), str(fileExtention))
