@@ -7,6 +7,7 @@ import glob
 app = Flask(__name__)
 
 userPass=[["ur_mom", "stuff"],["cheese", "pass"]]
+recaptiaSecret="6LcGsQITAAAAAHDePvtuUMho2IR2FQvDaunav5r0"
 fileSubFolder="articles/" #articles
 fileBeginning="article-"
 fileExtention=".txt"
@@ -320,12 +321,15 @@ def signUp():
 @app.route('/signUp/check', methods=['POST'])
 def signUpCheck():
 	filePathBeg="logins/"
+	recaptia=request.form.get("g-recaptcha-response")
 	credentials=[request.form.get("username")
 	, request.form.get("email")
 	, request.form.get("password1")
 	, request.form.get("password2")]
 
-
+	if recaptia!=recaptiaSecret:
+		return "ur a robot"
+		
 	for ii in credentials:# stoping unallowed (unicode/") characters (error 3)
 		if not is_ascii(ii) or '"' in ii:
 			return redirect("/signUp/?error=3")
