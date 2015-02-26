@@ -326,8 +326,8 @@ def signUpCheck():
 	, request.form.get("password2")]
 
 
-	for ii in credentials:#stoping unicode characters (error 3)
-		if not is_ascii(ii):
+	for ii in credentials:# stoping unallowed (unicode/") characters (error 3)
+		if not is_ascii(ii) or '"' in ii:
 			return redirect("/signUp/?error=3")
 
 	for ii in range(len(credentials)):#checking for empty spaces(error 2)
