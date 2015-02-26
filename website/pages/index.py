@@ -269,6 +269,7 @@ def loginCheckPage():
 		notRemeberInput=True
 
 	for ii in inputCreds[:len(inputCreds)]:
+		return ii
 		if not is_ascii(ii):
 			return redirect('/login/')
 	return loginCheckRedirect(inputCreds[0]
