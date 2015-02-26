@@ -268,7 +268,7 @@ def loginCheckPage():
 	else:
 		notRemeberInput=True
 
-	for ii in inputCreds:
+	for ii in inputCreds[:len(inputCreds)]:
 		if not is_ascii(ii):
 			return redirect('/login/')
 	return loginCheckRedirect(inputCreds[0]
@@ -338,6 +338,7 @@ def signUpCheck():
 		return redirect("/signUp/?error=1&username=" + str(credentials[0]) + "&email=" + str(credentials[1]))
 
 	session['username']=credentials[0]#only need to check the username
+	session['username']=credentials[2]# so it signs in once account is made
 	if ((loginCheckCache(userPass))[0])!=False:#the username is taken (error 4)
 		return redirect("/signUp/?error=4&username=" + str(credentials[0]) + "&email=" + str(credentials[1]))
 
