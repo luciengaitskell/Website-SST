@@ -320,7 +320,6 @@ def signUp():
 @app.route('/signUp/check', methods=['POST'])
 def signUpCheck():
 	filePathBeg="logins/"
-	recaptia=request.form.get("g-recaptcha-response")
 	credentials=[request.form.get("username")
 	, request.form.get("email")
 	, request.form.get("password1")
