@@ -133,6 +133,7 @@ def loginCheckRedirect(username,password,logins, linkTrue, linkFalse, timeOut=Tr
 
 @app.route('/')
 def displayMain():
+	return "ur mom"
 	noFiles=False
 	fileNameOpen=""
 	newDate=""
@@ -329,7 +330,7 @@ def signUpCheck():
 
 	if recaptia!=recaptiaSecret:
 		return "ur a robot"
-		
+
 	for ii in credentials:# stoping unallowed (unicode/") characters (error 3)
 		if not is_ascii(ii) or '"' in ii:
 			return redirect("/signUp/?error=3")
@@ -354,7 +355,8 @@ def signUpCheck():
 		else:
 			file.write(str(credentials[ii])+"\n")
 	file.close()
-	return str(filePath)
+	return redirect('/')
+	#return str(filePath)
 @app.route('/post/')
 def postMain():
 	loggedIn=loginCheckCache(userPass)
