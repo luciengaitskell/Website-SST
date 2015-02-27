@@ -6,7 +6,7 @@ import glob
 
 app = Flask(__name__)
 
-userPass=[["ur_mom", "stuff"],["cheese", "pass"]]
+userPass=[["~owner", "a_boss"]]
 fileSubFolder="articles/" #articles
 fileBeginning="article-"
 fileExtention=".txt"
