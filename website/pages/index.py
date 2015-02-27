@@ -330,7 +330,7 @@ def signUpCheck():
 			return redirect("/signUp/?error=3")
 
 	if " " in credentials[0] or " " in credentials[1]: # stopping spaces in email of username
-		return redirect("/signUp/?error=5&username=" + str(credentials[0]) + "&email=" + str(credentials[1]))
+		return redirect("/signUp/?error=5")
 
 	for ii in range(len(credentials)):#checking for empty spaces(error 2)
 		if credentials[ii]=="":
