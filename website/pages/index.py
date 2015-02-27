@@ -7,7 +7,6 @@ import glob
 app = Flask(__name__)
 
 userPass=[["ur_mom", "stuff"],["cheese", "pass"]]
-recaptiaSecret="6LcGsQITAAAAAHDePvtuUMho2IR2FQvDaunav5r0"
 fileSubFolder="articles/" #articles
 fileBeginning="article-"
 fileExtention=".txt"
