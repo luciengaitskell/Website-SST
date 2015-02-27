@@ -133,7 +133,6 @@ def loginCheckRedirect(username,password,logins, linkTrue, linkFalse, timeOut=Tr
 
 @app.route('/')
 def displayMain():
-	return "ur mom"
 	noFiles=False
 	fileNameOpen=""
 	newDate=""
