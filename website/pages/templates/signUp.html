@@ -24,6 +24,10 @@
 <div style="color: red;">THAT USERNAME HAS BEEN TAKEN</div>
 {% endif %}
 
+{% if error=="5" %}
+<div style="color: red;">NO SPACES CAN BE IN THE USERNAME OR EMAIL</div>
+{% endif %}
+
 <form action="/signUp/check" method="POST">
 Username:<br>
 <INPUT TYPE="text" NAME="username"
