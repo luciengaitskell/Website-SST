@@ -336,6 +336,7 @@ def signUpCheck():
 	if credentials[2]!=credentials[3]:# redirects if passwords arn't the same (error 1)
 		return redirect("/signUp/?error=1&username=" + str(credentials[0]) + "&email=" + str(credentials[1]))
 
+	return credentials[0]
 	session['username']=credentials[0]#only need to check the username
 	session['username']=credentials[2]# so it signs in once account is made
 	if ((loginCheckCache(userPass))[0])!=False:#the username is taken (error 4)
