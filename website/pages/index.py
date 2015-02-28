@@ -326,7 +326,7 @@ def signUpCheck():
 	, request.form.get("password2")]
 
 	for ii in credentials:# stoping unallowed (unicode / ") characters (error 3)
-		if not is_ascii(ii) or '"' in ii:
+		if not is_ascii(ii): #  or '"' in ii
 			return redirect("/signUp/?error=3")
 
 	if " " in credentials[0] or " " in credentials[1]: # stopping spaces in email of username
@@ -370,9 +370,12 @@ def postRecord():
 
 	articleDate=time.strftime("%Y%m%d")
 	filePath=""
-	name=request.form.get("Name")
-	if name==None:#it's just the username
+
+
+	if (loginCheckCache(userPass))[1]!=False: # signed in thru session
 		name=session['username']
+	else:
+		name=request.form.get("Name")
 
 	if not name:#it's blank
 		name="Anonymous"
