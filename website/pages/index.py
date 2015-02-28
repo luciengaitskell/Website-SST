@@ -387,6 +387,9 @@ def postRecord():
 
 	articleText=request.form.get("articleText")
 
+	if "<script>" in articleText or "</script>" in articleText:
+		# stops malicious js code being implanted
+		return "I don't like hackers"
 	if not articleText:
 		articleText="THIS IS SPAM"
 
