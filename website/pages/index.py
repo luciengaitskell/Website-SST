@@ -325,8 +325,8 @@ def signUpCheck():
 	, request.form.get("password1")
 	, request.form.get("password2")]
 
-	for ii in credentials:# stoping unallowed (unicode / ") characters (error 3)
-		if not is_ascii(ii): #  or '"' in ii
+	for ii in credentials:# stoping unallowed (unicode) characters (error 3)
+		if not is_ascii(ii): #  or '"' in ii  #didn't need it, seemed to work w/out disrupting html
 			return redirect("/signUp/?error=3")
 
 	if " " in credentials[0] or " " in credentials[1]: # stopping spaces in email of username
