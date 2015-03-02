@@ -456,8 +456,8 @@ def readMain(articleNumber=None):
 			filePathSnipped=str(fileBeginning)+str(articleNumber)
 			articleFile=open(filePath)
 			lines = articleFile.readlines()
-			for ii in range(len(lines)):
-				lines[ii]=lines[ii].decode('UTF-8')
+			'''for ii in range(len(lines)):
+				lines[ii]=lines[ii].decode('UTF-8')'''# Did this further down
 
 			articleFile.close()
 
@@ -467,14 +467,18 @@ def readMain(articleNumber=None):
 						text=lines[3]
 						for ii in range(len(lines)):
 							if ii==0:
-								title=lines[ii]
+								title=lines[ii].decode('UTF-8')
 							elif ii==1:
-								name=lines[ii]
+								name=lines[ii].decode('UTF-8')
 							elif ii>3:
 								text= str(text) + str(lines[ii]) # the line already has carrage returns in them
+
+						text.decode('UTF-8') # only can decode afterwards cuz
+						# strings added a couple lines up
+
 						#return str(text)
 						#had to omit last char from the file from the line (it stopped it working)
-						session['filePath']=filePath;
+						session['filePath']=filePath
 						return render_template('articleEditor.html'
 						, filePathSnipped=filePathSnipped
 						, filePath=filePath
