@@ -173,8 +173,8 @@ def displayMain():
 
 			for jj in fileNames:
 				#testVar=testVar+1
-				if uniqueDates[ii] == (jj)[(len(fileSubFolder)+len(fileBeginning)):len(jj)-6]:
-					fileNamesNew.append((jj)[(len(fileSubFolder)+len(fileBeginning)):len(jj)-4])
+				if uniqueDates[ii] == (jj)[(len(fileSubFolder)+len(fileBeginning)):str(jj).find("-")]:
+					fileNamesNew.append((jj)[(len(fileSubFolder)+len(fileBeginning)):len(jj)-len(fileExtention)])
 
 			fileNamesNew.sort(reverse=True)
 
@@ -189,7 +189,7 @@ def displayMain():
 			if username!=False:
 				#return "ur: " + str(session['username']) + ", but u need: " + str((jj[1])[:len(jj[1])-1])
 				if username==(jj[1])[:len(jj[1])-1]:
-					editableFiles.append("/" + str(fileSubFolder) + str(ii)[len(fileBeginning):len(ii)-4] + "/edit/")
+					editableFiles.append("/" + str(fileSubFolder) + str(ii)[len(fileBeginning):len(ii)-len(fileExtention)] + "/edit/")
 				else:
 					editableFiles.append(False)
 			else:
