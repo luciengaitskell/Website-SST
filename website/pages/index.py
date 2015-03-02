@@ -185,13 +185,9 @@ def displayMain():
 			fileNameOpen = open((str(fileSubFolder) + str(ii)), "r")
 			jj = fileNameOpen.readlines()
 			fileNameOpen.close()
-
-			if username!=False:
-				#return "ur: " + str(session['username']) + ", but u need: " + str((jj[1])[:len(jj[1])-1])
-				if username==(jj[1])[:len(jj[1])-1]:
-					editableFiles.append("/" + str(fileSubFolder) + str(ii)[len(fileBeginning):len(ii)-len(fileExtention)] + "/edit/")
-				else:
-					editableFiles.append(False)
+			
+			if username==(jj[1])[:len(jj[1])-1]:
+				editableFiles.append("/" + str(fileSubFolder) + str(ii)[len(fileBeginning):len(ii)-len(fileExtention)] + "/edit/")
 			else:
 				editableFiles.append(False)
 
