@@ -473,8 +473,8 @@ def readMain(articleNumber=None):
 							elif ii>3:
 								text= str(text) + str(lines[ii])[:len(lines[ii])] # the line already has carrage returns in them
 
-						return text
-						text.decode('UTF-8') # only can decode afterwards cuz
+						#return text
+						#text.decode('UTF-8') # only can decode afterwards cuz
 						# strings added a couple lines up
 
 						#return str(text)
