@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 userPass=[["~owner", "a_boss"]]
 fileSubFolder="articles/" #articles
-fileBeginning="article-"
+fileBeginning="article_"
 fileExtention=".txt"
 
 loginsSubFolder="logins/" #logins
