@@ -456,8 +456,8 @@ def readMain(articleNumber=None):
 			filePathSnipped=str(fileBeginning)+str(articleNumber)
 			articleFile=open(filePath)
 			lines = articleFile.readlines()
-			'''for ii in range(len(lines)):
-				lines[ii]=lines[ii].decode('UTF-8')'''# Did this further down
+			for ii in range(len(lines)):
+				lines[ii]=(lines[ii])[:len(lines[ii])].decode('UTF-8')# Did this further down
 
 			articleFile.close()
 
@@ -467,11 +467,11 @@ def readMain(articleNumber=None):
 						text=lines[3]
 						for ii in range(len(lines)):
 							if ii==0:
-								title=(lines[ii])[:len(lines[ii])].decode('UTF-8')
+								title=lines[ii]#.decode('UTF-8')
 							elif ii==1:
-								name=(lines[ii])[:len(lines[ii])].decode('UTF-8')
+								name=lines[ii]#.decode('UTF-8')
 							elif ii>3:
-								text= str(text) + str(lines[ii])[:len(lines[ii])] # the line already has carrage returns in them
+								text= unicode(text) + unicode(lines[ii]) # the line already has carrage returns in them
 
 						#return text
 						#text.decode('UTF-8') # only can decode afterwards cuz
