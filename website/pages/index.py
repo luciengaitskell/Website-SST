@@ -483,7 +483,7 @@ def readMain(articleNumber=None):
 						, lines=lines
 						, title=title
 						, name=name
-						, text=text)
+						""", text=text""")
 						#, filePathSnipped=filePathSnipped
 						#, filePath=filePath)
 						return "u need: " + str(lines[1]) + ", but ur: " + str(session['username'])
