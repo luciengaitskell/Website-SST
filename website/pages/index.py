@@ -199,18 +199,14 @@ def displayMain():
 
 			newText=[jj[3],""]
 
-			for nn in range(len(newText)):
-				newText[nn]=newText[nn].decode("UTF-8")
-			#return str(len(newText[0].decode("UTF-8")))
-
 			if len(newText[0]) > maxLineLength:
 				newText[0]=(newText[0])[:maxLineLength]
 				newText[1]=(jj[3])[maxLineLength:]
 				if len(newText[1]) > maxLineLength:
-					newText[1]=unicode((newText[1])[:maxLineLength-len("...")]) + unicode("...")
+					newText[1]=str((newText[1])[:maxLineLength-len("...")]) + "..."
 
 			if len(jj) > 4:
-				newText[1]=unicode(newText[1]) + unicode(jj[4])
+				newText[1]=str(newText[1]) + str(jj[4])
 
 			texts.append(newText[0])
 			texts.append(newText[1])
@@ -219,7 +215,7 @@ def displayMain():
 		dates = arrayToUnicode(dates)
 		names = arrayToUnicode(names)
 		titles = arrayToUnicode(titles)
-		#texts = arrayToUnicode(texts)
+		texts = arrayToUnicode(texts)
 	else:
 		editableFiles.append(False)
 		noFiles=True
