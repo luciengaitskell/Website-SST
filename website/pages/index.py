@@ -185,7 +185,7 @@ def displayMain():
 			fileNameOpen = open((str(fileSubFolder) + str(ii)), "r")
 			jj = fileNameOpen.readlines()
 			fileNameOpen.close()
-			
+
 			if username==(jj[1])[:len(jj[1])-1]:
 				editableFiles.append("/" + str(fileSubFolder) + str(ii)[len(fileBeginning):len(ii)-len(fileExtention)] + "/edit/")
 			else:
@@ -198,6 +198,8 @@ def displayMain():
 			#return str((newText[0])[:maxLineLength)])
 
 			newText=[jj[3],""]
+
+			return str(newText[0])
 
 			if len(newText[0]) > maxLineLength:
 				newText[0]=(newText[0])[:maxLineLength]
