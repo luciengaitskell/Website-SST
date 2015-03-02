@@ -480,12 +480,12 @@ def readMain(articleNumber=None):
 						#had to omit last char from the file from the line (it stopped it working)
 						session['filePath']=filePath
 						return render_template('articleEditor.html'
-						, filePathSnipped=filePathSnipped
-						, filePath=filePath
 						, lines=lines
 						, title=title
 						, name=name
-						, text=text)
+						, text=text
+						, filePathSnipped=filePathSnipped
+						, filePath=filePath)
 					return "u need: " + str(lines[1]) + ", but ur: " + str(session['username'])
 				return "YOU ARN'T EVEN SIGNED IN"
 			else:
