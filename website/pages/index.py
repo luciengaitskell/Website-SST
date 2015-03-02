@@ -473,6 +473,7 @@ def readMain(articleNumber=None):
 							elif ii>3:
 								text= str(text) + str(lines[ii])[:len(lines[ii])] # the line already has carrage returns in them
 
+						return text
 						text.decode('UTF-8') # only can decode afterwards cuz
 						# strings added a couple lines up
 
@@ -482,8 +483,8 @@ def readMain(articleNumber=None):
 						return render_template('articleEditor.html'
 						, lines=lines
 						, title=title
-						, name=name)
-						""", text=text)"""
+						, name=name
+						, text=text)
 						#, filePathSnipped=filePathSnipped
 						#, filePath=filePath)
 						return "u need: " + str(lines[1]) + ", but ur: " + str(session['username'])
