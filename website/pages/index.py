@@ -157,7 +157,7 @@ def displayMain():
 
 	if len(fileNames)>0: # there are files
 		for ii in range(len(fileNames)): # for each file
-			newDate=(fileNames[ii])[(len(fileSubFolder)+len(fileBeginning)):len(fileNames[ii])-6] # Date of the file
+			newDate=(fileNames[ii])[(len(fileSubFolder)+len(fileBeginning)):str(fileNames[ii]).find("-")] # Date of the file
 			dateNew=True
 			for jj in uniqueDates: # Finding if the date of the file is new
 				if jj == newDate:
