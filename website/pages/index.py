@@ -207,7 +207,7 @@ def displayMain():
 				newText[0]=(newText[0])[:maxLineLength]
 				newText[1]=(jj[3])[maxLineLength:]
 				if len(newText[1]) > maxLineLength:
-					newText[1]=unicode((newText[1])[:maxLineLength-len("...")]) + "..."
+					newText[1]=unicode((newText[1])[:maxLineLength-len("...")]) + unicode("...")
 
 			if len(jj) > 4:
 				newText[1]=unicode(newText[1]) + unicode(jj[4])
