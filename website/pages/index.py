@@ -199,7 +199,7 @@ def displayMain():
 
 			newText=[jj[3],""]
 
-			return str(len(newText[0]))
+			return str(len(newText[1]))
 
 			if len(newText[0]) > maxLineLength:
 				newText[0]=(newText[0])[:maxLineLength]
