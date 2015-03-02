@@ -467,11 +467,11 @@ def readMain(articleNumber=None):
 						text=lines[3]
 						for ii in range(len(lines)):
 							if ii==0:
-								title=lines[ii].decode('UTF-8')
+								title=(lines[ii])[:lines[ii]].decode('UTF-8')
 							elif ii==1:
-								name=lines[ii].decode('UTF-8')
+								name=(lines[ii])[:lines[ii]].decode('UTF-8')
 							elif ii>3:
-								text= str(text) + str(lines[ii]) # the line already has carrage returns in them
+								text= str(text) + str(lines[ii])[:lines[ii]] # the line already has carrage returns in them
 
 						text.decode('UTF-8') # only can decode afterwards cuz
 						# strings added a couple lines up
