@@ -211,7 +211,7 @@ def displayMain():
 			if utf8len(newText[0]) > maxLineLength:
 				newText[0]=(newText[0])[:maxLineLength]
 				newText[1]=(jj[3])[maxLineLength:]
-				if len(utf8len(newText[1])) > maxLineLength:
+				if utf8len(newText[1]) > maxLineLength:
 					newText[1]=str((newText[1])[:maxLineLength-len("...")]) + "..."
 
 			if len(jj) > 4:
