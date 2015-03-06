@@ -200,6 +200,7 @@ def displayMain():
 			newText=[jj[3],""]
 
 			if len(newText[0]) > maxLineLength:
+				return str(len(newText[0]))
 				newText[0]=(newText[0])[:maxLineLength]
 				newText[1]=(jj[3])[maxLineLength:]
 				if len(newText[1]) > maxLineLength:
@@ -219,6 +220,7 @@ def displayMain():
 	else:
 		editableFiles.append(False)
 		noFiles=True
+
 
 	#return uniqueDates[1]
 	return render_template('main.html'
