@@ -31,6 +31,16 @@ def getLogins():
 def is_ascii(s):
     return all(ord(c) < 128 for c in s)
 
+def utf8len(s):
+    return len(s.encode('utf-8'))
+
+def arrayToUnicode(inputArray):
+	outputArray=[]
+
+	for gg in inputArray:
+		outputArray.append(gg.decode('UTF-8'))
+	return outputArray
+
 def findNewFileName(leadingPath, extention):
 	fileNumber=0
 	fileFound=False
@@ -198,7 +208,7 @@ def displayMain():
 			#return str((newText[0])[:maxLineLength)])
 
 			newText=[jj[3],""]
-			return str(len(newText[0].decode("utf-8")))
+			return str(utf8len(newText[0]))
 			if len(newText[0]) > maxLineLength:
 				newText[0]=(newText[0])[:maxLineLength]
 				newText[1]=(jj[3])[maxLineLength:]
@@ -295,13 +305,6 @@ def deleteArticle():
 @app.route('/favicon.ico')
 def favicon():
 	return redirect(url_for('static', filename='favicon.ico'))
-
-def arrayToUnicode(inputArray):
-	outputArray=[]
-
-	for gg in inputArray:
-		outputArray.append(gg.decode('UTF-8'))
-	return outputArray
 
 @app.route('/signUp/')
 def signUp():
