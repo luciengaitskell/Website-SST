@@ -208,14 +208,14 @@ def displayMain():
 			#return str((newText[0])[:maxLineLength)])
 
 			newText=[jj[3],""]
-			if utf8len(newText[0]) > maxLineLength:
+			if len(newText[0]) > maxLineLength:
 				newText[0]=(newText[0])[:maxLineLength]
 				newText[1]=(jj[3])[maxLineLength:]
 
 			if (jj>4): #there are more then one file text lines
 				newText[1]=str(newText[1])+str(jj[3])
 
-			if utf8len(newText[1]) > maxLineLength:
+			if len(newText[1]) > maxLineLength:
 				newText[1]=str((newText[1])[:maxLineLength-len("...")]) + "..."
 			return str(newText[0])
 			"""if len(jj) > 4:
