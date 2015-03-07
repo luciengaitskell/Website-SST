@@ -222,6 +222,8 @@ def displayMain():
 				return "being used"
 				newText[1]=unicode(newText[1]) + str(jj[4])"""
 
+			return unicode(newText[0])
+
 			texts.append(newText[0])
 			texts.append(newText[1])
 			#return newText[1]
