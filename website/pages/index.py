@@ -207,7 +207,7 @@ def displayMain():
 
 			#return str((newText[0])[:maxLineLength)])
 
-			newText=[jj[3].decode("utf-8"),""]
+			newText=[(jj[3].decode("utf-8")),""]
 			if len(newText[0]) > maxLineLength:
 				newText[0]=(newText[0])[:maxLineLength]
 				newText[1]=(jj[3].decode("utf-8"))[maxLineLength:]
