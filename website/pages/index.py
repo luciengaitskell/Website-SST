@@ -217,7 +217,7 @@ def displayMain():
 
 			if len(newText[1]) > maxLineLength:
 				newText[1]=str((newText[1])[:maxLineLength-len("...")]) + "..."
-			return str(len(newText[0]))
+			return str(len(newText[1]))
 			"""if len(jj) > 4:
 				return "being used"
 				newText[1]=unicode(newText[1]) + str(jj[4])"""
