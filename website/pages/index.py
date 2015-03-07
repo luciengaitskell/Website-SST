@@ -214,10 +214,10 @@ def displayMain():
 				newText[1]=(jj[3].decode("utf-8"))[maxLineLength:]
 
 			if len(jj)>4: #there are more then one file text lines
-				newText[1]=str(newText[1])+str(jj[4].decode("utf-8"))
+				newText[1]=unicode(newText[1])+unicode(jj[4].decode("utf-8"))
 
 			if len(newText[1]) > maxLineLength:
-				newText[1]=str((newText[1])[:maxLineLength-len("...")]) + "..."
+				newText[1]=unicode((newText[1])[:maxLineLength-len("...")]) + "..."
 			#return str(len(newText[1]))
 			"""if len(jj) > 4:
 				return "being used"
