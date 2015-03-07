@@ -208,6 +208,7 @@ def displayMain():
 			#return str((newText[0])[:maxLineLength)])
 
 			newText=[(jj[3].decode("utf-8")),""]
+			return str(len(newText[0]))
 			if len(newText[0]) > maxLineLength:
 				newText[0]=(newText[0])[:maxLineLength]
 				newText[1]=(jj[3].decode("utf-8"))[maxLineLength:]
@@ -221,8 +222,6 @@ def displayMain():
 			"""if len(jj) > 4:
 				return "being used"
 				newText[1]=unicode(newText[1]) + str(jj[4])"""
-
-			return unicode(newText[0])
 
 			texts.append(newText[0])
 			texts.append(newText[1])
