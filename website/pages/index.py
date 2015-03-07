@@ -207,13 +207,13 @@ def displayMain():
 
 			#return str((newText[0])[:maxLineLength)])
 
-			newText=[jj[3],""]
+			newText=[jj[3].decode("utf-8"),""]
 			if len(newText[0]) > maxLineLength:
 				newText[0]=(newText[0])[:maxLineLength]
-				newText[1]=(jj[3])[maxLineLength:]
+				newText[1]=(jj[3].decode("utf-8"))[maxLineLength:]
 
 			if (jj>4): #there are more then one file text lines
-				newText[1]=str(newText[1])+str(jj[3])
+				newText[1]=str(newText[1])+str(jj[4].decode("utf-8"))
 
 			if len(newText[1]) > maxLineLength:
 				newText[1]=str((newText[1])[:maxLineLength-len("...")]) + "..."
@@ -229,7 +229,7 @@ def displayMain():
 		dates = arrayToUnicode(dates)
 		names = arrayToUnicode(names)
 		titles = arrayToUnicode(titles)
-		texts = arrayToUnicode(texts)
+		#texts = arrayToUnicode(texts)
 	else:
 		editableFiles.append(False)
 		noFiles=True
