@@ -209,7 +209,7 @@ def displayMain():
 
 			newText=[(jj[3].decode("utf-8")),""]
 
-			if len(newText[0]) > maxLineLength: # if the first display line is over max
+			if len(newText[0] + unicode(" "))-1 > maxLineLength: # if the first display line is over max
 				newText[0]=(newText[0])[:maxLineLength]
 				newText[1]=(jj[3].decode("utf-8"))[maxLineLength:]
 
@@ -217,7 +217,7 @@ def displayMain():
 				newText[1]=unicode(newText[1])+unicode(jj[4].decode("utf-8"))
 				# add the line on to the 2nd index - will get cut off below if needed
 
-			if len(newText[1]) > maxLineLength:
+			if len(newText[1] + unicode(" "))-1 > maxLineLength:
 				newText[1]=unicode((newText[1])[:maxLineLength-len("...")]) + "..."
 				# if the last display text line exceedes the max display lenght
 
