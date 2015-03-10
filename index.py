@@ -406,7 +406,8 @@ def postRecord():
 	if "<script>" in articleText or "</script>" in articleText:
 		# stops malicious js code being implanted
 		return "I don't like hackers"
-	if not articleText:
+
+	if not articleText: # if the text is blank
 		articleText="THIS IS SPAM"
 
 	if request.path == "/post/edit":
