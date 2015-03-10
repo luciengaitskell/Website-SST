@@ -17,7 +17,7 @@ loginsExtention=".txt"
 
  #debugStateFind
 if "True" in sys.argv:
-debugState = True
+	debugState = True
 else:
 	debugState = False;
 
