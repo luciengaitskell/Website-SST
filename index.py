@@ -11,20 +11,21 @@ app = Flask(__name__)
 
 userPass=[["~owner", "a_boss"]]
 
-fileSubFolder="articles/" #articles
+#if true its the test server
+if "True" in sys.argv:
+	debugState = True
+	portSet = 5000
+	fileSubFolder="../testArticles/" #articles
+else:
+	debugState = False
+	portSet = 80
+	fileSubFolder="../mainArticles/" #articles
+
 fileBeginning="article_"
 fileExtention=".txt"
 
 loginsSubFolder="logins/" #logins
 loginsExtention=".txt"
-
- #if true its the test server
-if "True" in sys.argv:
-	debugState = True
-	portSet = 5000
-else:
-	debugState = False
-	portSet = 80
 
 @app.before_request
 def getLogins():
@@ -174,7 +175,7 @@ def displayMain():
 	loggedIn=loginCheckCache(userPass)
 	username=loggedIn[0]
 
-	for ii in glob.glob("articles/*"):
+	for ii in glob.glob(str(fileSubFolder) + "*"):
 		fileNames.append(ii)
 
 	if len(fileNames)>0: # there are files
@@ -405,7 +406,8 @@ def postRecord():
 	if "<script>" in articleText or "</script>" in articleText:
 		# stops malicious js code being implanted
 		return "I don't like hackers"
-	if not articleText:
+
+	if not articleText: # if the text is blank
 		articleText="THIS IS SPAM"
 
 	if request.path == "/post/edit":
@@ -421,7 +423,7 @@ def postRecord():
 			filePath=str(fileSubFolder) + str(fileBeginning) + str(articleDate) + "-" + str(articleNumber) + str(fileExtention)
 
 			fileNamefound=True # gets set back to False if the name is already used
-			for ii in glob.glob("articles/*"):
+			for ii in glob.glob(str(fileSubFolder) + "*"):
 				if ii==filePath:
 					fileNamefound=False
 					break
