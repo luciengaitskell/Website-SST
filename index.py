@@ -422,7 +422,7 @@ def postRecord():
 			filePath=str(fileSubFolder) + str(fileBeginning) + str(articleDate) + "-" + str(articleNumber) + str(fileExtention)
 
 			fileNamefound=True # gets set back to False if the name is already used
-			for ii in glob.glob("articles/*"):
+			for ii in glob.glob(str(fileSubFolder) + "*"):
 				if ii==filePath:
 					fileNamefound=False
 					break
