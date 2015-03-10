@@ -335,7 +335,6 @@ def signUp():
 
 @app.route('/signUp/check', methods=['POST'])
 def signUpCheck():
-	filePathBeg="logins/"
 	credentials=[request.form.get("username")
 	, request.form.get("email")
 	, request.form.get("password1")
@@ -360,7 +359,7 @@ def signUpCheck():
 	if ((loginCheckCache(userPass))[0])!=False:#the username is taken (error 4)
 		return redirect("/signUp/?error=4&username=" + str(credentials[0]) + "&email=" + str(credentials[1]))
 
-	filePath=findNewFileName(str(filePathBeg), str(fileExtention))
+	filePath=findNewFileName(str(loginsSubFolder), str(fileExtention))
 	file = open(filePath,"w")
 	for ii in range(len(credentials[:len(credentials)-1])):#excludes last
 		if ii==len(credentials)-2: # 2nd to last one (1st pass)
