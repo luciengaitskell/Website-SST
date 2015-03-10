@@ -3,6 +3,7 @@ from file_len import file_length
 from datetime import timedelta
 import time
 import glob
+import sys
 
 #for dev - change port and debug afterwards
 
@@ -15,6 +16,14 @@ fileExtention=".txt"
 
 loginsSubFolder="logins/" #logins
 loginsExtention=".txt"
+
+ #if true its the test server
+if "True" in sys.argv:
+	debugState = True
+	portSet = 5000
+else:
+	debugState = False
+	portSet = 80
 
 @app.before_request
 def getLogins():
@@ -511,10 +520,11 @@ def helpPage():
 def testFunc():
 	return str(userPass[2][0])
 
+
 if __name__ == "__main__":
 	app.secret_key = 'Ymsf,sfatwBU!Iwruh,bus'
-	app.debug = True
+	app.debug = debugState
 	app.run(
 		host='0.0.0.0',
-		port=5000
+		port=portSet
 		)
