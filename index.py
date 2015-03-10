@@ -5,6 +5,8 @@ import time
 import glob
 import sys
 
+#for dev - change port and debug afterwards
+
 app = Flask(__name__)
 
 userPass=[["~owner", "a_boss"]]
@@ -517,7 +519,7 @@ def helpPage():
 @app.route('/test/')
 def testFunc():
 	return str(userPass[2][0])
-	
+
 
 if __name__ == "__main__":
 	app.secret_key = 'Ymsf,sfatwBU!Iwruh,bus'
