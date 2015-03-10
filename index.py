@@ -511,7 +511,7 @@ def testFunc():
 
 if __name__ == "__main__":
 	app.secret_key = 'Ymsf,sfatwBU!Iwruh,bus'
-	app.debug = True
+	app.debug = False
 	app.run(
 		host='0.0.0.0',
 		port=80
