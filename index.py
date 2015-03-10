@@ -10,20 +10,22 @@ import sys
 app = Flask(__name__)
 
 userPass=[["~owner", "a_boss"]]
-fileSubFolder="articles/" #articles
+
+#if true its the test server
+if "True" in sys.argv:
+	debugState = True
+	portSet = 5000
+	fileSubFolder="../testArticles/" #articles
+else:
+	debugState = False
+	portSet = 80
+	fileSubFolder="../mainArticles/" #articles
+
 fileBeginning="article_"
 fileExtention=".txt"
 
 loginsSubFolder="logins/" #logins
 loginsExtention=".txt"
-
- #if true its the test server
-if "True" in sys.argv:
-	debugState = True
-	portSet = 5000
-else:
-	debugState = False
-	portSet = 80
 
 @app.before_request
 def getLogins():
