@@ -16,10 +16,10 @@ loginsSubFolder="logins/" #logins
 loginsExtention=".txt"
 
  #debugStateFind
-	if "True" in sys.argv:
-		debugState = True
-	else:
-		debugState = False;
+if "True" in sys.argv:
+debugState = True
+else:
+	debugState = False;
 
 @app.before_request
 def getLogins():
