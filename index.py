@@ -4,6 +4,8 @@ from datetime import timedelta
 import time
 import glob
 
+#for dev - change port and debug afterwards
+
 app = Flask(__name__)
 
 userPass=[["~owner", "a_boss"]]
@@ -514,5 +516,5 @@ if __name__ == "__main__":
 	app.debug = True
 	app.run(
 		host='0.0.0.0',
-		port=80
+		port=5000
 		)
