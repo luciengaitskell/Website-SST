@@ -175,7 +175,7 @@ def displayMain():
 	loggedIn=loginCheckCache(userPass)
 	username=loggedIn[0]
 
-	for ii in glob.glob("articles/*"):
+	for ii in glob.glob(str(fileSubFolder) + "*"):
 		fileNames.append(ii)
 
 	if len(fileNames)>0: # there are files
