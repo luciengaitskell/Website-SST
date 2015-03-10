@@ -15,11 +15,13 @@ fileExtention=".txt"
 loginsSubFolder="logins/" #logins
 loginsExtention=".txt"
 
- #debugStateFind
+ #if true its the test server
 if "True" in sys.argv:
 	debugState = True
+	portSet = 5000
 else:
-	debugState = False;
+	debugState = False
+	portSet = 80
 
 @app.before_request
 def getLogins():
@@ -515,15 +517,12 @@ def helpPage():
 @app.route('/test/')
 def testFunc():
 	return str(userPass[2][0])
-
-@app.route('/herpderp/')
-def herpDerp():
-	return debugState
+	
 
 if __name__ == "__main__":
 	app.secret_key = 'Ymsf,sfatwBU!Iwruh,bus'
 	app.debug = debugState
 	app.run(
 		host='0.0.0.0',
-		port=80
+		port=portSet
 		)
