@@ -3,6 +3,7 @@ from file_len import file_length
 from datetime import timedelta
 import time
 import glob
+import sys
 
 app = Flask(__name__)
 
@@ -13,6 +14,12 @@ fileExtention=".txt"
 
 loginsSubFolder="logins/" #logins
 loginsExtention=".txt"
+
+ #debugStateFind
+	if "True" in sys.argv:
+		debugState = True
+	else:
+		debugState = False;
 
 @app.before_request
 def getLogins():
@@ -509,9 +516,13 @@ def helpPage():
 def testFunc():
 	return str(userPass[2][0])
 
+@app.route('/herpderp/')
+def herpDerp():
+	return debugState
+
 if __name__ == "__main__":
 	app.secret_key = 'Ymsf,sfatwBU!Iwruh,bus'
-	app.debug = False
+	app.debug = debugState
 	app.run(
 		host='0.0.0.0',
 		port=80
