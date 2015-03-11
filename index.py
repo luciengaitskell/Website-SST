@@ -226,6 +226,7 @@ def displayMain():
 			if len(newText[0]) > maxLineLength: # if the first display line is over max
 				newText[0]=(newText[0])[:maxLineLength]
 				newText[1]=(jj[3].decode("utf-8"))[maxLineLength:]
+				return newText[1]
 
 			if len(jj)>4: #there are more then one file text lines
 				newText[1]=unicode(newText[1])+unicode(jj[4].decode("utf-8"))
