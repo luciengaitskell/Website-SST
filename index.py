@@ -416,7 +416,7 @@ def postRecord():
 		file = open(filePath, "r")
 		lines=file.readlines()
 		#return lines[0]
-		articleDate=(lines[2]).rstrip() # newLine char
+		articleDate=(lines[2]).rstrip() # removing newLine char which gets added lower down
 		file.close()
 	else:
 		while fileNamefound == False:
