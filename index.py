@@ -223,7 +223,7 @@ def displayMain():
 
 			newText=[(jj[3].decode("utf-8")),""]
 
-			return str(len(jj))
+			#return str(len(jj))
 			#return unicode(newText[0] + unicode(" "))
 			if len(newText[0] + unicode(" ")) -1 > maxLineLength: # if the first display line is over max
 				newText[0]=(newText[0])[:maxLineLength]
@@ -412,12 +412,11 @@ def postRecord():
 		articleText="THIS IS SPAM"
 
 	if request.path == "/post/edit":
-		return articleText
 		filePath=session['filePath']
 		file = open(filePath, "r")
 		lines=file.readlines()
 		#return lines[0]
-		articleDate=lines[2]
+		articleDate=(lines[2])[:len(lines[2])] # removing newline char
 		file.close()
 	else:
 		while fileNamefound == False:
