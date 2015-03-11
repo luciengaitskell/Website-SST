@@ -16,15 +16,16 @@ if "True" in sys.argv:
 	debugState = True
 	portSet = 5000
 	fileSubFolder="../testArticles/" #articles
+	loginsSubFolder="../testLogins/" #logins
 else:
 	debugState = False
 	portSet = 80
 	fileSubFolder="../mainArticles/" #articles
+	loginsSubFolder="../mainLogins/" #logins
 
 fileBeginning="article_"
 fileExtention=".txt"
 
-loginsSubFolder="../logins/" #logins
 loginsExtention=".txt"
 
 @app.before_request
