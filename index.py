@@ -24,7 +24,7 @@ else:
 fileBeginning="article_"
 fileExtention=".txt"
 
-loginsSubFolder="logins/" #logins
+loginsSubFolder="../logins/" #logins
 loginsExtention=".txt"
 
 @app.before_request
