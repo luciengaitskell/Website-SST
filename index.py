@@ -412,6 +412,7 @@ def postRecord():
 		articleText="THIS IS SPAM"
 
 	if request.path == "/post/edit":
+		return articleText
 		filePath=session['filePath']
 		file = open(filePath, "r")
 		lines=file.readlines()
