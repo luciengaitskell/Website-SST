@@ -16,15 +16,16 @@ if "True" in sys.argv:
 	debugState = True
 	portSet = 5000
 	fileSubFolder="../testArticles/" #articles
+	loginsSubFolder="../testLogins/" #logins
 else:
 	debugState = False
 	portSet = 80
 	fileSubFolder="../mainArticles/" #articles
+	loginsSubFolder="../mainLogins/" #logins
 
 fileBeginning="article_"
 fileExtention=".txt"
 
-loginsSubFolder="logins/" #logins
 loginsExtention=".txt"
 
 @app.before_request
@@ -210,7 +211,7 @@ def displayMain():
 			fileNameOpen.close()
 
 			if username==(jj[1])[:len(jj[1])-1]:
-				editableFiles.append("/" + str(fileSubFolder) + str(ii)[len(fileBeginning):len(ii)-len(fileExtention)] + "/edit/")
+				editableFiles.append("/articles/" + str(ii)[len(fileBeginning):len(ii)-len(fileExtention)] + "/edit/")
 			else:
 				editableFiles.append(False)
 
@@ -228,7 +229,7 @@ def displayMain():
 				newText[1]=(jj[3].decode("utf-8"))[maxLineLength:]
 
 			if len(jj)>4: #there are more then one file text lines
-				newText[1]=unicode(newText[1])+unicode(jj[4].decode("utf-8"))
+				newText[1]=unicode(newText[1]) + unicode(jj[4].decode("utf-8"))
 				# add the line on to the 2nd index - will get cut off below if needed
 
 			if len(newText[1] + unicode(" ")) -1 > maxLineLength:
@@ -414,7 +415,7 @@ def postRecord():
 		file = open(filePath, "r")
 		lines=file.readlines()
 		#return lines[0]
-		articleDate=lines[2]
+		articleDate=(lines[2]).rstrip() # removing newLine char which gets added lower down
 		file.close()
 	else:
 		while fileNamefound == False:
