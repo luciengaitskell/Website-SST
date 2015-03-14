@@ -1,6 +1,40 @@
 <!doctype html>
+
 <html>
-<head>
+<head style="background-color: #163e71">
+<style>
+  #outerdiv {
+    width: 250px; position: relative;
+  }
+
+  #innerdiv {
+    position: absolute; left: -8px; top: -40px;clip:rect(45px 800px 350px 0px);
+  }
+
+  #announce {
+    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    font-style: normal;
+    font-variant: normal;
+    font-size: 30px;
+    text-align: left;
+    position: fixed;
+    left:65px;
+    top:1px;
+  }
+</style>
+<button type="button" onclick="window.location='/';">back</button>
+<div id="announce">Connor's MIX!</div>
+</head>
+
+<body>
+<div id="outerdiv">
+<div id="innerdiv">
+<iframe width="800" height="350" src="http://themixir.fastcast4u.com" scrolling="no" frameborder="0"></iframe>
+</div>
+</div>
+</body>
+<!--<head>
+>>>>>>> newFeatures
 <script type='text/javascript'>
 //document.getElementById('body').scrollLeft=9e9;
 window.scrollTo(document.getElementById('mainContent').clientWidth, 0);
