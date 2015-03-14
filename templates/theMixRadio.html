@@ -8,7 +8,7 @@
   }
 
   #innerdiv {
-    position: absolute; left: -8px; top: -40px;clip:rect(45px 800px 350px 0px);
+    position: absolute; left: -8px; top: -10px;clip:rect(45px 800px 350px 0px);
   }
 
   #announce {
@@ -17,12 +17,12 @@
     font-variant: normal;
     font-size: 30px;
     text-align: left;
-    position: fixed;
+    position: absolute;
     left:65px;
     top:1px;
   }
 </style>
-<button type="button" onclick="window.location='/';">back</button>
+<button style="position: absolute; left:5px; top:8px;" type="button" onclick="history.go(-1);">back</button>
 <div id="announce">Connor's MIX!</div>
 </head>
 
