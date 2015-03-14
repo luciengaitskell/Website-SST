@@ -523,6 +523,9 @@ def helpPage():
 def testFunc():
 	return str(userPass[2][0])
 
+@app.route('/radio/')
+def radio():
+	return render_template('theMixRadio.html')
 
 if __name__ == "__main__":
 	app.secret_key = 'Ymsf,sfatwBU!Iwruh,bus'
