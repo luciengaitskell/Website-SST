@@ -28,6 +28,13 @@ fileExtention=".txt"
 
 loginsExtention=".txt"
 
+
+def inFirstColumn(theString, theArray):
+	for ii in theArray:
+		if theString == ii[0]
+			return True
+	return False
+
 @app.before_request
 def getLogins():
 	global userPass
@@ -40,10 +47,7 @@ def getLogins():
 		passwordWrite=lines[2]
 		#passwordWrite=passwordWrite[:len(passwordWrite)-1] #WASN'T NEEDED WAS EOF
 
-		if usernameWrite in userPass:
-			pass
-		else:
-			#return "its unique"
+		if not inFirstColumn(usernameWrite,userPass):
 			userPass.append([usernameWrite, passwordWrite])
 
 	return str(userPass)
