@@ -31,7 +31,7 @@ loginsExtention=".txt"
 
 def inFirstColumn(theString, theArray):
 	for ii in theArray:
-		if theString == ii[0]
+		if theString == ii[0]:
 			return True
 	return False
 
