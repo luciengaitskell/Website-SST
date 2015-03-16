@@ -41,7 +41,7 @@ def getLogins():
 		#passwordWrite=passwordWrite[:len(passwordWrite)-1] #WASN'T NEEDED WAS EOF
 		if usernameWrite in userPass:
 			#return "already " + str(len(userPass))
-		else:
+			else:
 			#return "its unique"
 			userPass.append([usernameWrite, passwordWrite])
 
