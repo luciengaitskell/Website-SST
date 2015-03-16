@@ -40,13 +40,13 @@ def getLogins():
 		passwordWrite=lines[2]
 		#passwordWrite=passwordWrite[:len(passwordWrite)-1] #WASN'T NEEDED WAS EOF
 
-		return str(userPass)
 		if usernameWrite in userPass:
 			pass
 		else:
 			#return "its unique"
 			userPass.append([usernameWrite, passwordWrite])
 
+	return str(userPass)
 	pass
 
 def is_ascii(s):
