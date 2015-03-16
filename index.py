@@ -50,7 +50,7 @@ def getLogins():
 		if not inFirstColumn(usernameWrite,userPass):
 			userPass.append([usernameWrite, passwordWrite])
 
-	return str(userPass)
+	#return str(userPass)
 	pass
 
 def is_ascii(s):
