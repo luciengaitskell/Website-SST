@@ -42,7 +42,7 @@ def getLogins():
 
 		return str(userPass)
 		if usernameWrite in userPass:
-
+			pass
 		else:
 			#return "its unique"
 			userPass.append([usernameWrite, passwordWrite])
