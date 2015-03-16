@@ -39,7 +39,9 @@ def getLogins():
 		usernameWrite=usernameWrite[:len(usernameWrite)-1]
 		passwordWrite=lines[2]
 		#passwordWrite=passwordWrite[:len(passwordWrite)-1] #WASN'T NEEDED WAS EOF
-		userPass.append([usernameWrite, passwordWrite])
+		if usernameWrite in userPass:
+			userPass.append([usernameWrite, passwordWrite])
+
 	pass
 
 def is_ascii(s):
@@ -521,7 +523,7 @@ def helpPage():
 
 @app.route('/test/')
 def testFunc():
-	return str(userPass[2][0])
+	return str(userPass)
 
 @app.route('/radio/')
 def radio():
