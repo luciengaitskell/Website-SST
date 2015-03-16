@@ -523,7 +523,7 @@ def helpPage():
 
 @app.route('/test/')
 def testFunc():
-	return str(userPass)
+	return str(len(userPass))
 
 @app.route('/radio/')
 def radio():
