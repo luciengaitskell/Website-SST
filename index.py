@@ -43,7 +43,7 @@ def getLogins():
 			return "its unique"
 			userPass.append([usernameWrite, passwordWrite])
 		else:
-			return "already"
+			return "already" + str(len(userPass))
 
 	pass
 
