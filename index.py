@@ -28,6 +28,13 @@ fileExtention=".txt"
 
 loginsExtention=".txt"
 
+
+def inFirstColumn(theString, theArray):
+	for ii in theArray:
+		if theString == ii[0]:
+			return True
+	return False
+
 @app.before_request
 def getLogins():
 	global userPass
@@ -39,7 +46,11 @@ def getLogins():
 		usernameWrite=usernameWrite[:len(usernameWrite)-1]
 		passwordWrite=lines[2]
 		#passwordWrite=passwordWrite[:len(passwordWrite)-1] #WASN'T NEEDED WAS EOF
-		userPass.append([usernameWrite, passwordWrite])
+
+		if not inFirstColumn(usernameWrite,userPass):
+			userPass.append([usernameWrite, passwordWrite])
+
+	#return str(userPass)
 	pass
 
 def is_ascii(s):
@@ -521,7 +532,7 @@ def helpPage():
 
 @app.route('/test/')
 def testFunc():
-	return str(userPass[2][0])
+	return str(len(userPass))
 
 @app.route('/radio/')
 def radio():
