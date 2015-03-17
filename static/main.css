@@ -5,6 +5,13 @@
 .title {
   font-size: 150%;
   color:black;
+  background-color: transparent;
+}
+
+.titleLink {
+  font-size: inherit;
+  color:inherit;
+  background-color: inherit;
 }
 
 .titleLink:hover {
