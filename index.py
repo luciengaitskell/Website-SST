@@ -285,7 +285,7 @@ def displayMain():
 		editableFiles.append(False)
 		noFiles=True
 
-	return str(names)
+	return str(dates)
 	#return uniqueDates[1]
 	return render_template('main.html'
 	, noFiles=noFiles
