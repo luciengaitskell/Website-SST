@@ -252,6 +252,7 @@ def displayMain():
 			else:
 				editableFiles.append(False)
 
+			return (jj[0])[:len(jj[0])-1]
 			titles.append((jj[0])[:len(jj[0])-1])
 			names.append((jj[1])[:len(jj[1])-1])
 			dates.append((jj[2])[:len(jj[2])-1])
