@@ -127,7 +127,7 @@ def fileDateNumbOrgainise(dates, fileNames, theFileBeginning, theFileExtention):
 				fileNamesNew.append((jj)[len(theFileBeginning):len(jj)-len(theFileExtention)])
 
 		fileNamesNew.sort(reverse=True)
-		return "fileNamesNew: " + fileNamesNew
+		return "fileNamesNew: " + str(fileNamesNew)
 		for jj in fileNamesNew:
 			fileNamesSorted.append(str(theFileBeginning) + str(jj) + str(theFileExtention))
 
