@@ -276,7 +276,7 @@ def displayMain():
 
 			texts.append(newText[0])
 			texts.append(newText[1])
-		return str(dates)
+		
 		dates = arrayToUnicode(dates)
 		names = arrayToUnicode(names)
 		titles = arrayToUnicode(titles)
