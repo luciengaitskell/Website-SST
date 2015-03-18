@@ -232,7 +232,7 @@ def displayMain():
 
 	for ii in glob.glob(str(fileSubFolder) + "*"):
 		fileNames.append(ii)
-		dates.append(ii[(len(fileSubFolder)+len(fileBeginning)):int(ii.find("-"))]) # use findBetween later to stop the folders from messing it up with the "-"'s
+		dates.append(ii[int(len(fileSubFolder)+len(fileBeginning)):int(ii.find("-"))]) # use findBetween later to stop the folders from messing it up with the "-"'s
 
 	if len(fileNames)>0: # there are files
 
