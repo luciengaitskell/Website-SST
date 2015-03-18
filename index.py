@@ -238,9 +238,8 @@ def displayMain():
 
 	#return "fileNames: " +str(fileNames) +" | dates: " + str(dates)
 	if len(fileNames)>0: # there are files
-
 		fileNamesSorted=fileDateNumbOrgainise(dates, fileNames, fileSubFolder +fileBeginning, fileExtention)
-		#return str(fileNamesSorted)
+		return str(fileNamesSorted)
 		# getting infor in the sorted order
 		for ii in fileNamesSorted:
 			fileNameOpen = open((str(fileSubFolder) + str(ii)), "r")
