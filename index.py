@@ -119,6 +119,7 @@ def fileDateNumbOrgainise(dates, fileNames, theFileBeginning, theFileExtention):
 	uniqueDates.sort(reverse=True) # sorting the dates so the latest ones are first
 
 	for ii in range(len(uniqueDates)):
+
 		fileNamesNew=[]
 
 		for jj in fileNames:
@@ -126,7 +127,7 @@ def fileDateNumbOrgainise(dates, fileNames, theFileBeginning, theFileExtention):
 				fileNamesNew.append((jj)[len(theFileBeginning):len(jj)-len(theFileExtention)])
 
 		fileNamesNew.sort(reverse=True)
-
+		return fileNamesNew
 		for jj in fileNamesNew:
 			fileNamesSorted.append(str(theFileBeginning) + str(jj) + str(theFileExtention))
 
