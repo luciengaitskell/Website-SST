@@ -29,6 +29,22 @@ fileExtention=".txt"
 loginsExtention=".txt"
 
 
+def findBetween(inputString, findString, lowerBound, upperBound):
+	stringOutside = True
+	if lowerBound > upperBound: # if lower bound is larger
+		stupidVar = upperBound
+		upperBound = lowerBound
+		lowerBound = stupidVar
+
+	if upperBound > len(inputString):
+		upperBound = len(inputString)
+
+	if lowerBound > len(inputString):
+		lowerBound = upperBound
+
+	inputString=inputString[lowerBound:upperBound]
+	return inputString.find(findString)
+
 def inFirstColumn(theString, theArray):
 	for ii in theArray:
 		if theString == ii[0]:
@@ -86,6 +102,36 @@ def findNewFileName(leadingPath, extention):
 			break
 
 	return str(pathOutput)
+
+def fileDateNumbOrgainise(dates, fileNames, theFileBeginning, theFileExtention):
+	uniqueDates=[]
+	fileNamesSorted=[]
+	for ii in range(len(fileNames)): # for each file
+		newDate= dates[ii] # Date of the file
+		dateNew=True
+		for jj in uniqueDates: # Finding if the date of the file is new
+			if jj == newDate:
+				dateNew=False
+
+		if dateNew == True:
+			uniqueDates.append(newDate) # adding file date if its good
+
+	uniqueDates.sort(reverse=True) # sorting the dates so the latest ones are first
+
+	for ii in range(len(uniqueDates)):
+
+		fileNamesNew=[]
+
+		for jj in fileNames:
+			if uniqueDates[ii] == (jj)[len(theFileBeginning):str(jj).find("-")]: # use later after testing: findBetween(inputString, findString, lowerBound, upperBound)
+				fileNamesNew.append((jj)[len(theFileBeginning):len(jj)-len(theFileExtention)])
+
+		fileNamesNew.sort(reverse=True)
+
+		for jj in fileNamesNew:
+			fileNamesSorted.append(str(theFileBeginning) + str(jj) + str(theFileExtention))
+
+	return fileNamesSorted
 
 def makeSessionPermanent():
 	session.permanent = True
@@ -171,7 +217,6 @@ def displayMain():
 	fileNameOpen=""
 	newDate=""
 	dateNew=True
-	uniqueDates=[]
 	newText=[]
 	fileNames=[]
 	fileNamesNew=[]
@@ -189,42 +234,24 @@ def displayMain():
 
 	for ii in glob.glob(str(fileSubFolder) + "*"):
 		fileNames.append(ii)
+		dates.append(ii[int(len(fileSubFolder)+len(fileBeginning)):int(ii.find("-"))]) # use findBetween later to stop the folders from messing it up with the "-"'s
 
+	#return "fileNames: " +str(fileNames) +" | dates: " + str(dates)
 	if len(fileNames)>0: # there are files
-		for ii in range(len(fileNames)): # for each file
-			newDate=(fileNames[ii])[(len(fileSubFolder)+len(fileBeginning)):str(fileNames[ii]).find("-")] # Date of the file
-			dateNew=True
-			for jj in uniqueDates: # Finding if the date of the file is new
-				if jj == newDate:
-					dateNew=False
-
-			if dateNew == True:
-				uniqueDates.append(newDate) # adding file date if its good
-
-		uniqueDates.sort(reverse=True) # sorting the dates so the latest ones are first
-
-		for ii in range(len(uniqueDates)):
-			fileNamesNew=[]
-
-			for jj in fileNames:
-				#testVar=testVar+1
-				if uniqueDates[ii] == (jj)[(len(fileSubFolder)+len(fileBeginning)):str(jj).find("-")]:
-					fileNamesNew.append((jj)[(len(fileSubFolder)+len(fileBeginning)):len(jj)-len(fileExtention)])
-
-			fileNamesNew.sort(reverse=True)
-
-			for jj in fileNamesNew:
-				fileNamesSorted.append(str(fileBeginning) + str(jj) + str(fileExtention))
-
+		fileNamesSorted=fileDateNumbOrgainise(dates, fileNames, fileSubFolder +fileBeginning, fileExtention)
+		#return str(fileNamesSorted)
+		# getting infor in the sorted order
+		dates =[]
 		for ii in fileNamesSorted:
 			fileNameOpen = open((str(fileSubFolder) + str(ii)), "r")
 			jj = fileNameOpen.readlines()
 			fileNameOpen.close()
 
-			if username==(jj[1])[:len(jj[1])-1]:
+			if username==(jj[1])[:len(jj[1])-1]: # if the file is editable
 				editableFiles.append("/articles/" + str(ii)[len(fileBeginning):len(ii)-len(fileExtention)] + "/edit/")
 			else:
 				editableFiles.append(False)
+
 
 			titles.append((jj[0])[:len(jj[0])-1])
 			names.append((jj[1])[:len(jj[1])-1])
@@ -249,7 +276,7 @@ def displayMain():
 
 			texts.append(newText[0])
 			texts.append(newText[1])
-
+		
 		dates = arrayToUnicode(dates)
 		names = arrayToUnicode(names)
 		titles = arrayToUnicode(titles)
@@ -258,7 +285,7 @@ def displayMain():
 		editableFiles.append(False)
 		noFiles=True
 
-
+	#return str(dates)
 	#return uniqueDates[1]
 	return render_template('main.html'
 	, noFiles=noFiles
