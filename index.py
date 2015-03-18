@@ -111,7 +111,6 @@ def fileDateNumbOrgainise(dates, fileNames, theFileBeginning, theFileExtention):
 		dateNew=True
 		for jj in uniqueDates: # Finding if the date of the file is new
 			if jj == newDate:
-				return "this should show up"
 				dateNew=False
 
 		if dateNew == True:
