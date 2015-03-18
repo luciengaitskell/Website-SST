@@ -107,10 +107,10 @@ def fileDateNumbOrgainise(dates, fileNames, theFileBeginning, theFileExtention):
 	uniqueDates=[]
 	fileNamesSorted=[]
 	for ii in range(len(fileNames)): # for each file
-		return "tehre are files"
 		newDate= dates[ii] # Date of the file
 		dateNew=True
 		for jj in uniqueDates: # Finding if the date of the file is new
+			return "going in uniqe dates"
 			if jj == newDate:
 				dateNew=False
 
