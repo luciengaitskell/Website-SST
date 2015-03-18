@@ -216,12 +216,13 @@ def displayMain():
 			for jj in fileNamesNew:
 				fileNamesSorted.append(str(fileBeginning) + str(jj) + str(fileExtention))
 
+		# getting infor in the sorted order
 		for ii in fileNamesSorted:
 			fileNameOpen = open((str(fileSubFolder) + str(ii)), "r")
 			jj = fileNameOpen.readlines()
 			fileNameOpen.close()
 
-			if username==(jj[1])[:len(jj[1])-1]:
+			if username==(jj[1])[:len(jj[1])-1]: # if the file is editable
 				editableFiles.append("/articles/" + str(ii)[len(fileBeginning):len(ii)-len(fileExtention)] + "/edit/")
 			else:
 				editableFiles.append(False)
