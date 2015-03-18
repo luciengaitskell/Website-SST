@@ -241,6 +241,7 @@ def displayMain():
 		fileNamesSorted=fileDateNumbOrgainise(dates, fileNames, fileSubFolder +fileBeginning, fileExtention)
 		#return str(fileNamesSorted)
 		# getting infor in the sorted order
+		dates =[]
 		for ii in fileNamesSorted:
 			fileNameOpen = open((str(fileSubFolder) + str(ii)), "r")
 			jj = fileNameOpen.readlines()
@@ -284,7 +285,7 @@ def displayMain():
 		editableFiles.append(False)
 		noFiles=True
 
-	return str(dates)
+	#return str(dates)
 	#return uniqueDates[1]
 	return render_template('main.html'
 	, noFiles=noFiles
