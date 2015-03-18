@@ -123,11 +123,12 @@ def fileDateNumbOrgainise(dates, fileNames, theFileBeginning, theFileExtention):
 		fileNamesNew=[]
 
 		for jj in fileNames:
+			return "jj: " + str(jj)
 			if uniqueDates[ii] == (jj)[len(theFileBeginning):str(jj).find("-")]: # use later after testing: findBetween(inputString, findString, lowerBound, upperBound)
 				fileNamesNew.append((jj)[len(theFileBeginning):len(jj)-len(theFileExtention)])
 
 		fileNamesNew.sort(reverse=True)
-		return "fileNamesNew: " + str(fileNamesNew)
+
 		for jj in fileNamesNew:
 			fileNamesSorted.append(str(theFileBeginning) + str(jj) + str(theFileExtention))
 
