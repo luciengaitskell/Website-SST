@@ -110,8 +110,8 @@ def fileDateNumbOrgainise(dates, fileNames, theFileBeginning, theFileExtention):
 		newDate= dates[ii] # Date of the file
 		dateNew=True
 		for jj in uniqueDates: # Finding if the date of the file is new
-			return "going in uniqe dates"
 			if jj == newDate:
+				return "this should show up"
 				dateNew=False
 
 		if dateNew == True:
