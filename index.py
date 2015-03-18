@@ -105,6 +105,7 @@ def findNewFileName(leadingPath, extention):
 
 def fileDateNumbOrgainise(dates, fileNames, theFileBeginning, theFileExtention):
 	uniqueDates=[]
+	fileNamesSorted=[]
 	for ii in range(len(fileNames)): # for each file
 		newDate= dates[ii] # Date of the file
 		dateNew=True
