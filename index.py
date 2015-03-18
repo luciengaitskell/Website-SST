@@ -243,6 +243,7 @@ def displayMain():
 		#return str(fileNamesSorted)
 		# getting infor in the sorted order
 		for ii in fileNamesSorted:
+			return str(ii)
 			fileNameOpen = open((str(fileSubFolder) + str(ii)), "r")
 			jj = fileNameOpen.readlines()
 			fileNameOpen.close()
