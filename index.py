@@ -236,7 +236,7 @@ def displayMain():
 		fileNames.append(ii)
 		dates.append(ii[int(len(fileSubFolder)+len(fileBeginning)):int(ii.find("-"))]) # use findBetween later to stop the folders from messing it up with the "-"'s
 
-	return "fileNames: " +str(fileNames) +" | dates: " + str(dates)
+	#return "fileNames: " +str(fileNames) +" | dates: " + str(dates)
 	if len(fileNames)>0: # there are files
 		fileNamesSorted=fileDateNumbOrgainise(dates, fileNames, fileSubFolder +fileBeginning, fileExtention)
 		#return str(fileNamesSorted)
