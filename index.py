@@ -236,7 +236,7 @@ def displayMain():
 
 	if len(fileNames)>0: # there are files
 
-		fileNamesSorted=ileDateNumbOrgainise(dates, fileNames, fileBeginning, fileExtention)
+		fileNamesSorted=fileDateNumbOrgainise(dates, fileNames, fileBeginning, fileExtention)
 
 		# getting infor in the sorted order
 		for ii in fileNamesSorted:
