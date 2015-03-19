@@ -109,9 +109,14 @@ def findNewFileName(leadingPath, extention):
 
 	return str(pathOutput)
 
-def fileDateNumbOrgainise(dates, fileNames, theFileBeginning, theFileExtention):
+def fileDateNumbOrgainise(fileNames, theFileBeginning, theFileExtention):
 	uniqueDates=[]
 	fileNamesSorted=[]
+	dates=[]
+
+	for ii in fileNames:
+		dates.append(ii[len(theFileBeginning):int(findBetween(ii,"-", len(theFileBeginning)+1))])
+
 	for ii in range(len(fileNames)): # for each file
 		newDate= dates[ii] # Date of the file
 		dateNew=True
@@ -243,14 +248,13 @@ def displayMain():
 
 	for ii in glob.glob(str(fileSubFolder) + "*"):
 		fileNames.append(ii)
-		dates.append(ii[int(len(fileSubFolder)+len(fileBeginning)):int(findBetween(ii,"-", len(fileSubFolder)+len(fileBeginning)+1))])
 
 	#return "fileNames: " +str(fileNames) +" | dates: " + str(dates)
 	if len(fileNames)>0: # there are files
-		fileNamesSorted=fileDateNumbOrgainise(dates, fileNames, fileSubFolder + fileBeginning, fileExtention)
+		fileNamesSorted=fileDateNumbOrgainise(fileNames, fileSubFolder + fileBeginning, fileExtention)
 		#return str(fileNamesSorted)
 		# getting infor in the sorted order
-		dates =[]
+		
 		for ii in fileNamesSorted:
 			fileNameOpen = open((str(fileSubFolder) + str(ii)), "r")
 			jj = fileNameOpen.readlines()
