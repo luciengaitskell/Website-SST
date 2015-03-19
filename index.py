@@ -29,8 +29,10 @@ fileExtention=".txt"
 loginsExtention=".txt"
 
 
-def findBetween(inputString, findString, lowerBound, upperBound):
-	stringOutside = True
+def findBetween(inputString, findString, lowerBound, upperBound=False):
+	if upperBound == False:
+		upperBound=len(inputString)
+
 	if lowerBound > upperBound: # if lower bound is larger
 		stupidVar = upperBound
 		upperBound = lowerBound
@@ -43,7 +45,11 @@ def findBetween(inputString, findString, lowerBound, upperBound):
 		lowerBound = upperBound
 
 	inputString=inputString[lowerBound:upperBound]
-	return inputString.find(findString)
+	returnAmount=inputString.find(findString)
+	if not returnAmount == -1:
+		returnAmount = returnAmount + lowerBound
+
+	return returnAmount
 
 def inFirstColumn(theString, theArray):
 	for ii in theArray:
@@ -103,9 +109,14 @@ def findNewFileName(leadingPath, extention):
 
 	return str(pathOutput)
 
-def fileDateNumbOrgainise(dates, fileNames, theFileBeginning, theFileExtention):
+def fileDateNumbOrgainise(fileNames, theFileBeginning, theFileExtention):
 	uniqueDates=[]
 	fileNamesSorted=[]
+	dates=[]
+
+	for ii in fileNames:
+		dates.append(ii[len(theFileBeginning):int(findBetween(ii,"-", len(theFileBeginning)+1))])
+
 	for ii in range(len(fileNames)): # for each file
 		newDate= dates[ii] # Date of the file
 		dateNew=True
@@ -122,9 +133,12 @@ def fileDateNumbOrgainise(dates, fileNames, theFileBeginning, theFileExtention):
 
 		fileNamesNew=[]
 
-		for jj in fileNames:
-			if uniqueDates[ii] == (jj)[len(theFileBeginning):str(jj).find("-")]: # use later after testing: findBetween(inputString, findString, lowerBound, upperBound)
-				fileNamesNew.append((jj)[len(theFileBeginning):len(jj)-len(theFileExtention)])
+		for jj in range(len(fileNames)):
+			#return "jj: " + jj + " | returned: " + str(findBetween(jj, "-", len(theFileBeginning)))
+			#return (jj)[len(theFileBeginning):findBetween(jj, "-", len(theFileBeginning))]
+			#return "uniqueDates: " + str(uniqueDates) + " | " + (jj)[len(theFileBeginning):findBetween(jj, "-", len(theFileBeginning))]
+			if uniqueDates[ii] == dates[jj]:
+				fileNamesNew.append((fileNames[jj])[len(theFileBeginning):len(fileNames[jj])-len(theFileExtention)])
 
 		fileNamesNew.sort(reverse=True)
 
@@ -234,14 +248,13 @@ def displayMain():
 
 	for ii in glob.glob(str(fileSubFolder) + "*"):
 		fileNames.append(ii)
-		dates.append(ii[int(len(fileSubFolder)+len(fileBeginning)):int(ii.find("-"))]) # use findBetween later to stop the folders from messing it up with the "-"'s
 
 	#return "fileNames: " +str(fileNames) +" | dates: " + str(dates)
 	if len(fileNames)>0: # there are files
-		fileNamesSorted=fileDateNumbOrgainise(dates, fileNames, fileSubFolder +fileBeginning, fileExtention)
+		fileNamesSorted=fileDateNumbOrgainise(fileNames, fileSubFolder + fileBeginning, fileExtention)
 		#return str(fileNamesSorted)
 		# getting infor in the sorted order
-		dates =[]
+
 		for ii in fileNamesSorted:
 			fileNameOpen = open((str(fileSubFolder) + str(ii)), "r")
 			jj = fileNameOpen.readlines()
@@ -276,7 +289,7 @@ def displayMain():
 
 			texts.append(newText[0])
 			texts.append(newText[1])
-		
+
 		dates = arrayToUnicode(dates)
 		names = arrayToUnicode(names)
 		titles = arrayToUnicode(titles)
