@@ -129,6 +129,7 @@ def fileDateNumbOrgainise(dates, fileNames, theFileBeginning, theFileExtention):
 		fileNamesNew=[]
 
 		for jj in fileNames:
+			return (jj)[len(theFileBeginning):findBetween(jj, "-", theFileBeginning)]
 			if uniqueDates[ii] == (jj)[len(theFileBeginning):findBetween(jj, "-", theFileBeginning)]:
 				fileNamesNew.append((jj)[len(theFileBeginning):len(jj)-len(theFileExtention)])
 
@@ -245,7 +246,7 @@ def displayMain():
 	#return "fileNames: " +str(fileNames) +" | dates: " + str(dates)
 	if len(fileNames)>0: # there are files
 		fileNamesSorted=fileDateNumbOrgainise(dates, fileNames, fileSubFolder + fileBeginning, fileExtention)
-		#return str(fileNamesSorted)
+		return str(fileNamesSorted)
 		# getting infor in the sorted order
 		dates =[]
 		for ii in fileNamesSorted:
