@@ -43,7 +43,11 @@ def findBetween(inputString, findString, lowerBound, upperBound):
 		lowerBound = upperBound
 
 	inputString=inputString[lowerBound:upperBound]
-	return inputString.find(findString)
+	returnAmount=inputString.find(findString)
+	if not returnAmount == -1:
+		returnAmount = returnAmount + lowerBound
+
+	return returnAmount
 
 def inFirstColumn(theString, theArray):
 	for ii in theArray:
@@ -276,7 +280,7 @@ def displayMain():
 
 			texts.append(newText[0])
 			texts.append(newText[1])
-		
+
 		dates = arrayToUnicode(dates)
 		names = arrayToUnicode(names)
 		titles = arrayToUnicode(titles)
