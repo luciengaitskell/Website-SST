@@ -129,7 +129,7 @@ def fileDateNumbOrgainise(dates, fileNames, theFileBeginning, theFileExtention):
 		fileNamesNew=[]
 
 		for jj in fileNames:
-			return findBetween(jj, "-", theFileBeginning)
+			return "jj: " + jj + " | returned: " + findBetween(jj, "-", theFileBeginning)
 			return (jj)[len(theFileBeginning):findBetween(jj, "-", theFileBeginning)]
 			if uniqueDates[ii] == (jj)[len(theFileBeginning):findBetween(jj, "-", theFileBeginning)]:
 				fileNamesNew.append((jj)[len(theFileBeginning):len(jj)-len(theFileExtention)])
