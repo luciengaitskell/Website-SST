@@ -133,12 +133,12 @@ def fileDateNumbOrgainise(fileNames, theFileBeginning, theFileExtention):
 
 		fileNamesNew=[]
 
-		for jj in fileNames:
+		for jj in range(len(fileNames)):
 			#return "jj: " + jj + " | returned: " + str(findBetween(jj, "-", len(theFileBeginning)))
 			#return (jj)[len(theFileBeginning):findBetween(jj, "-", len(theFileBeginning))]
 			#return "uniqueDates: " + str(uniqueDates) + " | " + (jj)[len(theFileBeginning):findBetween(jj, "-", len(theFileBeginning))]
-			if uniqueDates[ii] == (jj)[len(theFileBeginning):findBetween(jj, "-", len(theFileBeginning))]:
-				fileNamesNew.append((jj)[len(theFileBeginning):len(jj)-len(theFileExtention)])
+			if uniqueDates[ii] == dates[jj]:
+				fileNamesNew.append((fileNames[jj])[len(theFileBeginning):len(fileNames[jj])-len(theFileExtention)])
 
 		fileNamesNew.sort(reverse=True)
 
@@ -254,7 +254,7 @@ def displayMain():
 		fileNamesSorted=fileDateNumbOrgainise(fileNames, fileSubFolder + fileBeginning, fileExtention)
 		#return str(fileNamesSorted)
 		# getting infor in the sorted order
-		
+
 		for ii in fileNamesSorted:
 			fileNameOpen = open((str(fileSubFolder) + str(ii)), "r")
 			jj = fileNameOpen.readlines()
