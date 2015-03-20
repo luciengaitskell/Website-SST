@@ -34,7 +34,7 @@ def calculatePiSet(testRange,theQueue):
 if __name__ == '__main__':
     # USER SET
     threadCount = 20
-    calculateTimes = 10000000
+    calculateTimes = 5000000
 
 
     rangeOffset=0
