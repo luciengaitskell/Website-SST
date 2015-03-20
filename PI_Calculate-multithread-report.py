@@ -16,7 +16,7 @@ def sgn(theNumb):
         return -1
     else:
         return 0
-        
+
 def calculatePiSet(testRange,theQueue):
     piReturnValue=0.
     for ii in testRange:
@@ -28,47 +28,47 @@ def calculatePiSet(testRange,theQueue):
     if debug:
         print("placing: " + str(piReturnValue))
     #return piReturnValue
-        
-    
+
+
 
 if __name__ == '__main__':
     # USER SET
     threadCount = 20
-    calculateTimes = 1000000
+    calculateTimes = 10000000
 
-    
+
     rangeOffset=0
-    finalPi=0    
+    finalPi=0
     while True:
         calculateTimes = calculateTimes + (threadCount-(calculateTimes % threadCount))%threadCount
         calculateThreadAmount = int(calculateTimes/threadCount)
-        
+
         if debug:
-            
+
             print(calculateTimes)
-        
+
         q = Queue.Queue()
-        
+
         '''for ii in range(calculateTimes):
             thePi = thePi + 4.* 1./ ((ii*2)+1) * ((-1)**ii)'''
-            
+
         herpDerp=0
         for ii in range(threadCount):
             if debug:
                 print("=====  ii = "+str(ii))
-                
+
             low = ii * calculateThreadAmount + rangeOffset
             high = (ii+1) * calculateThreadAmount + rangeOffset
             if debug:
                 print("low: "+str(low))
                 print("High: "+str(high))
                 print("range: "+ str(range(low,high)) +"\n")
-                
+
             #calculatePiSet(range(low,high),q)
             t = threading.Thread(target=calculatePiSet, args = (range(low,high),q))
             t.daemon = True
             t.start()
-        
+
         t.join()
         if debug:
             print("=======assembling=======")
@@ -77,8 +77,8 @@ if __name__ == '__main__':
             if debug:
                 print("Pi: "+str(finalPi))
             q.task_done()
-            
+
         print("Final PI: " + str(finalPi))
         rangeOffset=high
-        
+
         #print(thePi)
