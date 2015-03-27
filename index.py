@@ -68,6 +68,7 @@ def displayMain():
 	dates=[]
 	texts=[]
 	editableFiles=[]
+	articleLinks=[]
 	loggedIn=loginCheckCache(userPass)
 	username=loggedIn[0]
 
@@ -79,7 +80,10 @@ def displayMain():
 		fileNamesSorted=fileDateNumbOrgainise(fileNames, fileSubFolder + fileBeginning, fileExtention)
 		#return str(fileNamesSorted)
 		# getting infor in the sorted order
-		return str(fileNamesSorted)
+		#return str(fileNamesSorted)
+
+		for ii in fileNamesSorted:
+			articleLinks.append(ii[len(fileSubFolder)+len(fileBeginning)+1:len(ii)-len(fileExtention)])
 
 		for ii in fileNamesSorted:
 			fileNameOpen = open((str(fileSubFolder) + str(ii)), "r")
@@ -135,7 +139,8 @@ def displayMain():
 	, texts=texts
 	, singleIncrement=singleIncrement
 	, username=username
-	, editableFiles=editableFiles)
+	, editableFiles=editableFiles
+	, articleLinks=articleLinks)
 
 @app.route('/logOut/')
 def signOut():

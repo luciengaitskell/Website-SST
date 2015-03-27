@@ -116,7 +116,7 @@ Hey {{ username }}!<br>
 {% if noFiles==False %}
 {% for singleIncrement in range(titles|length) %}
 <div id="{{ (fileNamesSorted[singleIncrement])[:((fileNamesSorted[singleIncrement])|length)-4] }}" class="title">
-<a class="titleLink" href="/articles/{{ (fileNamesSorted[singleIncrement])[8:(fileNamesSorted[singleIncrement]|length)-4] }}/">
+<a class="titleLink" href="/articles/{{ articleLinks[singleIncrement] }}/">
 {{ titles[singleIncrement] }}</a>
 {% if editableFiles[singleIncrement] != False %}
 <button type="button" onclick="window.location='{{ editableFiles[singleIncrement] }}';">EDIT</button>
