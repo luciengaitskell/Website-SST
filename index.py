@@ -253,7 +253,7 @@ def postMain():
 
 	return render_template('postArticle.html', username=username)
 
-@app.route('/post/record', methods=['POST']) # moved!
+@app.route('/post/record', methods=['POST'])
 @app.route('/post/edit', methods=['POST'])
 def postRecord():
 	fileNamefound = False
@@ -290,6 +290,8 @@ def postRecord():
 		filePath=session['filePath']
 		file = open(filePath, "r")
 		lines=file.readlines()
+		#return lines[0]
+		articleDate=(lines[2]).rstrip() # removing newLine char which gets added lower down
 		file.close()
 	else:
 		while fileNamefound == False:
@@ -306,11 +308,13 @@ def postRecord():
 
 	titleNew=(str(title.encode("UTF-8")) + "\n")
 	nameWrite=(str(name.encode("UTF-8")) + "\n")
+	articleDateWrite=(str(articleDate.encode("UTF-8")) + "\n")
 	articleTextNew=(str(articleText.encode("UTF-8"))) # removed the + "\n\n"
 
 	file = open(filePath, "w")
 	file.write(titleNew)
 	file.write(nameWrite)
+	file.write(articleDateWrite)
 	file.write(articleTextNew)
 	file.close()
 
@@ -335,8 +339,11 @@ def readMain(articleNumber=None):
 		#filePathSnipped=filePath[9:len(filePath)-4] # moved lower and now easier to read
 		fileIsThere=False
 
-		if filePath in glob.glob(filePath):
-			#return str(request.path)
+		for name in glob.glob(filePath):
+			fileIsThere=True
+
+		if fileIsThere==False:
+			return str(request.path)
 			return redirect('/articles', code=302)
 		else:
 			filePathSnipped=str(fileBeginning)+str(articleNumber)
