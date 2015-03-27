@@ -79,7 +79,6 @@ def displayMain():
 		fileNamesSorted=fileDateNumbOrgainise(fileNames, fileSubFolder + fileBeginning, fileExtention)
 		#return str(fileNamesSorted)
 		# getting infor in the sorted order
-		return "cheese"
 		return str(fileNamesSorted)
 
 		for ii in fileNamesSorted:
