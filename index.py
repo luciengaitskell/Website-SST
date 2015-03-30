@@ -389,6 +389,7 @@ def readMain(articleNumber=None):
 						return "u need: " + str(lines[1]) + ", but ur: " + str(session['username'])
 				return "YOU ARN'T EVEN SIGNED IN"
 			else:
+				return "rendering"
 				return render_template('articleRender.html'
 				, filePathSnipped=filePathSnipped
 				, filePath=filePath
