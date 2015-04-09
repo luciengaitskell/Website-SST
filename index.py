@@ -348,6 +348,8 @@ def readMain(articleNumber=None):
 		for name in glob.glob(filePath):
 			fileIsThere=True
 
+		return "file """ + filePath + '" is there: ' + str(fileIsThere) 
+
 		if fileIsThere==False:
 			#return str(request.path)
 			return redirect('/articles', code=302)
