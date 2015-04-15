@@ -258,7 +258,7 @@ def displayMain():
 		#return str(fileNamesSorted)
 
 		for ii in fileNamesSorted:
-			articleLinks.append(ii[len(fileSubFolder)+len(fileBeginning)+1:len(ii)-len(fileExtention)])
+			articleLinks.append(ii[len(fileSubFolder)+len(fileBeginning):len(ii)-len(fileExtention)])
 		return str(articleLinks)
 		for ii in fileNamesSorted:
 			fileNameOpen = open(str(ii), "r")
