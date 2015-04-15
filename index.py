@@ -16,13 +16,13 @@ userPass=[["~owner", "a_boss"]]
 if "True" in sys.argv:
 	debugState = True
 	portSet = 5000
-	fileSubFolder="../testArticles/" #articles
-	loginsSubFolder="../testLogins/" #logins
+	fileSubFolder="/var/www/Website-SST/testArticles/" #articles
+	loginsSubFolder="/var/www/Website-SST/testLogins/" #logins
 else:
 	debugState = False
 	portSet = 80
-	fileSubFolder="../mainArticles/" #articles
-	loginsSubFolder="../mainLogins/" #logins
+	fileSubFolder="/var/www/Website-SST/mainArticles/" #articles
+	loginsSubFolder="/var/www/Website-SST/mainLogins/" #logins
 
 fileBeginning="article_"
 fileExtention=".txt"
@@ -348,7 +348,7 @@ def readMain(articleNumber=None):
 		for name in glob.glob(filePath):
 			fileIsThere=True
 
-		return "file """ + filePath + '" is there: ' + str(fileIsThere) 
+		return "file """ + filePath + '" is there: ' + str(fileIsThere)
 
 		if fileIsThere==False:
 			#return str(request.path)
