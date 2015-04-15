@@ -259,7 +259,7 @@ def displayMain():
 
 		for ii in fileNamesSorted:
 			articleLinks.append(ii[len(fileSubFolder)+len(fileBeginning)+1:len(ii)-len(fileExtention)])
-
+		return str(articleLinks)
 		for ii in fileNamesSorted:
 			fileNameOpen = open(str(ii), "r")
 			jj = fileNameOpen.readlines()
@@ -523,7 +523,7 @@ def readMain(articleNumber=None):
 		for name in glob.glob(filePath):
 			fileIsThere=True
 
-		return "file """ + filePath + '" is there: ' + str(fileIsThere)
+		return 'file "' + filePath + '" is there: ' + str(fileIsThere)
 
 		if fileIsThere==False:
 			#return str(request.path)
