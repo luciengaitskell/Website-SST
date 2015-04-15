@@ -15,13 +15,13 @@ userPass=[["~owner", "a_boss"]]
 if "True" in sys.argv:
 	debugState = True
 	portSet = 5000
-	fileSubFolder="../testArticles/" #articles
-	loginsSubFolder="../testLogins/" #logins
+	fileSubFolder="/var/www/Website-SST/testArticles/" #articles
+	loginsSubFolder="/var/www/Website-SST/testLogins/" #logins
 else:
 	debugState = False
 	portSet = 80
-	fileSubFolder="../mainArticles/" #articles
-	loginsSubFolder="../mainLogins/" #logins
+	fileSubFolder="/var/www/Website-SST/mainArticles/" #articles
+	loginsSubFolder="/var/www/Website-SST/mainLogins/" #logins
 
 fileBeginning="article_"
 fileExtention=".txt"
@@ -243,6 +243,7 @@ def displayMain():
 	dates=[]
 	texts=[]
 	editableFiles=[]
+	articleLinks=[]
 	loggedIn=loginCheckCache(userPass)
 	username=loggedIn[0]
 
@@ -254,6 +255,10 @@ def displayMain():
 		fileNamesSorted=fileDateNumbOrgainise(fileNames, fileSubFolder + fileBeginning, fileExtention)
 		#return str(fileNamesSorted)
 		# getting infor in the sorted order
+		#return str(fileNamesSorted)
+
+		for ii in fileNamesSorted:
+			articleLinks.append(ii[len(fileSubFolder)+len(fileBeginning)+1:len(ii)-len(fileExtention)])
 
 		for ii in fileNamesSorted:
 			fileNameOpen = open((str(fileSubFolder) + str(ii)), "r")
@@ -309,7 +314,8 @@ def displayMain():
 	, texts=texts
 	, singleIncrement=singleIncrement
 	, username=username
-	, editableFiles=editableFiles)
+	, editableFiles=editableFiles
+	, articleLinks=articleLinks)
 
 @app.route('/logOut/')
 def signOut():
@@ -517,8 +523,10 @@ def readMain(articleNumber=None):
 		for name in glob.glob(filePath):
 			fileIsThere=True
 
+		return "file """ + filePath + '" is there: ' + str(fileIsThere)
+
 		if fileIsThere==False:
-			return str(request.path)
+			#return str(request.path)
 			return redirect('/articles', code=302)
 		else:
 			filePathSnipped=str(fileBeginning)+str(articleNumber)
@@ -558,6 +566,7 @@ def readMain(articleNumber=None):
 						return "u need: " + str(lines[1]) + ", but ur: " + str(session['username'])
 				return "YOU ARN'T EVEN SIGNED IN"
 			else:
+				return "rendering"
 				return render_template('articleRender.html'
 				, filePathSnipped=filePathSnipped
 				, filePath=filePath
