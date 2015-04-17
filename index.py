@@ -18,7 +18,7 @@ if "True" in sys.argv:
 	fileSubFolder="../testArticles/" #articles
 	loginsSubFolder="../testLogins/" #logins
 else:
-	debugState = False
+	debugState = True #False
 	portSet = 80
 	fileSubFolder="../mainArticles/" #articles
 	loginsSubFolder="../mainLogins/" #logins
