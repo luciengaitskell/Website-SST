@@ -28,6 +28,7 @@ fileExtention=".txt"
 
 loginsExtention=".txt"
 
+#delete this stupid comment
 
 def findBetween(inputString, findString, lowerBound, upperBound=False):
 	if upperBound == False:
