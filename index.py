@@ -18,7 +18,7 @@ if "True" in sys.argv:
 	fileSubFolder="/var/www/Website-SST/testArticles/" #articles
 	loginsSubFolder="/var/www/Website-SST/testLogins/" #logins
 else:
-	debugState = True #False
+	debugState = False
 	portSet = 80
 	fileSubFolder="/var/www/Website-SST/mainArticles/" #articles
 	loginsSubFolder="/var/www/Website-SST/mainLogins/" #logins
