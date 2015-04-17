@@ -15,13 +15,13 @@ userPass=[["~owner", "a_boss"]]
 if "True" in sys.argv:
 	debugState = True
 	portSet = 5000
-	fileSubFolder="/var/www/Website-SST/testArticles/" #articles
-	loginsSubFolder="/var/www/Website-SST/testLogins/" #logins
+	fileSubFolder="../testArticles/" #articles
+	loginsSubFolder="../testLogins/" #logins
 else:
-	debugState = True #False
+	debugState = False
 	portSet = 80
-	fileSubFolder="/var/www/Website-SST/mainArticles/" #articles
-	loginsSubFolder="/var/www/Website-SST/mainLogins/" #logins
+	fileSubFolder="../mainArticles/" #articles
+	loginsSubFolder="../mainLogins/" #logins
 
 fileBeginning="article_"
 fileExtention=".txt"
