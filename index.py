@@ -266,7 +266,7 @@ def displayMain():
 			fileNameOpen.close()
 
 			if username==(jj[1])[:len(jj[1])-1]: # if the file is editable
-				editableFiles.append("/articles/" + str(ii)[len(fileBeginning):len(ii)-len(fileExtention)] + "/edit/")
+				editableFiles.append("/articles/" + str(ii)[len(fileSubFolder)+len(fileBeginning):len(ii)-len(fileExtention)] + "/edit/")
 			else:
 				editableFiles.append(False)
 
