@@ -228,7 +228,7 @@ def loginCheckRedirect(username,password,logins, linkTrue, linkFalse, timeOut=Tr
 
 @app.route('/')
 def displayMain():
-	return "turd"
+	return "chicken"
 	noFiles=False
 	fileNameOpen=""
 	newDate=""
