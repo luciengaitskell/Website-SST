@@ -381,6 +381,10 @@ def deleteArticle():
 def favicon():
 	return redirect(url_for('static', filename='favicon.ico'))
 
+@app.route('/WheelerHub-logo.png')
+def favicon():
+	return redirect(url_for('static', filename='logo/WheelerHub-logo.png'))
+
 @app.route('/signUp/')
 def signUp():
 	error = request.args.get('error', '') # 1: Passwords don't match, 2: cred empty (str)
