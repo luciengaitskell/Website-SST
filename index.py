@@ -382,7 +382,7 @@ def favicon():
 	return redirect(url_for('static', filename='favicon.ico'))
 
 @app.route('/WheelerHub-logo.png')
-def favicon():
+def logo():
 	return redirect(url_for('static', filename='logo/WheelerHub-logo.png'))
 
 @app.route('/signUp/')
