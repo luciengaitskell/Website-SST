@@ -5,7 +5,6 @@ import time
 import glob
 import sys
 
-#for dev - change port and debug afterwards
 
 app = Flask(__name__)
 
