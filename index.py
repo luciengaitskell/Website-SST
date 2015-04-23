@@ -464,7 +464,7 @@ def postRecord():
 
 	articleText=request.form.get("articleText")
 
-	if "<script>" in articleText or "</script>" in articleText:
+	if "<script>" in str(articleText) or "</script>" in str(articleText):
 		# stops malicious js code being implanted
 		return "I don't like hackers"
 
