@@ -26,24 +26,6 @@ def inFirstColumn(theString, theArray):
 			return True
 	return False
 
-@app.before_request
-def getLogins():
-	global userPass
-	for ii in glob.glob(str(loginsSubFolder)+ "*" + str(loginsExtention)):
-		file=open(ii,"r")
-		lines=file.readlines()
-		file.close()
-		usernameWrite=lines[0]
-		usernameWrite=usernameWrite[:len(usernameWrite)-1]
-		passwordWrite=lines[2]
-		#passwordWrite=passwordWrite[:len(passwordWrite)-1] #WASN'T NEEDED WAS EOF
-
-		if not inFirstColumn(usernameWrite,userPass):
-			userPass.append([usernameWrite, passwordWrite])
-
-	#return str(userPass)
-
-
 def is_ascii(s):
     return all(ord(c) < 128 for c in s)
 

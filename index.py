@@ -30,6 +30,23 @@ loginsExtention=".txt"
 
 # a "/" after the link is only for ones that users visit, ones without are form submit pages and other things
 
+@app.before_request
+def getLogins():
+	global userPass
+	for ii in glob.glob(str(loginsSubFolder)+ "*" + str(loginsExtention)):
+		file=open(ii,"r")
+		lines=file.readlines()
+		file.close()
+		usernameWrite=lines[0]
+		usernameWrite=usernameWrite[:len(usernameWrite)-1]
+		passwordWrite=lines[2]
+		#passwordWrite=passwordWrite[:len(passwordWrite)-1] #WASN'T NEEDED WAS EOF
+
+		if not inFirstColumn(usernameWrite,userPass):
+			userPass.append([usernameWrite, passwordWrite])
+
+	#return str(userPass)
+
 @app.route('/')
 def displayMain():
 	noFiles=False
