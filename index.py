@@ -10,10 +10,17 @@ app = Flask(__name__)
 
 userPass=[["~owner", "a_boss"]]
 
+if len(sys.argv) >= 2:
+	testServer=str(sys.argv[1])
+
 #if true its the test server
 if "True" in sys.argv:
 	debugState = True
-	portSet = 5000
+	if len(sys.argv) >= 3:
+		if (str(sys.argv[2]).isdigit()):
+			portSet=int(sys.argv[2])
+		else:
+			portSet=5000
 	fileSubFolder="/var/www/Website-SST/testArticles/" #articles
 	loginsSubFolder="/var/www/Website-SST/testLogins/" #logins
 else:
