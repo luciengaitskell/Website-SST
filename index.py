@@ -23,12 +23,12 @@ if "True" in sys.argv:
 			portSet=5000
 	else:
 		portSet=5000
-		
+
 	fileSubFolder="/var/www/Website-SST/testArticles/" #articles
 	loginsSubFolder="/var/www/Website-SST/testLogins/" #logins
 else:
 	debugState = True #False
-	portSet = 80
+	portSet = 5000
 	fileSubFolder="/var/www/Website-SST/mainArticles/" #articles
 	loginsSubFolder="/var/www/Website-SST/mainLogins/" #logins
 
