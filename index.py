@@ -21,6 +21,8 @@ if "True" in sys.argv:
 			portSet=int(sys.argv[2])
 		else:
 			portSet=5000
+	else:
+		portSet=5000
 	fileSubFolder="/var/www/Website-SST/testArticles/" #articles
 	loginsSubFolder="/var/www/Website-SST/testLogins/" #logins
 else:
