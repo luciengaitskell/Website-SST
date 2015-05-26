@@ -20,15 +20,15 @@ if "True" in sys.argv:
 		if (str(sys.argv[2]).isdigit()):
 			portSet=int(sys.argv[2])
 		else:
-			portSet=5000
+			portSet=4500
 	else:
-		portSet=5000
+		portSet=4500
 
 	fileSubFolder="/var/www/Website-SST/testArticles/" #articles
 	loginsSubFolder="/var/www/Website-SST/testLogins/" #logins
 else:
 	debugState = True #False
-	portSet = 5000
+	portSet = 4500
 	fileSubFolder="/var/www/Website-SST/mainArticles/" #articles
 	loginsSubFolder="/var/www/Website-SST/mainLogins/" #logins
 
