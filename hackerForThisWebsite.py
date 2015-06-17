@@ -28,6 +28,8 @@ def charCheck(charNumb, password, charRange, commandQueue, tryQueue):
         return False
 
 
+if __name__ == "__main__":
+
 
 '''
 To do:
