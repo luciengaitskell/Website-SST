@@ -523,6 +523,8 @@ def postRecord():
 	 + ", IT WAS POSTED TO "
 	 + str(filePath))
 	"""
+
+
 @app.route('/articles/')
 @app.route('/articles/<articleNumber>/')
 @app.route('/articles/<articleNumber>/edit/')
