@@ -7,7 +7,6 @@ def charCheck(charNumb, password, charRange):
             succeeded = charCheck(charNumb+1, password, charRange)
             if not succeeded:
                 password[charNumb]=ii
-    else:
 
 
 '''
