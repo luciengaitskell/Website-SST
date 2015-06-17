@@ -3,7 +3,7 @@ import string
 
 def charCheck(charNumb, password, charRange):
     for ii in charRange:
-        if numToEnd>0:
+        if charNumb<len(password)-1:
             succeeded = charCheck(charNumb+1, password, charRange)
             if not succeeded:
                 password[charNumb]=ii
