@@ -19,8 +19,8 @@ def charCheck(charNumb, password, charRange, commandQueue, tryQueue):
         if not succeeded:
             password[charNumb]=ii
         else:
-            #terminate here
-            break
+            return True # a True succeeded returns a True so all of the stacks
+            # will terminate if one True is returned
 
     if charNumb=0: # first in charCheck stack
         tryQueue.put(False) # tells parent thread that it was not that lenght of password
