@@ -611,7 +611,8 @@ def helpPage():
 
 @app.route('/test/')
 def testFunc():
-	return str(len(userPass))
+	#return str(len(userPass))
+	return request.url
 
 @app.route('/radio/')
 def radio():
