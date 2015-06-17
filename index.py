@@ -362,12 +362,12 @@ def loginPage():
 def loginCheckPage():
 	'''username=request.form.get("username")
 	password=request.form.get("password")
-	remember=request.form.get("remeberPass")'''
+	remember=request.form.get("rememberPass")'''
 
 	inputCreds=[
 	request.form.get("username")
 	, request.form.get("password")
-	, request.form.get("remeberPass")]
+	, request.form.get("rememberPass")]
 
 	linkTrue='/'
 	linkFalse='/login/?inputIncorrect=True'
