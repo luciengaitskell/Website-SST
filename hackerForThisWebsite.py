@@ -1,5 +1,7 @@
 import requests
 import string
+import threading
+import Queue
 
 def charCheck(charNumb, password, charRange, commandQueue, tryQueue):
     for ii in charRange:
