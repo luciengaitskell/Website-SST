@@ -1,6 +1,13 @@
 import requests
 import string
 
+def charCheck(charNumb, password, charRange):
+    for ii in charRange:
+        if numToEnd>0:
+            succeeded = charCheck(charNumb+1, password, charRange)
+            if not succeeded:
+                password[charNumb]=ii
+    else:
 
 while True:
     payload = {'username':'~owner','password':'a_boss'}
