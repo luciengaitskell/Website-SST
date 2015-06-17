@@ -1,12 +1,32 @@
 import requests
 import string
 
-def charCheck(charNumb, password, charRange):
+def charCheck(charNumb, password, charRange, commandQueue, tryQueue):
     for ii in charRange:
-        if charNumb<len(password)-1:
+        if charNumb<len(password)-1: # just another charCheck in the whole stack
             succeeded = charCheck(charNumb+1, password, charRange)
-            if not succeeded:
-                password[charNumb]=ii
+
+        else: #last in charCheck stack (does the communicating)
+            tryQueue.put(''.join(password))
+            tryQueue.join() # wait for the try to be gotten
+
+            while commandQueue.empty(): #waiting for return
+                pass
+
+            while not commandQueue.empty():# gets last sent Queue item
+                succeeded = Queue.get()
+
+        if not succeeded:
+            password[charNumb]=ii
+        else:
+            #terminate here
+            break
+
+    if charNumb=0: # first in charCheck stack
+        tryQueue.put(False) # tells parent thread that it was not that lenght of password
+    else:
+        return False
+
 
 
 '''
