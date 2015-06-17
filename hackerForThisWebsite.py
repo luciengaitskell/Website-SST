@@ -2,6 +2,7 @@ import requests
 import string
 import threading
 import Queue
+import sys
 
 def charCheck(charNumb, password, charRange, commandQueue, tryQueue):
     for ii in charRange:
