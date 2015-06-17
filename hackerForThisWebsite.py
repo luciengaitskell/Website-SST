@@ -14,7 +14,7 @@ def charCheck(charNumb, password, charRange, commandQueue, tryQueue):
                 pass
 
             while not commandQueue.empty():# gets last sent Queue item
-                succeeded = Queue.get()
+                succeeded = commandQueue.get()
 
         if not succeeded:
             password[charNumb]=ii
